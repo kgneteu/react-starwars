@@ -1,22 +1,26 @@
 import * as PropTypes from "prop-types";
 import {formatSWAPIDataTable} from "../utils/swapi";
 import {FlipCard} from "./UI/flipCard/flipCard";
+import {Link} from "react-router-dom";
 
 
 function CloudImage({src, title}) {
-    return <img
-        src={src}
-        onError={(e) => {
-            e.target.onerror = null;
-            e.target.src = `https://robohash.org/${title}?size=310x310`
-        }}
-    />
+    return (<img alt={''} src={'https://robohash.org/${title}?size=310x310'}/>)
+
+
 }
+
+// <img
+//     src={src}
+//     onError={(e) => {
+//         e.target.onerror = null;
+//         e.target.src = `https://robohash.org/${title}?size=310x310`
+//     }}
+// />
 
 export const BasicCard = ({category, item}) => {
     const itemDataTable = formatSWAPIDataTable(item)
     let title = item.name !== undefined ? item.name : item.title;
-    console.log(category)
     return (
         <FlipCard>
             <section>
@@ -32,6 +36,7 @@ export const BasicCard = ({category, item}) => {
             </section>
             <section>
                 {itemDataTable}
+                <Link to={`/${category}/${item.id}`}>more...</Link>
             </section>
         </FlipCard>
     )

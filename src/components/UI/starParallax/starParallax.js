@@ -1,5 +1,5 @@
-import classes from "./starsParallaxUp.module.scss";
-const StarsParallaxUp = () => {
+import classes from "./starsParallax.module.scss";
+const StarParallax = () => {
     return (
         <div className={classes.sky}>
             <div className={classes.stars}/>
@@ -9,4 +9,4 @@ const StarsParallaxUp = () => {
     );
 };
 
-export default StarsParallaxUp;
+export default StarParallax;

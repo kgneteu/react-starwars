@@ -1,22 +1,21 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useRef} from "react";
-import {getHeroes} from "../../store/actions/heroes-actions";
+import {getCharacters} from "../../store/actions/heroes-actions";
 import {Loader} from "../UI/loader/loader";
 import {BasicCard} from "../basicCard";
 
 
-const Heroes = () => {
-    const heroes = useSelector(state => state.heroes.items)
+const Characters = () => {
+    const heroes = useSelector(state => state.characters.items)
     const dispatch = useDispatch();
     const loadMore = useRef(null);
-    const loading = useSelector(state => state.heroes.loading)
+    const loading = useSelector(state => state.characters.loading)
 
     useEffect(() => {
         const handleObserver = (entities) => {
             const target = entities[0];
             if (target.isIntersecting) {
-                dispatch(getHeroes());
-                console.log('loading')
+                dispatch(getCharacters());
             }
         }
 
@@ -49,6 +48,6 @@ const Heroes = () => {
     )
 };
 
-Heroes.propTypes = {};
+Characters.propTypes = {};
 
-export default Heroes;
+export default Characters;

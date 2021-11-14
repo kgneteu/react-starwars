@@ -5,10 +5,10 @@ function setHeroLoading(loading) {
     return {type: HERO_DATA_LOADING, payload: loading};
 }
 
-export function getHeroes() {
+export function getCharacters() {
     return async (dispatch, getState) => {
         const options = {
-            oldState: getState().heroes,
+            oldState: getState().characters,
             dispatch: dispatch,
             setLoading: setHeroLoading,
             resourceType: 'people',

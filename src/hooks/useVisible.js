@@ -1,9 +1,11 @@
 import {useEffect, useState} from "react";
 
-function useIsVisible(ref, rootMargin = "0px") {
+const useVisible = (ref, rootMargin = "0px") => {
     // State and setter for storing whether element is visible
     const [isIntersecting, setIntersecting] = useState(false);
     useEffect(() => {
+        const refCopy = ref;
+        console.log('+++',refCopy.current)
         const observer = new IntersectionObserver(
             ([entry]) => {
                 // Update our state when observer callback fires
@@ -13,14 +15,16 @@ function useIsVisible(ref, rootMargin = "0px") {
                 rootMargin,
             }
         );
-        if (ref.current) {
-            observer.observe(ref.current);
+        if (refCopy.current) {
+            observer.observe(refCopy.current);
         }
         return () => {
-            observer.unobserve(ref.current);
+            console.log('---',refCopy.current)
+            if (refCopy.current)
+                observer.unobserve(refCopy.current);
         };
-    }, []); // Empty array ensures that effect is only run on mount and unmount
+    }, [ref, rootMargin]); // Empty array ensures that effect is only run on mount and unmount
     return isIntersecting;
-}
+};
 
-export default useIsVisible;
+export default useVisible;
