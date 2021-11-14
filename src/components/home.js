@@ -23,17 +23,12 @@ export function Home() {
                      className={'max-w-lg'} alt={'Logo'}/>
                 <h1>Fandom</h1>
             </header>
-            {/*<FeaturedFilms/>*/}
+
             <FeaturedBox2 title={'films'} stateSlice={'films'} getDataAction={getFilms}/>
             <FeaturedBox2 title={'characters'} stateSlice={'heroes'} getDataAction={getHeroes}/>
             <FeaturedBox2 title={'planets'} stateSlice={'planets'} getDataAction={getPlanets}/>
             <FeaturedBox2 title={'starships'} stateSlice={'starships'} getDataAction={getStarships}/>
             <FeaturedBox2 title={'vehicles'} stateSlice={'vehicles'} getDataAction={getVehicles}/>
             <FeaturedBox2 title={'species'} stateSlice={'species'} getDataAction={getSpecies}/>
-            {/*<FeaturedHeroes/>*/}
-            {/*<FeaturedPlanets/>*/}
-            {/*<FeaturedStarships/>*/}
-            {/*<FeaturedVehicles/>*/}
-            {/*<FeaturedSpecies/>*/}
         </Main>)
 }

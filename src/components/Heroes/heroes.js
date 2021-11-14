@@ -2,7 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useRef} from "react";
 import {getHeroes} from "../../store/actions/heroes-actions";
 import {Loader} from "../UI/loader/loader";
-import {HeroCard} from "./heroCard";
+import {BasicCard} from "../basicCard";
 
 
 const Heroes = () => {
@@ -40,7 +40,7 @@ const Heroes = () => {
         <>
             <div className='flex flex-wrap justify-around gap-8 relative'>
                 {heroes.size > 0 && [...heroes.values()].map((hero) => (
-                    <HeroCard key={hero.id} hero={hero}/>
+                    <BasicCard key={hero.id} item={hero}/>
                 ))}
                 <div ref={loadMore} className='invisible w-0 h-0 absolute bottom-0'/>
             </div>
