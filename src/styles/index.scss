@@ -1,0 +1,44 @@
+@import "tailwind";
+
+@font-face {
+  font-family: 'STARWARS';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/star-jedi.woff') format('woff');
+}
+
+h1 {
+  @apply text-9xl
+}
+
+h2 {
+  @apply text-8xl
+}
+
+h3 {
+  @apply text-7xl
+}
+
+h1, h2, h3 {
+  font-family: 'STARWARS', sans-serif;
+}
+
+.star-wars {
+  font-family: 'STARWARS';
+}
+
+html, body {
+  margin: 0;
+  background-color: black;
+  color: whitesmoke;
+  font-family: system-ui,
+  -apple-system, /* Firefox supports this but not yet `system-ui` */
+  'Segoe UI',
+  Roboto,
+  Helvetica,
+  Arial,
+  sans-serif,
+  'Apple Color Emoji',
+  'Segoe UI Emoji';
+}
+
