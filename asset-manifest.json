@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "https://kgneteu.github.io/react-starwars/static/css/main.7e1921f4.chunk.css",
-    "main.js": "https://kgneteu.github.io/react-starwars/static/js/main.bd4d5c90.chunk.js",
-    "main.js.map": "https://kgneteu.github.io/react-starwars/static/js/main.bd4d5c90.chunk.js.map",
+    "main.css": "https://kgneteu.github.io/react-starwars/static/css/main.3852e73d.chunk.css",
+    "main.js": "https://kgneteu.github.io/react-starwars/static/js/main.c4f22b69.chunk.js",
+    "main.js.map": "https://kgneteu.github.io/react-starwars/static/js/main.c4f22b69.chunk.js.map",
     "runtime-main.js": "https://kgneteu.github.io/react-starwars/static/js/runtime-main.f9dc5f08.js",
     "runtime-main.js.map": "https://kgneteu.github.io/react-starwars/static/js/runtime-main.f9dc5f08.js.map",
     "static/css/2.7f2ec892.chunk.css": "https://kgneteu.github.io/react-starwars/static/css/2.7f2ec892.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.b228552f.chunk.js.map": "https://kgneteu.github.io/react-starwars/static/js/3.b228552f.chunk.js.map",
     "index.html": "https://kgneteu.github.io/react-starwars/index.html",
     "static/css/2.7f2ec892.chunk.css.map": "https://kgneteu.github.io/react-starwars/static/css/2.7f2ec892.chunk.css.map",
-    "static/css/main.7e1921f4.chunk.css.map": "https://kgneteu.github.io/react-starwars/static/css/main.7e1921f4.chunk.css.map",
+    "static/css/main.3852e73d.chunk.css.map": "https://kgneteu.github.io/react-starwars/static/css/main.3852e73d.chunk.css.map",
     "static/js/2.0c867dce.chunk.js.LICENSE.txt": "https://kgneteu.github.io/react-starwars/static/js/2.0c867dce.chunk.js.LICENSE.txt",
     "static/media/index.scss": "https://kgneteu.github.io/react-starwars/static/media/star-jedi.5c2d1aff.woff"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.f9dc5f08.js",
     "static/css/2.7f2ec892.chunk.css",
     "static/js/2.0c867dce.chunk.js",
-    "static/css/main.7e1921f4.chunk.css",
-    "static/js/main.bd4d5c90.chunk.js"
+    "static/css/main.3852e73d.chunk.css",
+    "static/js/main.c4f22b69.chunk.js"
   ]
 }
