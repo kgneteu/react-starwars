@@ -1,4 +1,4 @@
-import {GET_HEROES, HERO_DATA_LOADING} from "./types";
+import {GET_CHARACTERS, HERO_DATA_LOADING} from "./types";
 import {getSWAPIResourceData} from "./common";
 
 function setHeroLoading(loading) {
@@ -12,7 +12,7 @@ export function getCharacters() {
             dispatch: dispatch,
             setLoading: setHeroLoading,
             resourceType: 'people',
-            actionType: GET_HEROES
+            actionType: GET_CHARACTERS
         }
         await getSWAPIResourceData(options)
     }

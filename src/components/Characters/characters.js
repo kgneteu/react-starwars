@@ -1,12 +1,12 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useRef} from "react";
-import {getCharacters} from "../../store/actions/heroes-actions";
+import {getCharacters} from "../../store/actions/characters-actions";
 import {Loader} from "../UI/loader/loader";
 import {BasicCard} from "../basicCard";
 
 
 const Characters = () => {
-    const heroes = useSelector(state => state.characters.items)
+    const characters = useSelector(state => state.characters.items)
     const dispatch = useDispatch();
     const loadMore = useRef(null);
     const loading = useSelector(state => state.characters.loading)
@@ -38,8 +38,8 @@ const Characters = () => {
     return (
         <>
             <div className='flex flex-wrap justify-around gap-8 relative'>
-                {heroes.size > 0 && [...heroes.values()].map((hero) => (
-                    <BasicCard key={hero.id} item={hero}/>
+                {characters.size > 0 && [...characters.values()].map((character) => (
+                    <BasicCard key={character.id} item={character}/>
                 ))}
                 <div ref={loadMore} className='invisible w-0 h-0 absolute bottom-0'/>
             </div>

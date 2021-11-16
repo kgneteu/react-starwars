@@ -1,5 +1,5 @@
 import {combineReducers} from "redux";
-import heroesReducer from "./heroes-reducer";
+import charactersReducer from "./characters-reducer";
 import toastsReducer from "./toasts-reducer";
 import starshipsReducer from "./starships-reducer";
 import filmsReducer from "./films-reducer";
@@ -9,7 +9,7 @@ import planetsReducer from "./planets-reducer";
 
 const rootReducer = combineReducers({
     films: filmsReducer,
-    heroes: heroesReducer,
+    characters: charactersReducer,
     planets: planetsReducer,
     species: speciesReducer,
     starships: starshipsReducer,

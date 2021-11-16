@@ -4,30 +4,30 @@ import useVisible from "../hooks/useVisible";
 import PropTypes from "prop-types";
 import {BasicCard} from "./basicCard";
 import {Loader} from "./UI/loader/loader";
-import {Header} from "./header";
 
 
-const CategoryPage = ({title = '', stateSlice, getDataAction}) => {
-    if (title === '') title = stateSlice;
+
+const CategoryPage = ({title = '', stateSlice, getDataAction, ...rest}) => {
+    //if (title === '') title = stateSlice;
     const items = useSelector(state => state[stateSlice].items)
     const dispatch = useDispatch();
     const loadMore = useRef(null);
-    const [loading, setLoading] = useState(false);
-    const isVisible = useVisible(loadMore)
+    const [loading, setLoading] = useState(true);
+    const isVisible = useVisible(loadMore, true, true)
 
-
+    console.log('Redraw', isVisible, loading, rest)
     useEffect(() => {
         if (isVisible) {
             setLoading(true)
             dispatch(getDataAction()).finally(
-                setLoading(false)
+               setLoading(false)
             );
         }
+
     }, [isVisible, dispatch, getDataAction])
 
     return (
         <div className={'container mx-auto'}>
-            <Header title={title}/>
             <div className='flex flex-wrap justify-center gap-8 relative'>
                 {items.size > 0 && [...items.values()].map((item) => (
                     <BasicCard key={item.id} item={item} category={stateSlice}/>

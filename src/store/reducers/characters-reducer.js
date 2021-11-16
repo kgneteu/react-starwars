@@ -1,4 +1,4 @@
-import { GET_HEROES, HERO_DATA_LOADING} from "../actions/types";
+import { GET_CHARACTERS, HERO_DATA_LOADING} from "../actions/types";
 
 const INIT_STATE = {
     total: 0,
@@ -7,9 +7,9 @@ const INIT_STATE = {
     loading: false,
 }
 
-export default function heroesReducer(state = INIT_STATE, action) {
+export default function charactersReducer(state = INIT_STATE, action) {
     switch (action.type) {
-        case GET_HEROES:
+        case GET_CHARACTERS:
             return {...state, ...action.payload}
         case HERO_DATA_LOADING: return {...state, loading: action.payload}
         default:

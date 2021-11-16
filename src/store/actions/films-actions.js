@@ -17,3 +17,16 @@ export function getFilms() {
         await getSWAPIResourceData(options)
     }
 }
+
+export function getFilm() {
+    return async (dispatch, getState) => {
+        const options = {
+            oldState: getState().films,
+            dispatch: dispatch,
+            setLoading: setFilmLoading,
+            resourceType: 'films',
+            actionType: GET_FILMS
+        }
+        await getSWAPIResourceData(options)
+    }
+}
