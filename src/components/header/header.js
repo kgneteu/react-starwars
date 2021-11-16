@@ -1,6 +1,7 @@
 import {Link, NavLink} from "react-router-dom";
 import classes from "./header.module.scss";
-export function Header() {
+import React from "react";
+function Header() {
     return (
         <header className={classes.header}>
             <div className={'flex container mx-auto'}>
@@ -12,7 +13,7 @@ export function Header() {
                     </Link>
                 </div>
                 <div className={' flex-grow'}/>
-                <nav >
+                <nav>
                     <NavLink to={'/'}>Home</NavLink>
                     <NavLink to={'/films'}>Films</NavLink>
                     <NavLink to={'/characters'}>Characters</NavLink>
@@ -22,7 +23,8 @@ export function Header() {
                     <NavLink to={'/species'}>Species </NavLink>
                 </nav>
             </div>
-
         </header>
-    )
+    );
 }
+
+export default React.memo(Header);

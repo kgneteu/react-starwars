@@ -18,9 +18,9 @@ const FeaturedBox = ({title, stateSlice, getDataAction}) => {
     }, [dispatch, getDataAction])
     return (
         <>
-            <h2>{title}</h2>
-            <section className={'bg-gray-800 my-24 w-full py-16'}>
+            <section className={'bg-black bg-opacity-75 my-24 w-full'}>
                 <div className={'container mx-auto'}>
+                    <h2>{title}</h2>
                     <div className='flex gap-8 justify-center'>
                         {loading && <Loader/>}
                         <MediaQuery maxWidth={814}>
@@ -44,11 +44,11 @@ const FeaturedBox = ({title, stateSlice, getDataAction}) => {
                             ))}
                         </MediaQuery>
                     </div>
-
+                    <Link to={`/${stateSlice}`} className={'text-center text-lg z-50'}>More...</Link>
                 </div>
 
             </section>
-            <Link to={`/${stateSlice}`} className={'text-center text-lg z-50'}>More...</Link>
+
         </>
     )
 };

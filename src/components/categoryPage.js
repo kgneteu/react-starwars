@@ -4,11 +4,11 @@ import useVisible from "../hooks/useVisible";
 import PropTypes from "prop-types";
 import {BasicCard} from "./basicCard";
 import {Loader} from "./UI/loader/loader";
-
+import {PageTitle} from "./pageTitle";
 
 
 const CategoryPage = ({title = '', stateSlice, getDataAction, ...rest}) => {
-    //if (title === '') title = stateSlice;
+    const pageTitle = title !== '' ? title : stateSlice;
     const items = useSelector(state => state[stateSlice].items)
     const dispatch = useDispatch();
     const loadMore = useRef(null);
@@ -20,22 +20,25 @@ const CategoryPage = ({title = '', stateSlice, getDataAction, ...rest}) => {
         if (isVisible) {
             setLoading(true)
             dispatch(getDataAction()).finally(
-               setLoading(false)
+                setLoading(false)
             );
         }
 
     }, [isVisible, dispatch, getDataAction])
 
     return (
-        <div className={'container mx-auto'}>
-            <div className='flex flex-wrap justify-center gap-8 relative'>
-                {items.size > 0 && [...items.values()].map((item) => (
-                    <BasicCard key={item.id} item={item} category={stateSlice}/>
-                ))}
-                <div ref={loadMore} className='bg-red-500 p-0 w-0 h-5 '/>
+        <>
+            <PageTitle title={pageTitle}/>
+            <div className={'container mx-auto'}>
+                <div className='flex flex-wrap justify-center gap-8 relative'>
+                    {items.size > 0 && [...items.values()].map((item) => (
+                        <BasicCard key={item.id} item={item} category={stateSlice}/>
+                    ))}
+                    <div ref={loadMore} className='bg-red-500 p-0 w-0 h-5 '/>
+                </div>
+                {loading && <Loader/>}
             </div>
-            {loading && <Loader/>}
-        </div>
+        </>
     )
 }
 

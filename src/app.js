@@ -11,28 +11,29 @@ import {getStarships} from "./store/actions/starships-actions";
 import {getSpecies} from "./store/actions/species-actions";
 import Page404 from "./components/page404";
 import FilmPage from "./components/Films/filmPage";
-import {Header} from "./components/header/header";
+import Header from "./components/header/header";
+
 
 const App = () => {
     return (
         <>
             <StarParallax/>
-            <Router>
+            <Router basename={process.env.PUBLIC_URL}>
                 <Header/>
                 <Routes>
                     <Route path={'/'} element={<Home/>} exact/>
-                    <Route path={'films'} element={<CategoryPage stateSlice={'films'} getDataAction={getFilms}/>} />
-                    <Route path={'films/:id'} element={<FilmPage/>} />
-                    <Route path={'characters'} element={<CategoryPage stateSlice={'characters'} getDataAction={getCharacters}/>} />
-                    <Route path={'characters/:id'} element={<CategoryPage stateSlice={'characters'} getDataAction={getCharacters}/>} />
-                    <Route path={'planets'} element={<CategoryPage stateSlice={'planets'} getDataAction={getPlanets}/>} />
-                    <Route path={'planets/:id'} element={<CategoryPage stateSlice={'planets'} getDataAction={getPlanets}/>} />
-                    <Route path={'starships'} element={<CategoryPage stateSlice={'starships'} getDataAction={getStarships}/>} />
-                    <Route path={'starships/:id'} element={<CategoryPage stateSlice={'starships'} getDataAction={getStarships}/>} />
-                    <Route path={'vehicles'} element={<CategoryPage stateSlice={'vehicles'} getDataAction={getVehicles}/>} />
-                    <Route path={'vehicles/:id'} element={<CategoryPage stateSlice={'vehicles'} getDataAction={getVehicles}/>} />
-                    <Route path={'species'} element={<CategoryPage stateSlice={'species'} getDataAction={getSpecies}/>} />
-                    <Route path={'species/:id'} element={<CategoryPage stateSlice={'species'} getDataAction={getSpecies}/>} />
+                    <Route path={'/films'} element={<CategoryPage stateSlice={'films'} getDataAction={getFilms}/>} />
+                    <Route path={'/films/:id'} element={<FilmPage/>} />
+                    <Route path={'/characters'} element={<CategoryPage stateSlice={'characters'} getDataAction={getCharacters}/>} />
+                    <Route path={'/characters/:id'} element={<CategoryPage stateSlice={'characters'} getDataAction={getCharacters}/>} />
+                    <Route path={'/planets'} element={<CategoryPage stateSlice={'planets'} getDataAction={getPlanets}/>} />
+                    <Route path={'/planets/:id'} element={<CategoryPage stateSlice={'planets'} getDataAction={getPlanets}/>} />
+                    <Route path={'/starships'} element={<CategoryPage stateSlice={'starships'} getDataAction={getStarships}/>} />
+                    <Route path={'/starships/:id'} element={<CategoryPage stateSlice={'starships'} getDataAction={getStarships}/>} />
+                    <Route path={'/vehicles'} element={<CategoryPage stateSlice={'vehicles'} getDataAction={getVehicles}/>} />
+                    <Route path={'/vehicles/:id'} element={<CategoryPage stateSlice={'vehicles'} getDataAction={getVehicles}/>} />
+                    <Route path={'/species'} element={<CategoryPage stateSlice={'species'} getDataAction={getSpecies}/>} />
+                    <Route path={'/species/:id'} element={<CategoryPage stateSlice={'species'} getDataAction={getSpecies}/>} />
                     <Route path={'*'} element={<Page404/>}/>} />
                 </Routes>
             </Router>
