@@ -1,29 +1,22 @@
-.body {
-  margin: 0;
-  padding: 0;
-  background-color: black;
-}
-
-.container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+$button-color: #fafafa;
 
 .button {
-  position: relative;
-  color: cyan;
+  text-transform: uppercase;
+  font-weight: lighter;
+  fonst-size: 1rem;
+  background-color: black;
+  color: $button-color;
   letter-spacing: 15px;
-  border: 5px solid cyan;
+  border: 5px solid $button-color;
   padding: 50px;
-  font-size: 25px;
-  font-weight: bold;
-  transition: 1.5s;
+
+
+  transition: 1s ease-out;
   border-radius: 100px;
+  width: auto;
 }
 
 .button:hover {
-  box-shadow: 0 5px 50px 0 cyan inset, 0 5px 50px 0 cyan, 0 5px 50px 0 cyan inset, 0 5px 50px 0 cyan;
-  text-shadow: 0 0 5px cyan;
+  box-shadow: 0 5px 50px 0 $button-color inset, 0 5px 50px 0 $button-color, 0 5px 50px 0 $button-color inset, 0 5px 50px 0 $button-color;
+  text-shadow: 0 0 5px $button-color;
 }
