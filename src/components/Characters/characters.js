@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useRef} from "react";
-import {getCharacters} from "../../store/actions/characters-actions";
+import {getCharacterPage} from "../../store/actions/characters-actions";
 import {Loader} from "../UI/loader/loader";
 import {BasicCard} from "../basicCard";
 
@@ -15,7 +15,7 @@ const Characters = () => {
         const handleObserver = (entities) => {
             const target = entities[0];
             if (target.isIntersecting) {
-                dispatch(getCharacters());
+                dispatch(getCharacterPage());
             }
         }
 

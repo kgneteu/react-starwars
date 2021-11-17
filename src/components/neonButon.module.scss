@@ -2,12 +2,13 @@ $button-color: #fafafa;
 
 .container {
   padding: 50px;
+
 }
 
 .button {
   text-transform: uppercase;
   font-weight: lighter;
-  font-size: 1rem;
+  font-size: 1.2rem;
   background-color: black;
   color: $button-color;
   letter-spacing: 15px;
@@ -16,10 +17,13 @@ $button-color: #fafafa;
   padding: 50px;
   transition: 1s ease-out;
   border-radius: 100px;
-  width: auto;
+  width: 100%;
 }
 
 .button:hover {
-  box-shadow: 0 5px 50px 0 $button-color inset, 0 5px 50px 0 $button-color, 0 5px 50px 0 $button-color inset, 0 5px 50px 0 $button-color;
+  box-shadow: 0 5px 50px 0 $button-color inset,
+  0 5px 50px 0 $button-color,
+  0 5px 50px 0 $button-color inset,
+  0 5px 50px 0 $button-color;
   text-shadow: 0 0 5px $button-color;
 }

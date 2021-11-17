@@ -1,4 +1,4 @@
-import { GET_CHARACTERS} from "../actions/types";
+import {GET_CHARACTER_PAGE, GET_CHARACTERS} from "../actions/types";
 
 const INIT_STATE = {
     total: 0,
@@ -8,8 +8,10 @@ const INIT_STATE = {
 
 export default function charactersReducer(state = INIT_STATE, action) {
     switch (action.type) {
-        case GET_CHARACTERS:
+        case GET_CHARACTER_PAGE:
             return {...state, ...action.payload}
+        case GET_CHARACTERS:
+            return {...state, items: action.payload}
         default:
             return state;
     }

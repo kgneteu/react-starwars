@@ -3,7 +3,7 @@ import {useEffect} from "react";
 import FeaturedBox from "../featuredBox";
 import {Loader} from "../UI/loader/loader";
 import {FilmCard} from "../Films/filmCard";
-import {getVehicles} from "../../store/actions/vehicles-actions";
+import {getVehiclePage} from "../../store/actions/vehicles-actions";
 
 const FeaturedVehicles = () => {
     const starships = useSelector(state => state['vehicles'].items)
@@ -11,7 +11,7 @@ const FeaturedVehicles = () => {
     const loading = useSelector(state => state['vehicles'].loading)
 
     useEffect(() => {
-        dispatch(getVehicles())
+        dispatch(getVehiclePage())
     }, [dispatch])
     return (
         <FeaturedBox title={"vehicles"}>

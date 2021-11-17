@@ -2,37 +2,28 @@ import {PageTitle} from "../pageTitle";
 import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {getFilm} from "../../store/actions/films-actions";
+import {getFilms} from "../../store/actions/films-actions";
 import {CloudImage} from "../cloudImage";
 import Crawl from "../crawl";
 import {formatSWAPIDataTable} from "../../utils/swapi";
-import * as PropTypes from "prop-types";
 import {Loader} from "../UI/loader/loader";
+import {getCharacters} from "../../store/actions/characters-actions";
+import {DataBox} from "../dataBox";
+import {getStarships} from "../../store/actions/starships-actions";
+import {getVehicles} from "../../store/actions/vehicles-actions";
+import {getPlanets} from "../../store/actions/planets-actions";
+import {getSpecies} from "../../store/actions/species-actions";
 
 
-function DataBox({title, data}) {
 
-    useEffect(()=>{
-
-    },[])
-    return (
-        <p>{title}</p>
-    )
-}
-
-DataBox.propTypes = {
-    stateSlice: PropTypes.string,
-    title: PropTypes.string,
-    data: PropTypes.array
-};
 const FilmPage = () => {
     const id = parseInt(useParams().id);
     const film = useSelector(state => state.films.items.get(id));
     const dispatch = useDispatch();
-    console.log('draw');
+
 
     useEffect(() => {
-        dispatch(getFilm(id))
+        dispatch(getFilms([id]))
     }, [id, dispatch]);
 
     if (!film) return <Loader/>
@@ -55,12 +46,13 @@ const FilmPage = () => {
             <div className={'container mx-auto bg-black'}>
                 {formatSWAPIDataTable(film, undefined, true, ['opening_crawl'])}
             </div>
-
-            <DataBox title={'characters'} stateSlice={'characters'} data={film.characters}/>
-            <DataBox title={'starships'} stateSlice={'starships'} data={film.starships}/>
-            <DataBox title={'vehicles'} stateSlice={'vehicles'} data={film.vehicles}/>
-            <DataBox title={'planets'} stateSlice={'vehicles'} data={film.planets}/>
-            <DataBox title={'species'} stateSlice={'species'} data={film.species}/>
+            <div className={'container mx-auto'}>
+                <DataBox title={'characters'} stateSlice={'characters'} items={film.characters} getDataAction={getCharacters}/>
+                <DataBox title={'starships'} stateSlice={'starships'} items={film.starships} getDataAction={getStarships}/>
+                <DataBox title={'vehicles'} stateSlice={'vehicles'} items={film.vehicles} getDataAction={getVehicles}/>
+                <DataBox title={'planets'} stateSlice={'planets'} items={film.planets} getDataAction={getPlanets}/>
+                <DataBox title={'species'} stateSlice={'species'} items={film.species} getDataAction={getSpecies}/>
+            </div>
         </div>
     );
 };

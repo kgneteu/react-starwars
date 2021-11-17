@@ -222,3 +222,8 @@ export function formatSWAPIDataTable(data, maxRows = -1, skipArrays = false, ski
         </table>
     )
 }
+
+export function extractSWAPIId(path){
+    const url = path.slice(0, -1);
+    return url.substring(url.lastIndexOf('/') + 1);
+}

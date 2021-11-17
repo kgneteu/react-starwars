@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //return object with items or string with error message
-export async function getSWAPIData(url) {
+export async function getSWAPIDataPage(url) {
     try {
         const items = new Map();
         const response = await axios.get(url);
@@ -16,7 +16,27 @@ export async function getSWAPIData(url) {
             next: response.data.next,
             items: items,
         };
-    }  catch(e)    {
+    } catch (e) {
+        throw e;
+    }
+}
+
+const stateSliceToSWAPIResource = {
+    films: 'films',
+    characters: 'people',
+    planets: 'planets',
+    species: 'species',
+    starships: 'starships',
+    vehicles: 'vehicles',
+}
+
+export async function getSWAPIDataItem(stateSlice, id) {
+    try {
+        const resource = stateSliceToSWAPIResource[stateSlice];
+        const response = await axios.get(`https://swapi.dev/api/${resource}/${id}`);
+        response.data.id=id;
+        return response.data;
+    } catch (e) {
         throw e;
     }
 }

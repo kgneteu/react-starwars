@@ -1,4 +1,4 @@
-import {GET_PLANETS} from "../actions/types";
+import {GET_PLANET_PAGE, GET_PLANETS} from "../actions/types";
 
 const INIT_STATE = {
     total: 0,
@@ -8,8 +8,10 @@ const INIT_STATE = {
 
 export default function planetsReducer(state = INIT_STATE, action) {
     switch (action.type) {
-        case GET_PLANETS:
+        case GET_PLANET_PAGE:
             return {...state, ...action.payload}
+        case GET_PLANETS:
+            return {...state, items: action.payload}
         default:
             return state;
     }

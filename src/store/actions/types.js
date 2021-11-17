@@ -1,25 +1,25 @@
+export const GET_CHARACTER_PAGE = 'GET_CHARACTER_PAGE'
 export const GET_CHARACTERS = 'GET_CHARACTERS'
-export const GET_CHARACTER = 'GET_CHARACTER'
 
 
+export const GET_STARSHIP_PAGE = 'GET_STARSHIP_PAGE'
 export const GET_STARSHIPS = 'GET_STARSHIPS'
-export const GET_STARSHIP = 'GET_STARSHIP'
 
 
+export const GET_VEHICLE_PAGE = 'GET_VEHICLE_PAGE'
 export const GET_VEHICLES = 'GET_VEHICLES'
-export const GET_VEHICLE = 'GET_VEHICLE'
 
 
+export const GET_SPECIES_PAGE = 'GET_SPECIES_PAGE'
 export const GET_SPECIES = 'GET_SPECIES'
-export const GET_SPECIES_ITEM = 'GET_SPECIES_ITEM'
 
 
+export const GET_PLANET_PAGE = 'GET_PLANET_PAGE'
 export const GET_PLANETS = 'GET_PLANETS'
-export const GET_PLANET = 'GET_PLANET'
 
 
+export const GET_FILM_PAGE = 'GET_FILM_PAGE'
 export const GET_FILMS = 'GET_FILMS'
-export const GET_FILM = 'GET_FILM'
 
 export const GLOBAL_SUCCESS = 'GLOBAL_SUCCESS'
 export const GLOBAL_ERROR = 'GLOBAL_ERROR'

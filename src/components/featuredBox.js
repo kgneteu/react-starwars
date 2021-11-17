@@ -5,7 +5,7 @@ import {BasicCard} from "./basicCard";
 import PropTypes from "prop-types";
 import MediaQuery from "react-responsive";
 import {Link} from "react-router-dom";
-import NeonButton from "../neonButton";
+import NeonButton from "./neonButton";
 
 const FeaturedBox = ({title, stateSlice, getDataAction}) => {
     const itemsMap = useSelector(state => state[stateSlice].items)

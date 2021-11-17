@@ -1,28 +1,29 @@
-import {GET_FILMS} from "./types";
-import {getSWAPIResourceDataPage} from "./common";
+import {GET_FILM_PAGE, GET_FILMS} from "./types";
+import {getSWAPIResourceDataPage, getSWAPIResourceSelectedItems} from "./common";
 
 
-export function getFilms() {
+export function getFilmPage() {
     return async (dispatch, getState) => {
         const options = {
             oldState: getState().films,
             dispatch: dispatch,
             resourceType: 'films',
-            actionType: GET_FILMS
+            actionType: GET_FILM_PAGE
         }
         await getSWAPIResourceDataPage(options)
     }
 }
 
-export function getFilm(filmId) {
+export function getFilms(filmIds) {
     return async (dispatch, getState) => {
         const options = {
             oldState: getState().films,
             dispatch: dispatch,
             resourceType: 'films',
             actionType: GET_FILMS,
+            selectedItems: filmIds,
 
         }
-        await getSWAPIResourceDataPage(options)
+        await getSWAPIResourceSelectedItems(options)
     }
 }

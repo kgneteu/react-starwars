@@ -3,7 +3,7 @@ import {formatSWAPIDataTable} from "../utils/swapi";
 import {FlipCard} from "./UI/flipCard/flipCard";
 import {Link} from "react-router-dom";
 import {CloudImage} from "./cloudImage";
-import NeonButton from "../neonButton";
+import NeonButton from "./neonButton";
 
 
 // <img
@@ -33,8 +33,15 @@ export const BasicCard = ({category, item}) => {
                 <div className={'text-2xl text-center py-4 bg-black'}>{title}</div>
             </section>
             <section>
-                {itemDataTable}
-                <Link to={`/${category}/${item.id}`}><NeonButton>more</NeonButton></Link>
+                <div className={'flex flex-col'}>
+                    <div className={'flex items-center p-2 gap-4'}>
+                        <CloudImage className={'w-24 h-24 rounded-full'} src={`https://res.cloudinary.com/di6qjuwyo/starwars/${category}/${item.id}.jpg`}>
+                        </CloudImage>
+                        <p className={'text-lg'}>{title}</p>
+                    </div>
+                    {itemDataTable}
+                    <Link to={`/${category}/${item.id}`}><NeonButton className={'font-bold'}>more</NeonButton></Link>
+                </div>
             </section>
         </FlipCard>
     )

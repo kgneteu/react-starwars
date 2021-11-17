@@ -15,7 +15,7 @@ const CategoryPage = ({title = '', stateSlice, getDataAction, ...rest}) => {
     const [loading, setLoading] = useState(true);
     const isVisible = useVisible(loadMore, true, true)
 
-    console.log('Redraw', isVisible, loading, rest)
+
     useEffect(() => {
         if (isVisible) {
             setLoading(true)
