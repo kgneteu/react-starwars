@@ -1,4 +1,4 @@
-import {getSWAPIResourceData} from "./common";
+import {getSWAPIResourceDataPage} from "./common";
 import {GET_PLANETS, PLANET_DATA_LOADING} from "./types";
 
 function setPlanetLoading(loading) {
@@ -14,7 +14,7 @@ export function getPlanets() {
             resourceType: 'planets',
             actionType: GET_PLANETS
         }
-        await getSWAPIResourceData(options)
+        await getSWAPIResourceDataPage(options)
         // /console.log(state)
     }
 }

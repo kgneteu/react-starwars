@@ -24,3 +24,12 @@ html, body {
   @apply font-sans;
 }
 
+.animate-appear {
+  opacity:0;
+  animation: appear 700ms ease-in forwards;
+}
+
+@keyframes appear {
+  from {opacity:0;}
+  to {opacity:1;}
+}

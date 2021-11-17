@@ -1,14 +1,14 @@
 import {Link, NavLink} from "react-router-dom";
 import classes from "./header.module.scss";
 import React from "react";
+import logo from './../../assets/star_wars_logo.svg'
 function Header() {
     return (
         <header className={classes.header}>
             <div className={'flex container mx-auto'}>
                 <div className={'w-48 text-center'}>
-                    <Link to={'/'}>
-                        <img src={'https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg'}
-                             className={'w-64'} alt={'StarWars Fandom'}/>
+                    <Link to={'/'} className={''}>
+                        <img src={logo} className={classes.logo} alt={'StarWars Fandom'}/>
                         <div className={classes.logoTitle}>Fandom</div>
                     </Link>
                 </div>

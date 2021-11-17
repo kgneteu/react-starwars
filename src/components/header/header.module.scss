@@ -39,9 +39,13 @@ $menu_link_active_line_color: darken(white, 25);
     box-shadow: 0px 80px 86px -1px rgba(52, 52, 52, 1);
   }
 
+  .logo {
+    @apply w-64;
+  }
+
   .logoTitle {
-    @apply text-2xl p-0 font-star-wars text-shadow;
-  };
+    @apply text-lg p-0 uppercase leading-none font-light -mt-4 mb-4
+  }
 
   nav {
     @apply flex items-start mt-12;

@@ -1,5 +1,5 @@
 import {GET_STARSHIPS, STARSHIP_DATA_LOADING} from "./types";
-import {getSWAPIResourceData} from "./common";
+import {getSWAPIResourceDataPage} from "./common";
 
 function setStarshipLoading(loading) {
     return {type: STARSHIP_DATA_LOADING, payload: loading};
@@ -14,6 +14,6 @@ export function getStarships() {
             resourceType: 'starships',
             actionType: GET_STARSHIPS
         }
-        await getSWAPIResourceData(options)
+        await getSWAPIResourceDataPage(options)
     }
 }

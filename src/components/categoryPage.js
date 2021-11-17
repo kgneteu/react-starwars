@@ -32,7 +32,9 @@ const CategoryPage = ({title = '', stateSlice, getDataAction, ...rest}) => {
             <div className={'container mx-auto'}>
                 <div className='flex flex-wrap justify-center gap-8 relative'>
                     {items.size > 0 && [...items.values()].map((item) => (
+                        <div className={'animate-appear'}>
                         <BasicCard key={item.id} item={item} category={stateSlice}/>
+                        </div>
                     ))}
                     <div ref={loadMore} className='bg-red-500 p-0 w-0 h-5 '/>
                 </div>

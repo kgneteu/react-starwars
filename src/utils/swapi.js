@@ -5,7 +5,7 @@ const starWarsAPIModel = {
         type: String,
         label: 'Birth year'
     },
-    cargo_capacity:{
+    cargo_capacity: {
         type: String,
         label: "Cargo capacity",
     },
@@ -13,11 +13,11 @@ const starWarsAPIModel = {
         type: Array,
         label: 'Characters'
     },
-    consumables:{
+    consumables: {
         type: String,
         label: "Consumables",
     },
-    cost_in_credits:{
+    cost_in_credits: {
         type: String,
         label: "Cost in Credits",
     },
@@ -87,7 +87,7 @@ const starWarsAPIModel = {
         label: 'Mass',
         suffix: "kg",
     },
-    MGLT:{
+    MGLT: {
         type: String,
         label: 'MGLT',
     },
@@ -179,13 +179,13 @@ const starWarsAPIModel = {
 // </tr>
 
 //returns table built on SWAPI data
-export function formatSWAPIDataTable(data) {
+export function formatSWAPIDataTable(data, maxRows = -1, skipArrays = false, skipFields = []) {
 
     let rows = [];
     for (const key in data) {
         if (starWarsAPIModel[key] !== undefined) {
             if (starWarsAPIModel[key].type === Array) {
-                if (data[key].length > 0) {
+                if ((!skipArrays) && (data[key].length > 0)) {
                     rows.push(
                         <tr key={key}>
                             <td>{starWarsAPIModel[key].label}</td>
@@ -195,7 +195,7 @@ export function formatSWAPIDataTable(data) {
                 }
             } else {
                 const skipProp = ['n/a', 'unknown', 'N/A'];
-                if (!skipProp.includes(data[key])) {
+                if (! (skipProp.includes(data[key]) || skipFields.includes(key))) {
                     rows.push(
                         <tr key={key}>
                             <td className={'w-1/3'}>

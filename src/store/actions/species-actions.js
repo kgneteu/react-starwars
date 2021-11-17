@@ -1,5 +1,5 @@
 import {GET_SPECIES, SPECIES_DATA_LOADING} from "./types";
-import {getSWAPIResourceData} from "./common";
+import {getSWAPIResourceDataPage} from "./common";
 
 function setSpeciesLoading(loading) {
     return {type: SPECIES_DATA_LOADING, payload: loading};
@@ -14,6 +14,6 @@ export function getSpecies() {
             resourceType: 'species',
             actionType: GET_SPECIES
         }
-        await getSWAPIResourceData(options)
+        await getSWAPIResourceDataPage(options)
     }
 }
