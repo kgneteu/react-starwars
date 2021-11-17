@@ -3,6 +3,7 @@ import {formatSWAPIDataTable} from "../utils/swapi";
 import {FlipCard} from "./UI/flipCard/flipCard";
 import {Link} from "react-router-dom";
 import {CloudImage} from "./cloudImage";
+import NeonButton from "../neonButton";
 
 
 // <img
@@ -14,7 +15,7 @@ import {CloudImage} from "./cloudImage";
 // />
 
 export const BasicCard = ({category, item}) => {
-    const itemDataTable = formatSWAPIDataTable(item)
+    const itemDataTable = formatSWAPIDataTable(item, undefined, true)
     let title = item.name !== undefined ? item.name : item.title;
     //console.log(`https://res.cloudinary.com/di6qjuwyo/starwars/${category}/${item.id}.jpg`)
     return (
@@ -33,7 +34,7 @@ export const BasicCard = ({category, item}) => {
             </section>
             <section>
                 {itemDataTable}
-                <Link to={`/${category}/${item.id}`}>more...</Link>
+                <Link to={`/${category}/${item.id}`}><NeonButton>more</NeonButton></Link>
             </section>
         </FlipCard>
     )

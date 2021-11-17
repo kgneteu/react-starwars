@@ -1,5 +1,9 @@
 $button-color: #fafafa;
 
+.container {
+  padding: 50px;
+}
+
 .button {
   text-transform: uppercase;
   font-weight: lighter;
@@ -7,10 +11,9 @@ $button-color: #fafafa;
   background-color: black;
   color: $button-color;
   letter-spacing: 15px;
+  text-align: center;
   border: 5px solid $button-color;
   padding: 50px;
-
-
   transition: 1s ease-out;
   border-radius: 100px;
   width: auto;
