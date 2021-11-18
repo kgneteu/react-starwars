@@ -13,7 +13,11 @@ import Page404 from "./components/page404";
 import FilmPage from "./components/Films/filmPage";
 import Header from "./components/header/header";
 import CharacterPage from "./components/Characters/characterPage";
-
+import PlanetPage from "./components/Planets/planetPage";
+import StarshipPage from "./components/Starships/starshipPage";
+import SpeciesPage from "./components/Species/speciesPage";
+import Footer from "./components/footer";
+import VehiclePage from "./components/Vehicles/vehiclePage";
 
 const App = () => {
     return (
@@ -28,16 +32,17 @@ const App = () => {
                     <Route path={'/characters'} element={<CategoryPage stateSlice={'characters'} getDataAction={getCharacterPage}/>} />
                     <Route path={'/characters/:id'} element={<CharacterPage/>} />
                     <Route path={'/planets'} element={<CategoryPage stateSlice={'planets'} getDataAction={getPlanetPage}/>} />
-                    <Route path={'/planets/:id'} element={<CategoryPage stateSlice={'planets'} getDataAction={getPlanetPage}/>} />
+                    <Route path={'/planets/:id'} element={<PlanetPage/>} />
                     <Route path={'/starships'} element={<CategoryPage stateSlice={'starships'} getDataAction={getStarshipPage}/>} />
-                    <Route path={'/starships/:id'} element={<CategoryPage stateSlice={'starships'} getDataAction={getStarshipPage}/>} />
+                    <Route path={'/starships/:id'} element={<StarshipPage/>} />
                     <Route path={'/vehicles'} element={<CategoryPage stateSlice={'vehicles'} getDataAction={getVehiclePage}/>} />
-                    <Route path={'/vehicles/:id'} element={<CategoryPage stateSlice={'vehicles'} getDataAction={getVehiclePage}/>} />
+                    <Route path={'/vehicles/:id'} element={<VehiclePage/>} />
                     <Route path={'/species'} element={<CategoryPage stateSlice={'species'} getDataAction={getSpeciesPage}/>} />
-                    <Route path={'/species/:id'} element={<CategoryPage stateSlice={'species'} getDataAction={getSpeciesPage}/>} />
+                    <Route path={'/species/:id'} element={<SpeciesPage/>} />
                     <Route path={'*'} element={<Page404/>}/>} />
                 </Routes>
             </Router>
+            <Footer/>
             <Toasts/>
         </>
     );

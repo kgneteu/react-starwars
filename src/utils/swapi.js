@@ -1,6 +1,16 @@
 import React from "react";
 
 const starWarsAPIModel = {
+    average_height: {
+        type: String,
+        label: 'Average height',
+        suffix: 'cm',
+    },
+    average_lifespan: {
+        type: String,
+        label: 'Average lifespan',
+        suffix: 'y',
+    },
     birth_year: {
         type: String,
         label: 'Birth year'
@@ -8,6 +18,10 @@ const starWarsAPIModel = {
     cargo_capacity: {
         type: String,
         label: "Cargo capacity",
+    },
+    classification: {
+        type: String,
+        label: "Classification",
     },
     characters: {
         type: Array,
@@ -29,6 +43,10 @@ const starWarsAPIModel = {
         type: String,
         label: "Crew",
     },
+    designation: {
+        type: String,
+        label: 'Designation'
+    },
     diameter: {
         type: String,
         label: 'Diameter'
@@ -44,6 +62,10 @@ const starWarsAPIModel = {
     eye_color: {
         type: String,
         label: 'Eye color'
+    },
+    eye_colors: {
+        type: String,
+        label: 'Eye colors'
     },
     films: {
         type: Array,
@@ -61,14 +83,27 @@ const starWarsAPIModel = {
         type: String,
         label: 'Hair color'
     },
+    hair_colors: {
+        type: String,
+        label: 'Hair colors'
+    },
     height: {
         type: String,
         label: 'Height',
         suffix: "cm",
     },
+    homeworld: {
+        type: String,
+        label: 'Home world',
+        link: true,
+    },
     hyperdrive_rating: {
         type: String,
         label: 'Hyperdrive rating',
+    },
+    language: {
+        type: String,
+        label: 'Language',
     },
     length: {
         type: String,
@@ -107,6 +142,10 @@ const starWarsAPIModel = {
         type: String,
         label: 'Passengers'
     },
+    people: {
+        type: Array,
+        label: 'People'
+    },
     pilots: {
         type: Array,
         label: 'Pilots'
@@ -138,6 +177,10 @@ const starWarsAPIModel = {
     skin_color: {
         type: String,
         label: 'Skin color',
+    },
+    skin_colors: {
+        type: String,
+        label: 'Skin colors',
     },
     species: {
         type: Array,
@@ -192,22 +235,35 @@ export function formatSWAPIDataTable(data, maxRows = -1, skipArrays = false, ski
                             <td>Array</td>
                         </tr>
                     )
+                } else {
+                    if (!skipArrays) {
+                        rows.push(
+                            <tr key={key}>
+                                <td>{starWarsAPIModel[key].label}</td>
+                                <td>Array</td>
+                            </tr>
+                        )
+                    }
                 }
             } else {
-                const skipProp = ['n/a', 'unknown', 'N/A'];
-                if (! (skipProp.includes(data[key]) || skipFields.includes(key))) {
-                    rows.push(
-                        <tr key={key}>
-                            <td className={'w-1/3'}>
-                                <div className={'overflow-hidden h-6'}>{starWarsAPIModel[key].label}</div>
-                            </td>
-                            <td>
-                                <div className={'overflow-hidden h-6'}>
-                                    <p className={'overflow-ellipsis'}>{data[key].toString()}{starWarsAPIModel[key].suffix}</p>
-                                </div>
-                            </td>
-                        </tr>
-                    )
+                const skipProp = ['n/a', 'unknown', 'N/A', null];
+                try {
+                    if (!(skipProp.includes(data[key]) || skipFields.includes(key))) {
+                        rows.push(
+                            <tr key={key}>
+                                <td className={'w-1/3'}>
+                                    <div className={'overflow-hidden h-6'}>{starWarsAPIModel[key].label}</div>
+                                </td>
+                                <td>
+                                    <div className={'overflow-hidden h-6'}>
+                                        <p className={'overflow-ellipsis'}>{data[key].toString()}{starWarsAPIModel[key].suffix}</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        )
+                    }
+                } catch (e) {
+                    console.log(key)
                 }
             }
         }
@@ -223,7 +279,7 @@ export function formatSWAPIDataTable(data, maxRows = -1, skipArrays = false, ski
     )
 }
 
-export function extractSWAPIId(path){
+export function extractSWAPIId(path) {
     const url = path.slice(0, -1);
     return url.substring(url.lastIndexOf('/') + 1);
 }

@@ -2,9 +2,10 @@ import {useParams} from "react-router";
 import {LandingPage} from "../landingPage";
 
 
-const CharacterPage = () => {
+
+const SpeciesPage = () => {
     const id = parseInt(useParams().id);
-    return <LandingPage id={id} stateSlice={'characters'}/>;
+    return <LandingPage id={id} stateSlice={'species'}/>;
 };
 
-export default CharacterPage;
+export default SpeciesPage;
