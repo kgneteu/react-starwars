@@ -25,6 +25,7 @@
     "serve build": "serve -s build",
     "test": "craco test --env=jsdom",
     "test coverage": "npm test -- --coverage --watchAll",
+    "copy SWAPI": "node tools/copy-sw-api.js",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "deploy": "npm run build && gh-pages -d build"
   },

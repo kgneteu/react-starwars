@@ -32,4 +32,12 @@
   &:hover > section:last-of-type {
     transform: rotateY(0);
   }
+
+  //& > section:first-of-type {
+  //  transform: rotateY(-180deg);
+  //}
+  //
+  //& > section:last-of-type {
+  //  transform: rotateY(0);
+  //}
 }

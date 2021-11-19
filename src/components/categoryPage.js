@@ -10,17 +10,19 @@ import {PageTitle} from "./pageTitle";
 const CategoryPage = ({title = '', stateSlice, getDataAction, ...rest}) => {
     const pageTitle = title !== '' ? title : stateSlice;
     const items = useSelector(state => state[stateSlice].items)
+
     const dispatch = useDispatch();
     const loadMore = useRef(null);
-    const [loading, setLoading] = useState(true);
-    const isVisible = useVisible(loadMore, true, true)
+    //const [loading, setLoading] = useState(true);
+    const isVisible = useVisible(loadMore, false, true)
 
-
+    console.log(isVisible)
     useEffect(() => {
         if (isVisible) {
-            setLoading(true)
+            console.log('loading x')
+      //      setLoading(true)
             dispatch(getDataAction()).finally(
-                setLoading(false)
+        //        setLoading(false)
             );
         }
 
@@ -31,14 +33,16 @@ const CategoryPage = ({title = '', stateSlice, getDataAction, ...rest}) => {
             <PageTitle title={pageTitle}/>
             <div className={'container mx-auto'}>
                 <div className='flex flex-wrap justify-center gap-8 relative'>
-                    {items.size > 0 && [...items.values()].map((item) => (
-                        <div className={'animate-appear'}>
-                        <BasicCard key={item.id} item={item} category={stateSlice}/>
-                        </div>
-                    ))}
-                    <div ref={loadMore} className='bg-red-500 p-0 w-0 h-5 '/>
+                    {items.size > 0 && [...items.values()].map((item) => {
+                        return (
+                            // <div className={'animate-appear'}>
+                                <BasicCard key={item.id} item={item} category={stateSlice}/>
+                            // </div>
+                        )
+                    })}
+                    <div ref={loadMore} className='absolute bg-red-500 p-0 w-5 h-5 '/>
                 </div>
-                {loading && <Loader/>}
+                {/*{loading && <Loader/>}*/}
             </div>
         </>
     )

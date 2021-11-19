@@ -1,7 +1,7 @@
-import {getSWAPIResourceDataPage, getSWAPIResourceSelectedItems} from "./common";
+import {getNextDataPage, getSWAPIResourceSelectedItems} from "./common";
 import {GET_PLANET_PAGE, GET_PLANETS} from "./types";
 
-export function getPlanetPage() {
+export function getNextPlanetDataPage() {
     return async (dispatch, getState) => {
         const options = {
             oldState: getState().planets,
@@ -9,8 +9,7 @@ export function getPlanetPage() {
             resourceType: 'planets',
             actionType: GET_PLANET_PAGE
         }
-        await getSWAPIResourceDataPage(options)
-        // /console.log(state)
+        await getNextDataPage(options)
     }
 }
 

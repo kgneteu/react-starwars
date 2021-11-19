@@ -15,7 +15,7 @@ import NeonButton from "./neonButton";
 // />
 
 export const BasicCard = ({category, item}) => {
-    const itemDataTable = formatSWAPIDataTable(item, undefined, true)
+    const itemDataTable = formatSWAPIDataTable(item, 5, true)
     let title = item.name !== undefined ? item.name : item.title;
     //console.log(`https://res.cloudinary.com/di6qjuwyo/starwars/${category}/${item.id}.jpg`)
     return (
@@ -40,7 +40,7 @@ export const BasicCard = ({category, item}) => {
                         <p className={'text-lg'}>{title}</p>
                     </div>
                     {itemDataTable}
-                    <Link to={`/${category}/${item.id}`}><NeonButton className={'font-bold'}>more</NeonButton></Link>
+                    <Link to={`/${category}/${item.id}`}><NeonButton className={'font-bold h-9 -mt-5'}>more</NeonButton></Link>
                 </div>
             </section>
         </FlipCard>

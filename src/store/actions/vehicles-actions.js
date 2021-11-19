@@ -1,8 +1,8 @@
 import {GET_VEHICLE_PAGE, GET_VEHICLES} from "./types";
-import {getSWAPIResourceDataPage, getSWAPIResourceSelectedItems} from "./common";
+import {getNextDataPage, getSWAPIResourceSelectedItems} from "./common";
 
 
-export function getVehiclePage() {
+export function getNextVehicleDataPage() {
     return async (dispatch, getState) => {
         const options = {
             oldState: getState().vehicles,
@@ -10,7 +10,7 @@ export function getVehiclePage() {
             resourceType: 'vehicles',
             actionType: GET_VEHICLE_PAGE
         }
-        await getSWAPIResourceDataPage(options)
+        await getNextDataPage(options)
     }
 }
 

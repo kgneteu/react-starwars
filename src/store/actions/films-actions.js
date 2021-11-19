@@ -1,8 +1,8 @@
 import {GET_FILM_PAGE, GET_FILMS} from "./types";
-import {getSWAPIResourceDataPage, getSWAPIResourceSelectedItems} from "./common";
+import {getNextDataPage, getSWAPIResourceSelectedItems} from "./common";
 
 
-export function getFilmPage() {
+export function getNextFilmDataPage() {
     return async (dispatch, getState) => {
         const options = {
             oldState: getState().films,
@@ -10,7 +10,7 @@ export function getFilmPage() {
             resourceType: 'films',
             actionType: GET_FILM_PAGE
         }
-        await getSWAPIResourceDataPage(options)
+        await getNextDataPage(options)
     }
 }
 

@@ -1,0 +1,24 @@
+{
+  "rules": {
+    ".read": "now < 1639782000000",
+    ".write": "now < 1639782000000",
+    "films": {
+      ".indexOn": "id"
+    },
+    "people": {
+      ".indexOn": "id"
+    },
+    "planets": {
+      ".indexOn": "id"
+    },
+    "species": {
+      ".indexOn": "id"
+    },
+    "starships": {
+      ".indexOn": "id"
+    },
+    "vehicles": {
+      ".indexOn": "id"
+    }
+  }
+}

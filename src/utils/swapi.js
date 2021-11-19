@@ -226,6 +226,7 @@ export function formatSWAPIDataTable(data, maxRows = -1, skipArrays = false, ski
 
     let rows = [];
     for (const key in data) {
+        if (maxRows>=0 && rows.length === maxRows) break;
         if (starWarsAPIModel[key] !== undefined) {
             if (starWarsAPIModel[key].type === Array) {
                 if ((!skipArrays) && (data[key].length > 0)) {
@@ -281,5 +282,5 @@ export function formatSWAPIDataTable(data, maxRows = -1, skipArrays = false, ski
 
 export function extractSWAPIId(path) {
     const url = path.slice(0, -1);
-    return url.substring(url.lastIndexOf('/') + 1);
+    return +url.substring(url.lastIndexOf('/') + 1);
 }

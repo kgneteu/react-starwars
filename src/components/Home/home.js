@@ -1,10 +1,10 @@
 import FeaturedBox from "../featuredBox";
-import {getFilmPage} from "../../store/actions/films-actions";
-import {getCharacterPage} from "../../store/actions/characters-actions";
-import {getPlanetPage} from "../../store/actions/planets-actions";
-import {getStarshipPage} from "../../store/actions/starships-actions";
-import {getVehiclePage} from "../../store/actions/vehicles-actions";
-import {getSpeciesPage} from "../../store/actions/species-actions";
+import {getNextFilmDataPage} from "../../store/actions/films-actions";
+import {getNextCharacterDataPage} from "../../store/actions/characters-actions";
+import {getNextPlanetDataPage} from "../../store/actions/planets-actions";
+import {getNextStarshipDataPage} from "../../store/actions/starships-actions";
+import {getNextVehicleDataPage} from "../../store/actions/vehicles-actions";
+import {getNextSpeciesDataPage} from "../../store/actions/species-actions";
 import {Layout} from "../layout";
 
 
@@ -15,12 +15,12 @@ export function Home() {
         <>
 
         <Layout>
-            <FeaturedBox title={'films'} stateSlice={'films'} getDataAction={getFilmPage}/>
-            <FeaturedBox title={'characters'} stateSlice={'characters'} getDataAction={getCharacterPage}/>
-            <FeaturedBox title={'planets'} stateSlice={'planets'} getDataAction={getPlanetPage}/>
-            <FeaturedBox title={'starships'} stateSlice={'starships'} getDataAction={getStarshipPage}/>
-            <FeaturedBox title={'vehicles'} stateSlice={'vehicles'} getDataAction={getVehiclePage}/>
-            <FeaturedBox title={'species'} stateSlice={'species'} getDataAction={getSpeciesPage}/>
+            <FeaturedBox title={'films'} stateSlice={'films'} getDataAction={getNextFilmDataPage}/>
+            <FeaturedBox title={'characters'} stateSlice={'characters'} getDataAction={getNextCharacterDataPage}/>
+            <FeaturedBox title={'planets'} stateSlice={'planets'} getDataAction={getNextPlanetDataPage}/>
+            <FeaturedBox title={'starships'} stateSlice={'starships'} getDataAction={getNextStarshipDataPage}/>
+            <FeaturedBox title={'vehicles'} stateSlice={'vehicles'} getDataAction={getNextVehicleDataPage}/>
+            <FeaturedBox title={'species'} stateSlice={'species'} getDataAction={getNextSpeciesDataPage}/>
         </Layout></>)
 
 }

@@ -1,7 +1,7 @@
 import {GET_SPECIES, GET_SPECIES_PAGE} from "../actions/types";
 
 const INIT_STATE = {
-    total: 0,
+    dataEnd: false,
     next: '',
     items: new Map(),
 }

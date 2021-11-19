@@ -1,8 +1,8 @@
 import {GET_STARSHIP_PAGE, GET_STARSHIPS} from "./types";
-import {getSWAPIResourceDataPage, getSWAPIResourceSelectedItems} from "./common";
+import {getNextDataPage, getSWAPIResourceSelectedItems} from "./common";
 
 
-export function getStarshipPage() {
+export function getNextStarshipDataPage() {
     return async (dispatch, getState) => {
         const options = {
             oldState: getState().starships,
@@ -10,7 +10,7 @@ export function getStarshipPage() {
             resourceType: 'starships',
             actionType: GET_STARSHIP_PAGE
         }
-        await getSWAPIResourceDataPage(options)
+        await getNextDataPage(options)
     }
 }
 

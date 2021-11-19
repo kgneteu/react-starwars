@@ -1,8 +1,8 @@
 import {GET_CHARACTER_PAGE, GET_CHARACTERS} from "./types";
-import {getSWAPIResourceDataPage, getSWAPIResourceSelectedItems} from "./common";
+import {getNextDataPage, getSWAPIResourceSelectedItems} from "./common";
 
 
-export function getCharacterPage() {
+export function getNextCharacterDataPage() {
     return async (dispatch, getState) => {
         const options = {
             oldState: getState().characters,
@@ -10,7 +10,7 @@ export function getCharacterPage() {
             resourceType: 'people',
             actionType: GET_CHARACTER_PAGE
         }
-        await getSWAPIResourceDataPage(options)
+        await getNextDataPage(options)
     }
 }
 

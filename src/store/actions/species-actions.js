@@ -1,8 +1,8 @@
 import {GET_SPECIES, GET_SPECIES_PAGE} from "./types";
-import {getSWAPIResourceDataPage, getSWAPIResourceSelectedItems} from "./common";
+import {getNextDataPage, getSWAPIResourceSelectedItems} from "./common";
 
 
-export function getSpeciesPage() {
+export function getNextSpeciesDataPage() {
     return async (dispatch, getState) => {
         const options = {
             oldState: getState().species,
@@ -10,7 +10,7 @@ export function getSpeciesPage() {
             resourceType: 'species',
             actionType: GET_SPECIES_PAGE
         }
-        await getSWAPIResourceDataPage(options)
+        await getNextDataPage(options)
     }
 }
 

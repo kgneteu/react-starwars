@@ -1,17 +1,17 @@
-import {getSWAPIDataItem, getSWAPIDataPage} from "../../api/swAPI";
 import {globalError} from "./toast-actions";
+import {apiGetDataItem, apiGetDataPage} from "../../api/api";
 
-export async function getSWAPIResourceDataPage(options) {
+export async function getNextDataPage(options) {
     try {
-        const defaultURL = `https://swapi.dev/api/${options.resourceType}/`;
         const oldState = options.oldState;
-        if (oldState.total === 0 || oldState.items.size < oldState.total) {
-            const newState = await getSWAPIDataPage(oldState.next !== '' ? oldState.next : defaultURL)
-            const newItems = new Map([...oldState.items, ...newState.items])
+        if (!oldState.dataEnd) {
+            console.log(oldState)
+            const dataPage = await apiGetDataPage(options.resourceType, oldState.next)
+            const combinedItems = new Map([...oldState.items, ...dataPage.items])
             const payload = {
-                total: newState.total,
-                next: newState.next,
-                items: newItems,
+                dataEnd: dataPage.dataEnd,
+                next: dataPage.next,
+                items: combinedItems,
             }
             options.dispatch({type: options.actionType, payload})
             return payload;
@@ -23,15 +23,17 @@ export async function getSWAPIResourceDataPage(options) {
 
 export async function getSWAPIResourceSelectedItems(options) {
     try {
-        const newItemList = options.selectedItems.filter(
-            (id => !options.oldState.items.has(id))
+        const newItemIds = options.selectedItems.filter(
+            (id => !options.oldState.items.has(+id))
         )
-        if (newItemList.length > 0) {
+        if (newItemIds.length > 0) {
             const newItems = new Map();
-            for (let newItemId of newItemList) {
-                newItems.set(newItemId, await getSWAPIDataItem(options.resourceType, newItemId));
+            for (let newItemId of newItemIds) {
+                const newItemData = await apiGetDataItem(options.resourceType, newItemId)
+                newItems.set(newItemData.id, newItemData);
             }
             const payload = new Map([...options.oldState.items, ...newItems])
+            console.log(payload)
             options.dispatch({type: options.actionType, payload})
             return payload;
         }
