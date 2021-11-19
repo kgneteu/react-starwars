@@ -40,7 +40,7 @@ const CategoryPage = ({title = '', stateSlice, getDataAction, ...rest}) => {
                             // </div>
                         )
                     })}
-                    <div ref={loadMore} className='absolute bg-red-500 p-0 w-5 h-5 '/>
+                    <div ref={loadMore} className='absolute w-0 h-0 bottom-96'/>
                 </div>
                 {/*{loading && <Loader/>}*/}
             </div>

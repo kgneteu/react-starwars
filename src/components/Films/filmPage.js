@@ -34,7 +34,8 @@ const FilmPage = () => {
             <div className={'bg-black bg-opacity-75 py-8'}>
                 <div className={'flex h-96 container mx-auto'}>
                     <CloudImage
-                        src={`https://res.cloudinary.com/di6qjuwyo/starwars/films/${film.id}.jpg`}
+                        className={'w-auto'}
+                        category='films' imgId={film.id} preset={'page'}
                         title={film.title}
                     />
                     {film.opening_crawl && <Crawl>

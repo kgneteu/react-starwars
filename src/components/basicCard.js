@@ -23,7 +23,7 @@ export const BasicCard = ({category, item}) => {
             <section>
                 <div className={'overflow-hidden flex-grow'}>
                     <CloudImage
-                        src={`https://res.cloudinary.com/di6qjuwyo/starwars/${category}/${item.id}.jpg`}
+                        category={category} imgId={item.id} preset={'card'}
                         title={title}
                     />
                 </div>
@@ -35,8 +35,7 @@ export const BasicCard = ({category, item}) => {
             <section>
                 <div className={'flex flex-col'}>
                     <div className={'flex items-center p-2 gap-4'}>
-                        <CloudImage className={'w-24 h-24 rounded-full'} src={`https://res.cloudinary.com/di6qjuwyo/starwars/${category}/${item.id}.jpg`}>
-                        </CloudImage>
+                        <CloudImage className={'w-24 h-24 rounded-full'} category={category} imgId={item.id} preset={'circle'}/>
                         <p className={'text-lg'}>{title}</p>
                     </div>
                     {itemDataTable}

@@ -37,17 +37,17 @@ export function LandingPage({id, stateSlice}) {
         <div>
             <PageTitle title={caption}/>
             <div className={'bg-black bg-opacity-75 py-8'}>
-                <div className={'flex h-96 container mx-auto'}>
+                <div className={'flex container mx-auto gap-x-8'}>
                     <CloudImage
-                        className={'w-1/4 bg-red-500'}
-                        src={`https://res.cloudinary.com/di6qjuwyo/starwars/${stateSlice}/${pageTarget.id}.jpg`}
+                        className={'object-cover'}
+                        category={stateSlice} imgId={pageTarget.id} preset={'page'}
                         title={caption}
                     />
 
+                <div className={'bg-red'}>
+                    {formatSWAPIDataTable(pageTarget, undefined, true, ['opening_crawl'])}
                 </div>
-            </div>
-            <div className={'container mx-auto bg-black'}>
-                {formatSWAPIDataTable(pageTarget, undefined, true, ['opening_crawl'])}
+                </div>
             </div>
             <div className={'container mx-auto'}>
                 <DataBox title={'films'} stateSlice={'films'} items={pageTarget.films} getDataAction={getFilms}/>
