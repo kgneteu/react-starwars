@@ -6,13 +6,13 @@ export function CloudImage({category, preset, imgId, title, className}) {
     let transform;
     switch (preset) {
         case 'circle':
-            transform = '/w_100,c_fill,ar_1:1,g_auto,r_max,bo_2px_solid_grey,b_rgb:262c35';
+            transform = '/w_96,c_fill,ar_1:1,g_auto,r_max';
             break;
         case 'card':
-            transform = '/w_350';
+            transform = '/c_crop,c_fill,w_350,h_320,g_face';
             break;
         case 'page':
-            transform = '';
+            transform = '/c_crop,w_500,c_fill,h_350,g_face';
             break;
         default:
             transform = '';
