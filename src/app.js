@@ -1,5 +1,5 @@
 import StarParallax from "./components/UI/starParallax/starParallax";
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {HashRouter as Router, Route, Routes} from "react-router-dom";
 import {Toasts} from "./components/UI/toasts/toasts";
 import {Home} from "./components/Home/home";
 import CategoryPage from "./components/categoryPage";
