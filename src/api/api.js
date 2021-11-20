@@ -12,7 +12,7 @@ export async function apiGetDataPage(resource, next, limit = 10) {
         items.set(response.data[key].id, {...response.data[key], dbId: key})
         lastId = response.data[key].id;
     }
-    console.log(items)
+    console.log('Loading Page', items)
     return {
         dataEnd: (items.size < limit),
         next: lastId,
@@ -34,10 +34,17 @@ export async function apiGetDataItem(stateSlice, id) {
         const resource = stateSliceToSWAPIResource[stateSlice];
         const query = `${FIREBASE_API_URL}${resource}.json/?orderBy="id"&equalTo=${id}`
         const response = await axios.get(query)
-        for (let key in response.data) {
-           return {...response.data[key], dbId: key}
+
+        if (Object.keys(response.data).length !==0) {
+            let [key, value] = Object.entries(response.data)[0];
+            return {
+                ...value, dbId: key
+            }
         }
-        return null;
+        else {
+            return null;
+        }
+
     } catch (e) {
         throw e;
     }

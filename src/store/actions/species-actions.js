@@ -1,5 +1,5 @@
 import {GET_SPECIES, GET_SPECIES_PAGE} from "./types";
-import {getNextDataPage, getSWAPIResourceSelectedItems} from "./common";
+import {getNextDataPage, getDataItems} from "./api-actions";
 
 
 export function getNextSpeciesDataPage() {
@@ -25,6 +25,6 @@ export function getSpecies(speciesIds) {
             selectedItems: speciesIds,
 
         }
-        await getSWAPIResourceSelectedItems(options)
+        await getDataItems(options)
     }
 }

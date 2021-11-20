@@ -9,4 +9,6 @@ const StarParallax = () => {
     );
 };
 
+StarParallax.propTypes = {};
+
 export default StarParallax;

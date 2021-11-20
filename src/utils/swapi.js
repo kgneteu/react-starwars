@@ -264,7 +264,7 @@ export function formatSWAPIDataTable(data, maxRows = -1, skipArrays = false, ski
                         )
                     }
                 } catch (e) {
-                    console.log(key)
+                    console.log("Unknown key", key)
                 }
             }
         }

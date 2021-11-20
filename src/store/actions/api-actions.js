@@ -1,11 +1,11 @@
 import {globalError} from "./toast-actions";
 import {apiGetDataItem, apiGetDataPage} from "../../api/api";
+import {error} from "autoprefixer/lib/utils";
 
 export async function getNextDataPage(options) {
     try {
         const oldState = options.oldState;
         if (!oldState.dataEnd) {
-            console.log(oldState)
             const dataPage = await apiGetDataPage(options.resourceType, oldState.next)
             const combinedItems = new Map([...oldState.items, ...dataPage.items])
             const payload = {
@@ -21,7 +21,7 @@ export async function getNextDataPage(options) {
     }
 }
 
-export async function getSWAPIResourceSelectedItems(options) {
+export async function getDataItems(options) {
     try {
         const newItemIds = options.selectedItems.filter(
             (id => !options.oldState.items.has(+id))
@@ -29,15 +29,15 @@ export async function getSWAPIResourceSelectedItems(options) {
         if (newItemIds.length > 0) {
             const newItems = new Map();
             for (let newItemId of newItemIds) {
-                const newItemData = await apiGetDataItem(options.resourceType, newItemId)
-                newItems.set(newItemData.id, newItemData);
+                const newItem = await apiGetDataItem(options.resourceType, newItemId)
+                if (newItem) newItems.set(newItem.id, newItem);
             }
             const payload = new Map([...options.oldState.items, ...newItems])
-            console.log(payload)
             options.dispatch({type: options.actionType, payload})
             return payload;
         }
     } catch (e) {
+        console.error(e.message)
         options.dispatch(globalError(e.message))
     }
 }

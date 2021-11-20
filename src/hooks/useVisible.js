@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 
 const useVisible = (ref, defIntersecting = false, updateOnlyIfIntersecting = false, rootMargin = "0px") => {
     // State and setter for storing whether element is visible
+    //todo more tests
     const [isIntersecting, setIntersecting] = useState(defIntersecting);
     useEffect(() => {
         const refCopy = ref;
@@ -26,7 +27,6 @@ const useVisible = (ref, defIntersecting = false, updateOnlyIfIntersecting = fal
             observer.observe(refCopy.current);
         }
         return () => {
-            console.log('--- Unmount', refCopy.current)
             if (refCopy.current)
                 observer.unobserve(refCopy.current);
         };

@@ -33,7 +33,6 @@ async function copyResource(resource, url) {
         result.id = +id;
         await axios.post(`${fb_api}/${resource}.json`, result)
     }
-    console.log(results)
 }
 
 for (const resource in resources) {

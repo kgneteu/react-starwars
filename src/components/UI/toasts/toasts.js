@@ -1,6 +1,6 @@
 import {toast, ToastContainer} from "react-toastify";
 import {useDispatch, useSelector} from "react-redux";
-import {clearToast} from "../../store/actions/toast-actions";
+import {clearToast} from "../../../store/actions/toast-actions";
 import {useEffect} from "react";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -44,3 +44,5 @@ export function Toasts() {
         <ToastContainer/>
     )
 }
+
+Toasts.propTypes = {};

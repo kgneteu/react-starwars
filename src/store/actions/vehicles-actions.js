@@ -1,5 +1,5 @@
 import {GET_VEHICLE_PAGE, GET_VEHICLES} from "./types";
-import {getNextDataPage, getSWAPIResourceSelectedItems} from "./common";
+import {getNextDataPage, getDataItems} from "./api-actions";
 
 
 export function getNextVehicleDataPage() {
@@ -24,6 +24,6 @@ export function getVehicles(vehicleIds) {
             selectedItems: vehicleIds,
 
         }
-        await getSWAPIResourceSelectedItems(options)
+        await getDataItems(options)
     }
 }

@@ -1,4 +1,4 @@
-import {getNextDataPage, getSWAPIResourceSelectedItems} from "./common";
+import {getNextDataPage, getDataItems} from "./api-actions";
 import {GET_PLANET_PAGE, GET_PLANETS} from "./types";
 
 export function getNextPlanetDataPage() {
@@ -23,6 +23,6 @@ export function getPlanets(planetIds) {
             selectedItems: planetIds,
 
         }
-        await getSWAPIResourceSelectedItems(options)
+        await getDataItems(options)
     }
 }

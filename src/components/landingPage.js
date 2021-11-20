@@ -30,14 +30,13 @@ export function LandingPage({id, stateSlice}) {
     }, [id, dispatch, stateSlice]);
 
     if (!pageTarget) return <Loader/>
-    console.log(pageTarget)
 
     const caption = pageTarget.title ? pageTarget.title : pageTarget.name;
     return (
         <div>
             <PageTitle title={caption}/>
             <div className={'bg-black bg-opacity-75 py-8'}>
-                <div className={'flex container mx-auto gap-x-8'}>
+                <div className={'flex container mx-auto gap-x-8 flex-wrap'}>
                     <CloudImage
                         className={'object-cover'}
                         category={stateSlice} imgId={pageTarget.id} preset={'page'}

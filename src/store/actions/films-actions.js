@@ -1,5 +1,5 @@
 import {GET_FILM_PAGE, GET_FILMS} from "./types";
-import {getNextDataPage, getSWAPIResourceSelectedItems} from "./common";
+import {getNextDataPage, getDataItems} from "./api-actions";
 
 
 export function getNextFilmDataPage() {
@@ -24,6 +24,6 @@ export function getFilms(filmIds) {
             selectedItems: filmIds,
 
         }
-        await getSWAPIResourceSelectedItems(options)
+        await getDataItems(options)
     }
 }

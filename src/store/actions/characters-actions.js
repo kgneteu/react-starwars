@@ -1,5 +1,5 @@
 import {GET_CHARACTER_PAGE, GET_CHARACTERS} from "./types";
-import {getNextDataPage, getSWAPIResourceSelectedItems} from "./common";
+import {getNextDataPage, getDataItems} from "./api-actions";
 
 
 export function getNextCharacterDataPage() {
@@ -25,6 +25,6 @@ export function getCharacters(charactersIds) {
             selectedItems: charactersIds,
 
         }
-        await getSWAPIResourceSelectedItems(options)
+        await getDataItems(options)
     }
 }

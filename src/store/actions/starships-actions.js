@@ -1,5 +1,5 @@
 import {GET_STARSHIP_PAGE, GET_STARSHIPS} from "./types";
-import {getNextDataPage, getSWAPIResourceSelectedItems} from "./common";
+import {getNextDataPage, getDataItems} from "./api-actions";
 
 
 export function getNextStarshipDataPage() {
@@ -25,6 +25,6 @@ export function getStarships(starshipIds) {
             selectedItems: starshipIds,
 
         }
-        await getSWAPIResourceSelectedItems(options)
+        await getDataItems(options)
     }
 }

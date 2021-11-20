@@ -1,6 +1,6 @@
 import StarParallax from "./components/UI/starParallax/starParallax";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import {Toasts} from "./components/UI/toasts";
+import {Toasts} from "./components/UI/toasts/toasts";
 import {Home} from "./components/Home/home";
 import CategoryPage from "./components/categoryPage";
 import {getNextVehicleDataPage} from "./store/actions/vehicles-actions";
@@ -18,6 +18,7 @@ import StarshipPage from "./components/Starships/starshipPage";
 import SpeciesPage from "./components/Species/speciesPage";
 import Footer from "./components/footer";
 import VehiclePage from "./components/Vehicles/vehiclePage";
+import ScrollToTop from "./components/scrollToTop/scrollToTop";
 
 const App = () => {
     return (
@@ -25,6 +26,7 @@ const App = () => {
             <StarParallax/>
             <Router basename={process.env.PUBLIC_URL}>
                 <Header/>
+                <ScrollToTop/>
                 <Routes>
                     <Route path={'/'} element={<Home/>} exact/>
                     <Route path={'/films'} element={<CategoryPage stateSlice={'films'} getDataAction={getNextFilmDataPage}/>} />

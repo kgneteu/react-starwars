@@ -1,11 +1,14 @@
-import classes from "./loader.module.scss";
+import loaderImage from './../../../assets/images/loader.png'
+
 export function Loader() {
     return (
-        <div className={classes.loader}>
-            <div className={classes.content}>
-            Loading...
+        <div className={'text-center w-auto opacity-0 animate-delay-appear'}>
+            <div className={'w-auto inline-block overflow-hidden'}>
+                <img src={loaderImage} className={'animate-spin-slow inline w-24'}/>
+                <p className={'inline uppercase animate-pulse-slow'}>Loading...</p>
             </div>
-        </div>);
+        </div>
+    )
 }
 
 Loader.propTypes = {};

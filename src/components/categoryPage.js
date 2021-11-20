@@ -8,6 +8,7 @@ import {PageTitle} from "./pageTitle";
 
 
 const CategoryPage = ({title = '', stateSlice, getDataAction, ...rest}) => {
+    //todo optimization
     const pageTitle = title !== '' ? title : stateSlice;
     const items = useSelector(state => state[stateSlice].items)
 
@@ -16,10 +17,8 @@ const CategoryPage = ({title = '', stateSlice, getDataAction, ...rest}) => {
     //const [loading, setLoading] = useState(true);
     const isVisible = useVisible(loadMore, false, true)
 
-    console.log(isVisible)
     useEffect(() => {
         if (isVisible) {
-            console.log('loading x')
       //      setLoading(true)
             dispatch(getDataAction()).finally(
         //        setLoading(false)

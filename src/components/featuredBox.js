@@ -5,7 +5,7 @@ import {BasicCard} from "./basicCard";
 import PropTypes from "prop-types";
 import MediaQuery from "react-responsive";
 import {Link} from "react-router-dom";
-import NeonButton from "./neonButton";
+import NeonButton from "./UI/neonButton/neonButton";
 
 const FeaturedBox = ({title, stateSlice, getDataAction}) => {
     const itemsMap = useSelector(state => state[stateSlice].items)
@@ -45,9 +45,11 @@ const FeaturedBox = ({title, stateSlice, getDataAction}) => {
                             ))}
                         </MediaQuery>
                     </div>
-                    <Link to={`/${stateSlice}`} className={'text-center bg-red-500'}>
-                        <NeonButton>more</NeonButton>
-                    </Link>
+                    <div className={'text-center mt-1 py-4'}>
+                        <Link to={`/${stateSlice}`} className={'text-center'}>
+                            <NeonButton className={'w-60'}>more</NeonButton>
+                        </Link>
+                    </div>
                 </div>
             </section>
         </>
