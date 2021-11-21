@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.801b049e.chunk.css",
-    "main.js": "/static/js/main.41ef9c4e.chunk.js",
-    "main.js.map": "/static/js/main.41ef9c4e.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.d766a432.js",
-    "runtime-main.js.map": "/static/js/runtime-main.d766a432.js.map",
-    "static/css/2.7f2ec892.chunk.css": "/static/css/2.7f2ec892.chunk.css",
-    "static/js/2.43219f91.chunk.js": "/static/js/2.43219f91.chunk.js",
-    "static/js/2.43219f91.chunk.js.map": "/static/js/2.43219f91.chunk.js.map",
-    "static/js/3.619024fb.chunk.js": "/static/js/3.619024fb.chunk.js",
-    "static/js/3.619024fb.chunk.js.map": "/static/js/3.619024fb.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.7f2ec892.chunk.css.map": "/static/css/2.7f2ec892.chunk.css.map",
-    "static/css/main.801b049e.chunk.css.map": "/static/css/main.801b049e.chunk.css.map",
-    "static/js/2.43219f91.chunk.js.LICENSE.txt": "/static/js/2.43219f91.chunk.js.LICENSE.txt",
-    "static/media/jedi.d534cef7.svg": "/static/media/jedi.d534cef7.svg",
-    "static/media/loader.c44865d4.png": "/static/media/loader.c44865d4.png",
-    "static/media/index.scss": "/static/media/star-jedi.5c2d1aff.woff",
-    "static/media/star_wars_logo.e3b54fcc.svg": "/static/media/star_wars_logo.e3b54fcc.svg"
+    "main.css": "https://kgneteu.github.io/react-starwars/static/css/main.223f4ae4.chunk.css",
+    "main.js": "https://kgneteu.github.io/react-starwars/static/js/main.0e3f729c.chunk.js",
+    "main.js.map": "https://kgneteu.github.io/react-starwars/static/js/main.0e3f729c.chunk.js.map",
+    "runtime-main.js": "https://kgneteu.github.io/react-starwars/static/js/runtime-main.d8ffcf45.js",
+    "runtime-main.js.map": "https://kgneteu.github.io/react-starwars/static/js/runtime-main.d8ffcf45.js.map",
+    "static/css/2.7f2ec892.chunk.css": "https://kgneteu.github.io/react-starwars/static/css/2.7f2ec892.chunk.css",
+    "static/js/2.43219f91.chunk.js": "https://kgneteu.github.io/react-starwars/static/js/2.43219f91.chunk.js",
+    "static/js/2.43219f91.chunk.js.map": "https://kgneteu.github.io/react-starwars/static/js/2.43219f91.chunk.js.map",
+    "static/js/3.619024fb.chunk.js": "https://kgneteu.github.io/react-starwars/static/js/3.619024fb.chunk.js",
+    "static/js/3.619024fb.chunk.js.map": "https://kgneteu.github.io/react-starwars/static/js/3.619024fb.chunk.js.map",
+    "index.html": "https://kgneteu.github.io/react-starwars/index.html",
+    "static/css/2.7f2ec892.chunk.css.map": "https://kgneteu.github.io/react-starwars/static/css/2.7f2ec892.chunk.css.map",
+    "static/css/main.223f4ae4.chunk.css.map": "https://kgneteu.github.io/react-starwars/static/css/main.223f4ae4.chunk.css.map",
+    "static/js/2.43219f91.chunk.js.LICENSE.txt": "https://kgneteu.github.io/react-starwars/static/js/2.43219f91.chunk.js.LICENSE.txt",
+    "static/media/jedi.d534cef7.svg": "https://kgneteu.github.io/react-starwars/static/media/jedi.d534cef7.svg",
+    "static/media/loader.c44865d4.png": "https://kgneteu.github.io/react-starwars/static/media/loader.c44865d4.png",
+    "static/media/index.scss": "https://kgneteu.github.io/react-starwars/static/media/star-jedi.5c2d1aff.woff",
+    "static/media/star_wars_logo.e3b54fcc.svg": "https://kgneteu.github.io/react-starwars/static/media/star_wars_logo.e3b54fcc.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.d766a432.js",
+    "static/js/runtime-main.d8ffcf45.js",
     "static/css/2.7f2ec892.chunk.css",
     "static/js/2.43219f91.chunk.js",
-    "static/css/main.801b049e.chunk.css",
-    "static/js/main.41ef9c4e.chunk.js"
+    "static/css/main.223f4ae4.chunk.css",
+    "static/js/main.0e3f729c.chunk.js"
   ]
 }
