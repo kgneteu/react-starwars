@@ -1,11 +1,26 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState, Suspense} from "react";
 import {Loader} from "./UI/loader/loader";
 import {BasicCard} from "./basicCard";
 import PropTypes from "prop-types";
 import MediaQuery from "react-responsive";
 import {Link} from "react-router-dom";
 import NeonButton from "./UI/neonButton/neonButton";
+import useVisible from "../hooks/useVisible";
+
+
+function DelayedAppear({children}) {
+    //todo republic cruiser
+    const target = useRef()
+    // const isVisible = useVisible(target, false, false)
+    // console.log(isVisible)
+    // let content='';
+    // if (isVisible) content=children;
+
+    return (<Suspense><div ref={target}>{children}</div></Suspense>)
+}
+
+DelayedAppear.propTypes = {children: PropTypes.node};
 
 const FeaturedBox = ({title, stateSlice, getDataAction}) => {
     const itemsMap = useSelector(state => state[stateSlice].items)
@@ -17,9 +32,11 @@ const FeaturedBox = ({title, stateSlice, getDataAction}) => {
             setLoading(false)
         )
     }, [dispatch, getDataAction])
+
+    if (loading) return <Loader/>
     return (
-        <>
-            <section className={'bg-black bg-opacity-75 my-24 w-full'}>
+        <DelayedAppear>
+            <section className={'bg-black bg-opacity-75 my-24 w-full animate-appear'}>
                 <div className={'container mx-auto'}>
                     <h2>{title}</h2>
                     <div className='flex gap-8 justify-center'>
@@ -52,7 +69,8 @@ const FeaturedBox = ({title, stateSlice, getDataAction}) => {
                     </div>
                 </div>
             </section>
-        </>
+        </DelayedAppear>
+
     )
 };
 

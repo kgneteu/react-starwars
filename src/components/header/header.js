@@ -2,6 +2,7 @@ import {Link, NavLink} from "react-router-dom";
 import classes from "./header.module.scss";
 import React from "react";
 import logo from '../../assets/images/star_wars_logo.svg'
+import MobileMenu from "../mobileMenu";
 function Header() {
     return (
         <header className={classes.header}>
@@ -22,6 +23,7 @@ function Header() {
                     <NavLink to={'/planets'}>Planets</NavLink>
                     <NavLink to={'/species'}>Species </NavLink>
                 </nav>
+                <MobileMenu/>
             </div>
         </header>
     );

@@ -1,6 +1,5 @@
 import {globalError} from "./toast-actions";
 import {apiGetDataItem, apiGetDataPage} from "../../api/api";
-import {error} from "autoprefixer/lib/utils";
 
 export async function getNextDataPage(options) {
     try {
