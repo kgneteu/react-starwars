@@ -2,6 +2,15 @@
   "name": "react-html5",
   "version": "0.1.0",
   "private": true,
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,ts,jsx,tsx}",
+      "!**/*.d.ts",
+      "!**/service-worker.js",
+      "!**/reportWebVitals.js",
+      "!**/serviceWorkerRegistration.js"
+    ]
+  },
   "dependencies": {
     "axios": "^0.24.0",
     "clsx": "^1.1.1",
@@ -27,7 +36,8 @@
     "test coverage": "npm test -- --coverage --watchAll",
     "copy SWAPI": "node tools/copy-sw-api.js",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "deploy": "npm run build && gh-pages -d build"
+    "predeploy": "craco build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
