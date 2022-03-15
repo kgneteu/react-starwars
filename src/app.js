@@ -1,7 +1,7 @@
 import StarParallax from "./components/UI/starParallax/starParallax";
 import {HashRouter as Router, Route, Routes} from "react-router-dom";
 import {Toasts} from "./components/UI/toasts/toasts";
-import {Home} from "./components/Home/home";
+import {Home} from "./components/home/home";
 import CategoryPage from "./components/categoryPage";
 import {getNextVehicleDataPage} from "./store/actions/vehicles-actions";
 import {getNextFilmDataPage} from "./store/actions/films-actions";
@@ -10,14 +10,14 @@ import {getNextPlanetDataPage} from "./store/actions/planets-actions";
 import {getNextStarshipDataPage} from "./store/actions/starships-actions";
 import {getNextSpeciesDataPage} from "./store/actions/species-actions";
 import Page404 from "./components/page404";
-import FilmPage from "./components/Films/filmPage";
+import FilmPage from "./components/films/filmPage";
 import Header from "./components/header/header";
-import CharacterPage from "./components/Characters/characterPage";
-import PlanetPage from "./components/Planets/planetPage";
-import StarshipPage from "./components/Starships/starshipPage";
-import SpeciesPage from "./components/Species/speciesPage";
-import Footer from "./components/footer";
-import VehiclePage from "./components/Vehicles/vehiclePage";
+import CharacterPage from "./components/characters/characterPage";
+import PlanetPage from "./components/planets/planetPage";
+import StarshipPage from "./components/starships/starshipPage";
+import SpeciesPage from "./components/species/speciesPage";
+import Footer from "./components/footer/footer";
+import VehiclePage from "./components/vehicles/vehiclePage";
 import ScrollToTop from "./components/scrollToTop/scrollToTop";
 
 const App = () => {

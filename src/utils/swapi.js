@@ -25,7 +25,7 @@ const starWarsAPIModel = {
     },
     characters: {
         type: Array,
-        label: 'Characters'
+        label: 'characters'
     },
     consumables: {
         type: String,
@@ -69,7 +69,7 @@ const starWarsAPIModel = {
     },
     films: {
         type: Array,
-        label: 'Films'
+        label: 'films'
     },
     gender: {
         type: String,
@@ -94,7 +94,7 @@ const starWarsAPIModel = {
     },
     homeworld: {
         type: String,
-        label: 'Home world',
+        label: 'home world',
         link: true,
     },
     hyperdrive_rating: {
@@ -152,7 +152,7 @@ const starWarsAPIModel = {
     },
     planets: {
         type: Array,
-        label: 'Planets'
+        label: 'planets'
     },
     population: {
         type: String,
@@ -184,7 +184,7 @@ const starWarsAPIModel = {
     },
     species: {
         type: Array,
-        label: 'Species'
+        label: 'species'
     },
     surface_water: {
         type: String,
@@ -192,7 +192,7 @@ const starWarsAPIModel = {
     },
     starships: {
         type: Array,
-        label: 'Starships'
+        label: 'starships'
     },
     starship_class: {
         type: String,
@@ -208,14 +208,14 @@ const starWarsAPIModel = {
     },
     vehicles: {
         type: Array,
-        label: 'Vehicles'
+        label: 'vehicles'
     },
 
 }
 
 
 // <tr>
-//     <td>Characters</td>
+//     <td>characters</td>
 //     <td>{film.characters.length > 0 && film.characters.map(
 //         film => <p className={'max-w-lg'}>{film}</p>
 //     )}</td>

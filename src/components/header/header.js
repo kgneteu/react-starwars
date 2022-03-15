@@ -3,7 +3,31 @@ import classes from "./header.module.scss";
 import React from "react";
 import logo from '../../assets/images/star_wars_logo.svg'
 import MobileMenu from "../mobileMenu";
+import {useMediaQuery} from "react-responsive";
+
+function menuLinks() {
+    // return <nav>
+    //     <NavLink to={"/"}>Home</NavLink>
+    //     <NavLink to={"/films"}>Films</NavLink>
+    //     <NavLink to={"/characters"}>Characters</NavLink>
+    //     <NavLink to={"/starships"}>Starships </NavLink>
+    //     <NavLink to={"/vehicles"}>Vehicles </NavLink>
+    //     <NavLink to={"/planets"}>Planets</NavLink>
+    //     <NavLink to={"/species"}>Species </NavLink>
+    // </nav>;
+    return [
+        {to: "/", title: "Home"},
+        {to: "/films", title: "Films"},
+        {to: "/characters", title: "Characters"},
+        {to: "/starships", title: "Starships"},
+        {to: "/vehicles", title: "Vehicles"},
+        {to: "/planets", title: "Planets"},
+        {to: "/species", title: "Species"},
+    ]
+}
+
 function Header() {
+    const isSmallScreen = useMediaQuery({query: '(max-width: 1024px)'})
     return (
         <header className={classes.header}>
             <div className={'flex container mx-auto'}>
@@ -14,19 +38,17 @@ function Header() {
                     </Link>
                 </div>
                 <div className={' flex-grow'}/>
-                <nav>
-                    <NavLink to={'/'}>Home</NavLink>
-                    <NavLink to={'/films'}>Films</NavLink>
-                    <NavLink to={'/characters'}>Characters</NavLink>
-                    <NavLink to={'/starships'}>Starships </NavLink>
-                    <NavLink to={'/vehicles'}>Vehicles </NavLink>
-                    <NavLink to={'/planets'}>Planets</NavLink>
-                    <NavLink to={'/species'}>Species </NavLink>
-                </nav>
-                <MobileMenu/>
+                {!isSmallScreen &&
+                    <nav>
+                        {menuLinks().map((link, index) =>
+                            <NavLink key={index} to={link.to}>{link.title}</NavLink>
+                        )}
+                    </nav>}
+                {isSmallScreen && <MobileMenu links={() => menuLinks()}/>}
             </div>
         </header>
-    );
+    )
+
 }
 
 export default React.memo(Header);
