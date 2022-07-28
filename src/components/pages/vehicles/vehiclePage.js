@@ -1,5 +1,5 @@
 import {useParams} from "react-router";
-import {LandingPage} from "../landingPage";
+import {LandingPage} from "../../landingPage";
 
 
 

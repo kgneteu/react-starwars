@@ -4,9 +4,9 @@ import classes from "./flipCard.module.scss";
 export const FlipCard = ({children}) => {
 
     return (
-        <div className={classes.flipCard}>
+        <article className={classes.flipCard}>
             {children}
-        </div>
+        </article>
     )
 }
 

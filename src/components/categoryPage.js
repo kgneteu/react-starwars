@@ -2,7 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useRef, useState} from "react";
 import useVisible from "../hooks/useVisible";
 import PropTypes from "prop-types";
-import {BasicCard} from "./basicCard";
+import {ArticleCard} from "./articleCard/articleCard";
 import {Loader} from "./UI/loader/loader";
 import {PageTitle} from "./pageTitle";
 
@@ -35,7 +35,7 @@ const CategoryPage = ({title = '', stateSlice, getDataAction, ...rest}) => {
                     {items.size > 0 && [...items.values()].map((item) => {
                         return (
                             // <div className={'animate-appear'}>
-                                <BasicCard key={item.id} item={item} category={stateSlice}/>
+                                <ArticleCard key={item.id} item={item} category={stateSlice}/>
                             // </div>
                         )
                     })}

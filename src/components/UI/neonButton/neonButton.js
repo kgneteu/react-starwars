@@ -1,4 +1,4 @@
-import classes from './neonButon.module.scss'
+import classes from './neonButton.module.scss'
 import clsx from "clsx";
 
 const NeonButton = ({children, small, className = ''}) => {

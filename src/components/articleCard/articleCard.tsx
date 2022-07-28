@@ -1,9 +1,10 @@
-import * as PropTypes from "prop-types";
-import {formatSWAPIDataTable} from "../utils/swapi";
-import {FlipCard} from "./UI/flipCard/flipCard";
+import {formatSWAPIDataTable} from "../../utils/swapi";
+import {FlipCard} from "../UI/flipCard/flipCard";
 import {Link} from "react-router-dom";
-import {CloudImage} from "./cloudImage";
-import NeonButton from "./UI/neonButton/neonButton";
+import {CloudImage} from "../UI/cloudImage/cloudImage";
+import NeonButton from "../UI/neonButton/neonButton";
+import React from "react";
+import PropTypes from 'prop-types';
 
 
 // <img
@@ -14,7 +15,16 @@ import NeonButton from "./UI/neonButton/neonButton";
 //     }}
 // />
 
-export const BasicCard = ({category, item}) => {
+type BasicCardProps = {
+    category: string,
+    item: {
+        name: string,
+        title: string,
+        id: number
+    }
+}
+
+export function ArticleCard({category, item}:BasicCardProps) {
     const itemDataTable = formatSWAPIDataTable(item, 5, true)
     let title = item.name !== undefined ? item.name : item.title;
     //console.log(`https://res.cloudinary.com/di6qjuwyo/starwars/${category}/${item.id}.jpg`)
@@ -51,7 +61,7 @@ export const BasicCard = ({category, item}) => {
     )
 }
 
-BasicCard.propTypes = {
+ArticleCard.propTypes = {
     category: PropTypes.string,
     item: PropTypes.object,
 };

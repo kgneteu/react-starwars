@@ -1,18 +1,18 @@
-import {PageTitle} from "../pageTitle";
+import {PageTitle} from "../../pageTitle";
 import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {getFilms} from "../../store/actions/films-actions";
-import {CloudImage} from "../cloudImage";
-import Crawl from "../crawl";
-import {formatSWAPIDataTable} from "../../utils/swapi";
-import {Loader} from "../UI/loader/loader";
-import {getCharacters} from "../../store/actions/characters-actions";
-import {DataBox} from "../dataBox";
-import {getStarships} from "../../store/actions/starships-actions";
-import {getVehicles} from "../../store/actions/vehicles-actions";
-import {getPlanets} from "../../store/actions/planets-actions";
-import {getSpecies} from "../../store/actions/species-actions";
+import {getFilms} from "../../../store/actions/films-actions";
+import {CloudImage} from "../../UI/cloudImage/cloudImage";
+import Crawl from "../../crawl/crawl";
+import {formatSWAPIDataTable} from "../../../utils/swapi";
+import {Loader} from "../../UI/loader/loader";
+import {getCharacters} from "../../../store/actions/characters-actions";
+import {DataBox} from "../../dataBox";
+import {getStarships} from "../../../store/actions/starships-actions";
+import {getVehicles} from "../../../store/actions/vehicles-actions";
+import {getPlanets} from "../../../store/actions/planets-actions";
+import {getSpecies} from "../../../store/actions/species-actions";
 
 
 

@@ -3,7 +3,7 @@ import {useEffect} from "react";
 import {getCharacters} from "../store/actions/characters-actions";
 import {Loader} from "./UI/loader/loader";
 import {PageTitle} from "./pageTitle";
-import {CloudImage} from "./cloudImage";
+import {CloudImage} from "./UI/cloudImage/cloudImage";
 import {formatSWAPIDataTable} from "../utils/swapi";
 import {DataBox} from "./dataBox";
 import {getFilms} from "../store/actions/films-actions";

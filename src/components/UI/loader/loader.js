@@ -4,7 +4,7 @@ export function Loader() {
     return (
         <div className={'text-center w-auto opacity-0 animate-delay-appear'}>
             <div className={'w-auto inline-block overflow-hidden'}>
-                <img src={loaderImage} className={'animate-spin-slow inline w-24'}/>
+                <img src={loaderImage} className={'animate-spin-slow inline w-24'} alt={'Loading...'}/>
                 <p className={'inline uppercase animate-pulse-slow'}>Loading...</p>
             </div>
         </div>
