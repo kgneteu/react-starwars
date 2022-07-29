@@ -2,7 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {getCharacters} from "../store/characters/characters.actions";
 import {Loader} from "./UI/loader/loader";
-import {PageTitle} from "./pageTitle";
+import {PageTitle} from "./UI/pageTitle/pageTitle";
 import {CloudImage} from "./UI/cloudImage/cloudImage";
 import {formatSWAPIDataTable} from "../utils/swapi";
 import {DataBox} from "./dataBox";

@@ -4,7 +4,7 @@ import useVisible from "../hooks/useVisible";
 import PropTypes from "prop-types";
 import {ArticleCard} from "./articleCard/articleCard";
 import {Loader} from "./UI/loader/loader";
-import {PageTitle} from "./pageTitle";
+import {PageTitle} from "./UI/pageTitle/pageTitle";
 
 
 const CategoryPage = ({title = '', stateSlice, getDataAction, ...rest}) => {

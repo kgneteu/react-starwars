@@ -1,4 +1,5 @@
 import {ToastsAction} from "./toasts.types";
+import {AnyAction} from "redux";
 
 const INIT_STATE = {
     error: false,
@@ -6,7 +7,7 @@ const INIT_STATE = {
     msg: '',
 }
 
-export default function toastsReducer(state = INIT_STATE, action) {
+export default function toastsReducer(state = INIT_STATE, action: AnyAction) {
     switch (action.type) {
         case ToastsAction.GLOBAL_ERROR:
             return {...state, error: true, msg: action.payload}

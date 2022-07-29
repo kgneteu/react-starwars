@@ -1,4 +1,4 @@
-import {PageTitle} from "../../pageTitle";
+import {PageTitle} from "../../UI/pageTitle/pageTitle";
 import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";

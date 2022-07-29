@@ -1,8 +1,15 @@
 import classes from './mobileMenu.module.scss';
 import {NavLink} from "react-router-dom";
-import {useRef} from "react";
+import {MouseEventHandler, useRef} from "react";
 
-function HeaderLink({id, title, link, onClose}) {
+type HeaderLinkProps = {
+    id: string,
+    title: string,
+    link: string
+    onClose: MouseEventHandler
+}
+
+function HeaderLink({id, title, link, onClose}: HeaderLinkProps) {
     return (<li className={classes.mobileMenu__item}>
         <NavLink to={link} className={classes.mobileMenu__link} onClick={onClose}>
             {/*<span>{id}</span>*/}
@@ -11,11 +18,15 @@ function HeaderLink({id, title, link, onClose}) {
     </li>);
 }
 
-const MobileMenu = ({links}) => {
-    const menuCheckRef = useRef(null);
+type MobileMenuProps = {
+    links: () => { to: string, title: string }[]
+}
+
+const MobileMenu = ({links}: MobileMenuProps) => {
+    const menuCheckRef = useRef<HTMLInputElement>(null);
 
     const onMenuClose = () => {
-        menuCheckRef.current.click();
+        menuCheckRef.current?.click();
     };
 
     return (
@@ -29,7 +40,7 @@ const MobileMenu = ({links}) => {
             <nav className={classes.mobileMenu__nav}>
                 <ul className={classes.mobileMenu__list}>
                     {links().map((link, index) =>
-                        <HeaderLink id={index} key={index} link={link.to} title={link.title}
+                        <HeaderLink id={`${index}`} key={index} link={link.to} title={link.title}
                                     onClose={() => onMenuClose()}/>
                     )}
                 </ul>

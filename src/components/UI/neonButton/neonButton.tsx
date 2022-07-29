@@ -3,7 +3,7 @@ import clsx from "clsx";
 import React, {ReactNode} from "react";
 
 type Props = {
-    small: boolean,
+    small?: boolean,
     className: string
     children: ReactNode
 }

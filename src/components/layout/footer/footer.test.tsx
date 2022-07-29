@@ -8,7 +8,7 @@ describe(Footer.name, () => {
         expect(screen.getByText(/Zdolski/i)).toBeInTheDocument();
     });
 
-    test("should render", async () => {
+    test("should match snapshot", async () => {
         const {container} = render(<Footer/>);
         expect(container.firstChild).toMatchInlineSnapshot(`
     <footer

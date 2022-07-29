@@ -1,13 +1,12 @@
 import { render } from "@testing-library/react";
 import NeonButton from "./neonButton";
 
-describe('', function () {
+describe(NeonButton.name, function () {
   test("Should render", () => {
-    const el = render(
-        <NeonButton className={"w-60"}>more</NeonButton>
-    ).asFragment();
-    expect(el).toMatchInlineSnapshot(`
-    <DocumentFragment>
+    const { container } = render(
+      <NeonButton className={"w-60"}>more</NeonButton>
+    );
+    expect(container.firstChild).toMatchInlineSnapshot(`
       <div
         class="container w-60"
       >
@@ -17,8 +16,6 @@ describe('', function () {
           more
         </div>
       </div>
-    </DocumentFragment>
-  `);
+    `);
   });
-
 });
