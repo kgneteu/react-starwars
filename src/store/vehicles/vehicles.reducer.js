@@ -1,4 +1,4 @@
-import {GET_VEHICLE_PAGE, GET_VEHICLES} from "../actions/types";
+import {VehiclesAction} from "./vehicles.types";
 
 const INIT_STATE = {
     dataEnd: false,
@@ -8,9 +8,9 @@ const INIT_STATE = {
 
 export default function vehiclesReducer(state = INIT_STATE, action) {
     switch (action.type) {
-        case GET_VEHICLE_PAGE:
+        case VehiclesAction.GET_VEHICLE_PAGE:
             return {...state, ...action.payload}
-        case GET_VEHICLES:
+        case VehiclesAction.GET_VEHICLES:
             return {...state, items: action.payload}
         default:
             return state;

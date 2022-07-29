@@ -3,12 +3,12 @@ import {HashRouter as Router, Route, Routes} from "react-router-dom";
 import {Toasts} from "./components/UI/toasts/toasts";
 import {Home} from "./components/pages/home/home";
 import CategoryPage from "./components/categoryPage";
-import {getNextVehicleDataPage} from "./store/actions/vehicles-actions";
-import {getNextFilmDataPage} from "./store/actions/films-actions";
-import {getNextCharacterDataPage} from "./store/actions/characters-actions";
-import {getNextPlanetDataPage} from "./store/actions/planets-actions";
-import {getNextStarshipDataPage} from "./store/actions/starships-actions";
-import {getNextSpeciesDataPage} from "./store/actions/species-actions";
+import {getNextVehicleDataPage} from "./store/vehicles/vehicles.actions";
+import {getNextFilmDataPage} from "./store/films/films.actions";
+import {getNextCharacterDataPage} from "./store/characters/characters.actions";
+import {getNextPlanetDataPage} from "./store/planets/planets.actions";
+import {getNextStarshipDataPage} from "./store/starships/starships.actions";
+import {getNextSpeciesDataPage} from "./store/species/species.actions";
 import Page404 from "./components/pages/page404/page404";
 import FilmPage from "./components/pages/films/filmPage";
 import Header from "./components/layout/header/header";
@@ -21,7 +21,7 @@ import VehiclePage from "./components/pages/vehicles/vehiclePage";
 import ScrollToTop from "./components/scrollToTop/scrollToTop";
 import React from "react";
 
-const App:React.FC<{}> = () => {
+const App = () => {
     return (
         <>
             <StarParallax/>

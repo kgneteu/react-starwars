@@ -1,16 +1,16 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {getCharacters} from "../store/actions/characters-actions";
+import {getCharacters} from "../store/characters/characters.actions";
 import {Loader} from "./UI/loader/loader";
 import {PageTitle} from "./pageTitle";
 import {CloudImage} from "./UI/cloudImage/cloudImage";
 import {formatSWAPIDataTable} from "../utils/swapi";
 import {DataBox} from "./dataBox";
-import {getFilms} from "../store/actions/films-actions";
-import {getStarships} from "../store/actions/starships-actions";
-import {getVehicles} from "../store/actions/vehicles-actions";
-import {getPlanets} from "../store/actions/planets-actions";
-import {getSpecies} from "../store/actions/species-actions";
+import {getFilms} from "../store/films/films.actions";
+import {getStarships} from "../store/starships/starships.actions";
+import {getVehicles} from "../store/vehicles/vehicles.actions";
+import {getPlanets} from "../store/planets/planets.actions";
+import {getSpecies} from "../store/species/species.actions";
 
 const dataLoader = {
     films: getFilms,

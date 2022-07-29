@@ -1,0 +1,5 @@
+export const ToastsAction = {
+    GLOBAL_SUCCESS: 'GLOBAL_SUCCESS',
+    GLOBAL_ERROR: 'GLOBAL_ERROR',
+    CLEAR_TOAST: 'CLEAR_TOAST',
+}

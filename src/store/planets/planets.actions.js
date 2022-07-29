@@ -1,5 +1,5 @@
-import {getNextDataPage, getDataItems} from "./api-actions";
-import {GET_PLANET_PAGE, GET_PLANETS} from "./types";
+import {getNextDataPage, getDataItems} from "../utils/api-actions";
+import {PlanetsAction} from "./planets.types";
 
 export function getNextPlanetDataPage() {
     return async (dispatch, getState) => {
@@ -7,7 +7,7 @@ export function getNextPlanetDataPage() {
             oldState: getState().planets,
             dispatch: dispatch,
             resourceType: 'planets',
-            actionType: GET_PLANET_PAGE
+            actionType: PlanetsAction.GET_PLANET_PAGE
         }
         await getNextDataPage(options)
     }
@@ -19,7 +19,7 @@ export function getPlanets(planetIds) {
             oldState: getState().planets,
             dispatch: dispatch,
             resourceType: 'planets',
-            actionType: GET_PLANETS,
+            actionType: PlanetsAction.GET_PLANETS,
             selectedItems: planetIds,
 
         }

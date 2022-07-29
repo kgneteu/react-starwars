@@ -1,5 +1,5 @@
-import {GET_VEHICLE_PAGE, GET_VEHICLES} from "./types";
-import {getNextDataPage, getDataItems} from "./api-actions";
+import {getNextDataPage, getDataItems} from "../utils/api-actions";
+import {VehiclesAction} from "./vehicles.types";
 
 
 export function getNextVehicleDataPage() {
@@ -8,7 +8,7 @@ export function getNextVehicleDataPage() {
             oldState: getState().vehicles,
             dispatch: dispatch,
             resourceType: 'vehicles',
-            actionType: GET_VEHICLE_PAGE
+            actionType: VehiclesAction.GET_VEHICLE_PAGE
         }
         await getNextDataPage(options)
     }
@@ -20,7 +20,7 @@ export function getVehicles(vehicleIds) {
             oldState: getState().vehicles,
             dispatch: dispatch,
             resourceType: 'vehicles',
-            actionType: GET_VEHICLES,
+            actionType: VehiclesAction.GET_VEHICLES,
             selectedItems: vehicleIds,
 
         }

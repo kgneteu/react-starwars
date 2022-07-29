@@ -1,4 +1,4 @@
-import {globalError} from "./toast-actions";
+import {globalError} from "../toasts/toasts.actions";
 import {apiGetDataItem, apiGetDataPage} from "../../api/api";
 
 export async function getNextDataPage(options) {

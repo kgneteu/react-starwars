@@ -1,5 +1,5 @@
-import {GET_FILM_PAGE, GET_FILMS} from "./types";
-import {getNextDataPage, getDataItems} from "./api-actions";
+import {getNextDataPage, getDataItems} from "../utils/api-actions";
+import {FilmsAction} from "./films.types";
 
 
 export function getNextFilmDataPage() {
@@ -8,7 +8,7 @@ export function getNextFilmDataPage() {
             oldState: getState().films,
             dispatch: dispatch,
             resourceType: 'films',
-            actionType: GET_FILM_PAGE
+            actionType: FilmsAction.GET_FILM_PAGE
         }
         await getNextDataPage(options)
     }
@@ -20,7 +20,7 @@ export function getFilms(filmIds) {
             oldState: getState().films,
             dispatch: dispatch,
             resourceType: 'films',
-            actionType: GET_FILMS,
+            actionType: FilmsAction.GET_FILMS,
             selectedItems: filmIds,
 
         }

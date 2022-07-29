@@ -20,24 +20,24 @@ function menuLinks() {
 function Header() {
     const isSmallScreen = useMediaQuery({query: '(max-width: 1024px)'})
     return (
-        <header className={classes.header}>
-            <div className={'flex container mx-auto'}>
-                <div className={'w-48 text-center'}>
-                    <Link to={'/'} className={''}>
-                        <img src={logo} className={classes.logo} alt={'StarWars Fandom'}/>
-                        <div className={classes.logoTitle}>Fandom</div>
-                    </Link>
+            <header className={classes.header}>
+                <div className={'flex container mx-auto'}>
+                    <div className={'w-48 text-center'}>
+                        <Link to={'/'} className={''}>
+                            <img src={logo} className={classes.logo} alt={'StarWars Fandom'}/>
+                            <div className={classes.logoTitle}>Fandom</div>
+                        </Link>
+                    </div>
+                    <div className={' flex-grow'}/>
+                    {!isSmallScreen &&
+                        <nav>
+                            {menuLinks().map((link, index) =>
+                                <NavLink key={index} to={link.to}>{link.title}</NavLink>
+                            )}
+                        </nav>}
+                    {isSmallScreen && <MobileMenu links={() => menuLinks()}/>}
                 </div>
-                <div className={' flex-grow'}/>
-                {!isSmallScreen &&
-                    <nav>
-                        {menuLinks().map((link, index) =>
-                            <NavLink key={index} to={link.to}>{link.title}</NavLink>
-                        )}
-                    </nav>}
-                {isSmallScreen && <MobileMenu links={() => menuLinks()}/>}
-            </div>
-        </header>
+            </header>
     )
 
 }

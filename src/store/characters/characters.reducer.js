@@ -1,4 +1,4 @@
-import {GET_PLANET_PAGE, GET_PLANETS} from "../actions/types";
+import {CharactersAction} from "./character.types";
 
 const INIT_STATE = {
     dataEnd: false,
@@ -6,11 +6,11 @@ const INIT_STATE = {
     items: new Map(),
 }
 
-export default function planetsReducer(state = INIT_STATE, action) {
+export default function charactersReducer(state = INIT_STATE, action) {
     switch (action.type) {
-        case GET_PLANET_PAGE:
+        case CharactersAction.GET_CHARACTER_PAGE:
             return {...state, ...action.payload}
-        case GET_PLANETS:
+        case CharactersAction.GET_CHARACTERS:
             return {...state, items: action.payload}
         default:
             return state;

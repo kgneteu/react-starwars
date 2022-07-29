@@ -1,10 +1,10 @@
 import FeaturedBox from "../../featuredBox";
-import {getNextFilmDataPage} from "../../../store/actions/films-actions";
-import {getNextCharacterDataPage} from "../../../store/actions/characters-actions";
-import {getNextPlanetDataPage} from "../../../store/actions/planets-actions";
-import {getNextStarshipDataPage} from "../../../store/actions/starships-actions";
-import {getNextVehicleDataPage} from "../../../store/actions/vehicles-actions";
-import {getNextSpeciesDataPage} from "../../../store/actions/species-actions";
+import {getNextFilmDataPage} from "../../../store/films/films.actions";
+import {getNextCharacterDataPage} from "../../../store/characters/characters.actions";
+import {getNextPlanetDataPage} from "../../../store/planets/planets.actions";
+import {getNextStarshipDataPage} from "../../../store/starships/starships.actions";
+import {getNextVehicleDataPage} from "../../../store/vehicles/vehicles.actions";
+import {getNextSpeciesDataPage} from "../../../store/species/species.actions";
 import {Main} from "../../main";
 
 

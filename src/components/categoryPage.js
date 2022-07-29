@@ -30,12 +30,12 @@ const CategoryPage = ({title = '', stateSlice, getDataAction, ...rest}) => {
     return (
         <>
             <PageTitle title={pageTitle}/>
-            <div className={'container mx-auto'}>
+            <div className={'container mx-auto '}>
                 <div className='flex flex-wrap justify-center gap-8 relative'>
                     {items.size > 0 && [...items.values()].map((item) => {
                         return (
                             // <div className={'animate-appear'}>
-                                <ArticleCard key={item.id} item={item} category={stateSlice}/>
+                                <ArticleCard key={item.id+new Date().getMilliseconds()} item={item} category={stateSlice}/>
                             // </div>
                         )
                     })}

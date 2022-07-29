@@ -1,4 +1,4 @@
-import {GET_STARSHIP_PAGE, GET_STARSHIPS} from "../actions/types";
+import {StarshipsAction} from "./starships.types";
 
 const INIT_STATE = {
     dataEnd: false,
@@ -8,9 +8,9 @@ const INIT_STATE = {
 
 export default function starshipsReducer(state = INIT_STATE, action) {
     switch (action.type) {
-        case GET_STARSHIP_PAGE:
+        case StarshipsAction.GET_STARSHIP_PAGE:
             return {...state, ...action.payload}
-        case GET_STARSHIPS:
+        case StarshipsAction.GET_STARSHIPS:
             return {...state, items: action.payload}
         default:
             return state;

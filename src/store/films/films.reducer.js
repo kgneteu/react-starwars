@@ -1,4 +1,4 @@
-import {GET_CHARACTER_PAGE, GET_CHARACTERS} from "../actions/types";
+import {FilmsAction} from "./films.types";
 
 const INIT_STATE = {
     dataEnd: false,
@@ -6,11 +6,11 @@ const INIT_STATE = {
     items: new Map(),
 }
 
-export default function charactersReducer(state = INIT_STATE, action) {
+export default function filmsReducer(state = INIT_STATE, action) {
     switch (action.type) {
-        case GET_CHARACTER_PAGE:
+        case FilmsAction.GET_FILM_PAGE:
             return {...state, ...action.payload}
-        case GET_CHARACTERS:
+        case FilmsAction.GET_FILMS:
             return {...state, items: action.payload}
         default:
             return state;

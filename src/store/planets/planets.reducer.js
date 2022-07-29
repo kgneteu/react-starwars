@@ -1,4 +1,4 @@
-import {GET_FILM_PAGE, GET_FILMS} from "../actions/types";
+import {PlanetsAction} from "./planets.types";
 
 const INIT_STATE = {
     dataEnd: false,
@@ -6,11 +6,11 @@ const INIT_STATE = {
     items: new Map(),
 }
 
-export default function filmsReducer(state = INIT_STATE, action) {
+export default function planetsReducer(state = INIT_STATE, action) {
     switch (action.type) {
-        case GET_FILM_PAGE:
+        case PlanetsAction.GET_PLANET_PAGE:
             return {...state, ...action.payload}
-        case GET_FILMS:
+        case PlanetsAction.GET_PLANETS:
             return {...state, items: action.payload}
         default:
             return state;

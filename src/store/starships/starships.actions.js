@@ -1,5 +1,5 @@
-import {GET_STARSHIP_PAGE, GET_STARSHIPS} from "./types";
-import {getNextDataPage, getDataItems} from "./api-actions";
+import {getNextDataPage, getDataItems} from "../utils/api-actions";
+import {StarshipsAction} from "./starships.types";
 
 
 export function getNextStarshipDataPage() {
@@ -8,7 +8,7 @@ export function getNextStarshipDataPage() {
             oldState: getState().starships,
             dispatch: dispatch,
             resourceType: 'starships',
-            actionType: GET_STARSHIP_PAGE
+            actionType: StarshipsAction.GET_STARSHIP_PAGE
         }
         await getNextDataPage(options)
     }
@@ -21,7 +21,7 @@ export function getStarships(starshipIds) {
             oldState: getState().starships,
             dispatch: dispatch,
             resourceType: 'starships',
-            actionType: GET_STARSHIPS,
+            actionType: StarshipsAction.GET_STARSHIPS,
             selectedItems: starshipIds,
 
         }

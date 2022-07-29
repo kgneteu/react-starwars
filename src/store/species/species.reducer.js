@@ -1,4 +1,4 @@
-import {GET_SPECIES, GET_SPECIES_PAGE} from "../actions/types";
+import {SpeciesAction} from "./species.types";
 
 const INIT_STATE = {
     dataEnd: false,
@@ -8,9 +8,9 @@ const INIT_STATE = {
 
 export default function speciesReducer(state = INIT_STATE, action) {
     switch (action.type) {
-        case GET_SPECIES_PAGE:
+        case SpeciesAction.GET_SPECIES_PAGE:
             return {...state, ...action.payload}
-        case GET_SPECIES:
+        case SpeciesAction.GET_SPECIES:
             return {...state, items: action.payload}
         default:
             return state;

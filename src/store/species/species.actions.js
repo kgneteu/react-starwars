@@ -1,5 +1,5 @@
-import {GET_SPECIES, GET_SPECIES_PAGE} from "./types";
-import {getNextDataPage, getDataItems} from "./api-actions";
+import {getNextDataPage, getDataItems} from "../utils/api-actions";
+import {SpeciesAction} from "./species.types";
 
 
 export function getNextSpeciesDataPage() {
@@ -8,7 +8,7 @@ export function getNextSpeciesDataPage() {
             oldState: getState().species,
             dispatch: dispatch,
             resourceType: 'species',
-            actionType: GET_SPECIES_PAGE
+            actionType: SpeciesAction.GET_SPECIES_PAGE
         }
         await getNextDataPage(options)
     }
@@ -21,9 +21,8 @@ export function getSpecies(speciesIds) {
             oldState: getState().species,
             dispatch: dispatch,
             resourceType: 'species',
-            actionType: GET_SPECIES,
+            actionType: SpeciesAction.GET_SPECIES,
             selectedItems: speciesIds,
-
         }
         await getDataItems(options)
     }

@@ -1,19 +1,19 @@
-import {CLEAR_TOAST, GLOBAL_ERROR, GLOBAL_SUCCESS} from "./types";
+import {ToastsAction} from "./toasts.types";
 
 export const globalError = (msg) => ({
-    type: GLOBAL_ERROR,
+    type: ToastsAction.GLOBAL_ERROR,
     payload: msg
 });
 
 export const globalSuccess = (msg) => ({
-    type: GLOBAL_SUCCESS,
+    type: ToastsAction.GLOBAL_SUCCESS,
     payload: msg
 });
 
 export const clearToast = () => {
     return (dispatch) => {
         dispatch({
-            type: CLEAR_TOAST
+            type: ToastsAction.CLEAR_TOAST
         })
     }
 }

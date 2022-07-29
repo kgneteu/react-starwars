@@ -1,5 +1,5 @@
-import {GET_CHARACTER_PAGE, GET_CHARACTERS} from "./types";
-import {getNextDataPage, getDataItems} from "./api-actions";
+import {getNextDataPage, getDataItems} from "../utils/api-actions";
+import {CharactersAction} from "./character.types";
 
 
 export function getNextCharacterDataPage() {
@@ -8,7 +8,7 @@ export function getNextCharacterDataPage() {
             oldState: getState().characters,
             dispatch: dispatch,
             resourceType: 'people',
-            actionType: GET_CHARACTER_PAGE
+            actionType: CharactersAction.GET_CHARACTER_PAGE
         }
         await getNextDataPage(options)
     }
@@ -21,7 +21,7 @@ export function getCharacters(charactersIds) {
             oldState: getState().characters,
             dispatch: dispatch,
             resourceType: 'characters',
-            actionType: GET_CHARACTERS,
+            actionType: CharactersAction.GET_CHARACTERS,
             selectedItems: charactersIds,
 
         }
