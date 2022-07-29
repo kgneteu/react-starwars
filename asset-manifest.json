@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.da5ccac9.chunk.css",
-    "main.js": "/static/js/main.2f3cd001.chunk.js",
-    "main.js.map": "/static/js/main.2f3cd001.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.7896c11c.js",
-    "runtime-main.js.map": "/static/js/runtime-main.7896c11c.js.map",
+    "main.css": "/static/css/main.8c6cee99.chunk.css",
+    "main.js": "/static/js/main.b513c6bb.chunk.js",
+    "main.js.map": "/static/js/main.b513c6bb.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.96e981bb.js",
+    "runtime-main.js.map": "/static/js/runtime-main.96e981bb.js.map",
     "static/css/2.123f092d.chunk.css": "/static/css/2.123f092d.chunk.css",
-    "static/js/2.2530de47.chunk.js": "/static/js/2.2530de47.chunk.js",
-    "static/js/2.2530de47.chunk.js.map": "/static/js/2.2530de47.chunk.js.map",
-    "static/js/3.f1760cfe.chunk.js": "/static/js/3.f1760cfe.chunk.js",
-    "static/js/3.f1760cfe.chunk.js.map": "/static/js/3.f1760cfe.chunk.js.map",
+    "static/js/2.0e77f2f2.chunk.js": "/static/js/2.0e77f2f2.chunk.js",
+    "static/js/2.0e77f2f2.chunk.js.map": "/static/js/2.0e77f2f2.chunk.js.map",
+    "static/js/3.0cd9aa7d.chunk.js": "/static/js/3.0cd9aa7d.chunk.js",
+    "static/js/3.0cd9aa7d.chunk.js.map": "/static/js/3.0cd9aa7d.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.123f092d.chunk.css.map": "/static/css/2.123f092d.chunk.css.map",
-    "static/css/main.da5ccac9.chunk.css.map": "/static/css/main.da5ccac9.chunk.css.map",
-    "static/js/2.2530de47.chunk.js.LICENSE.txt": "/static/js/2.2530de47.chunk.js.LICENSE.txt",
+    "static/css/main.8c6cee99.chunk.css.map": "/static/css/main.8c6cee99.chunk.css.map",
+    "static/js/2.0e77f2f2.chunk.js.LICENSE.txt": "/static/js/2.0e77f2f2.chunk.js.LICENSE.txt",
     "static/media/jedi.d534cef7.svg": "/static/media/jedi.d534cef7.svg",
     "static/media/loader.c44865d4.png": "/static/media/loader.c44865d4.png",
     "static/media/index.scss": "/static/media/star-jedi.5c2d1aff.woff",
     "static/media/star_wars_logo.e3b54fcc.svg": "/static/media/star_wars_logo.e3b54fcc.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.7896c11c.js",
+    "static/js/runtime-main.96e981bb.js",
     "static/css/2.123f092d.chunk.css",
-    "static/js/2.2530de47.chunk.js",
-    "static/css/main.da5ccac9.chunk.css",
-    "static/js/main.2f3cd001.chunk.js"
+    "static/js/2.0e77f2f2.chunk.js",
+    "static/css/main.8c6cee99.chunk.css",
+    "static/js/main.b513c6bb.chunk.js"
   ]
 }
