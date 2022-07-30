@@ -5,7 +5,7 @@ export const enum VehiclesActionType {
 
 export type VehiclesState = {
     readonly dataEnd: boolean,
-    readonly next: string,
+    readonly next: number,
     readonly items: Map<any, any>,
 }
 

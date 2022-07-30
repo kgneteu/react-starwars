@@ -3,14 +3,15 @@ import {useDispatch, useSelector} from "react-redux";
 import {clearToast} from "../../../store/toasts/toasts.actions";
 import {useEffect} from "react";
 import 'react-toastify/dist/ReactToastify.css';
+import {RootState} from "../../../store";
 
 export function Toasts() {
-    const toasts = useSelector(state => state.toasts)
+    const toasts = useSelector((state: RootState) => state.toasts)
     const dispatch = useDispatch()
 
 
     useEffect(() => {
-        function showToast(type, msg) {
+        function showToast(type: string, msg: string) {
             switch (type) {
                 case 'SUCCESS':
                     toast.success(msg, {

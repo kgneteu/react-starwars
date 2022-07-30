@@ -4,7 +4,7 @@ import {ActionWithPayload} from "../utils/store.utils";
 
 const INIT_STATE: StarshipsState = {
     dataEnd: false,
-    next: '',
+    next: 0,
     items: new Map(),
 }
 

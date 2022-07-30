@@ -6,10 +6,12 @@
     "collectCoverageFrom": [
       "src/**/*.tsx",
       "src/**/*.js",
+      "src/**/*.ts",
       "!**/node_modules/**"
     ]
   },
   "dependencies": {
+    "@playwright/test": "^1.24.2",
     "@types/jest": "^28.1.6",
     "@types/node": "^18.6.1",
     "@types/react": "^18.0.15",
@@ -36,6 +38,7 @@
     "serve build": "serve -s build",
     "test": "craco test",
     "coverage": "craco test --coverage --watchAll",
+    "e2e": "playwright test --project=chromium --headed --config ./e2e/config/playwright.config.js",
     "copy SWAPI": "node tools/copy-sw-api.js",
     "source map explorer": "craco build && source-map-explorer 'build/static/js/*.js'",
     "webpack bundle anlyzer": "craco build --stats && webpack-bundle-analyzer build/bundle-stats.json",
@@ -71,6 +74,7 @@
     "@types/prop-types": "^15.7.5",
     "autoprefixer": "^9.8.8",
     "gh-pages": "^3.2.3",
+    "playwright": "^1.24.2",
     "postcss": "^7.0.39",
     "prettier": "^2.5.1",
     "prop-types": "^15.8.1",

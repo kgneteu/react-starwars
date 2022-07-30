@@ -5,7 +5,7 @@ export const enum FilmsActionType {
 
 export type FilmsState = {
     readonly dataEnd: boolean,
-    readonly next: string,
+    readonly next: number,
     readonly items: Map<any, any>,
 }
 

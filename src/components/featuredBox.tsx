@@ -6,9 +6,18 @@ import PropTypes from "prop-types";
 import MediaQuery from "react-responsive";
 import {Link} from "react-router-dom";
 import NeonButton from "./UI/neonButton/neonButton";
+import {Action} from "redux";
+import {RootState} from "../store";
 
-const FeaturedBox = ({title, stateSlice, getDataAction}) => {
-    const itemsMap = useSelector(state => state[stateSlice].items)
+type Props = {
+    title: string,
+    stateSlice: string,
+    getDataAction: () => any
+}
+
+const FeaturedBox = ({title, stateSlice, getDataAction}: Props) => {
+
+    const itemsMap = useSelector((state: { [index: string]: { items: Map<any, any> } }) => state[stateSlice].items)
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
 
