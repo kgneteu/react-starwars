@@ -4,7 +4,7 @@ import {getCharacters} from "../store/characters/characters.actions";
 import {Loader} from "./UI/loader/loader";
 import {PageTitle} from "./UI/pageTitle/pageTitle";
 import {CloudImage} from "./UI/cloudImage/cloudImage";
-import {formatSWAPIDataTable} from "../utils/swapi";
+import {formatSWAPIDataTable} from "../utils/swapi.utils";
 import {DataBox} from "./dataBox";
 import {getFilms} from "../store/films/films.actions";
 import {getStarships} from "../store/starships/starships.actions";

@@ -1,5 +1,5 @@
 import StarParallax from "./starParallax";
-import { render } from "@testing-library/react";
+import {render} from "@testing-library/react";
 
 describe(StarParallax.name, function () {
   it("should match snapshot", function () {

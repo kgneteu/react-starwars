@@ -11,7 +11,7 @@ type CloudImageProps = {
 
 export function CloudImage({category, preset, imgId, title, className}: CloudImageProps) {
     //todo alt image
-    const errorHandler = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const errorHandler = (e:    React.SyntheticEvent<HTMLImageElement>) => {
         e.currentTarget.src = jediLogo;
         //e.target.className = 'transform translate-x-1/2 translate-y-1/2 w-1/2 h-1/2';
     };
@@ -33,7 +33,7 @@ export function CloudImage({category, preset, imgId, title, className}: CloudIma
     return (
         <img
             className={className}
-            title={title}
+            // title={title}
             alt={title}
             src={`${process.env.REACT_APP_CLOUDINARY_URL}${transform}/starwars/${category}/${imgId}.jpg`}
             style={{}}

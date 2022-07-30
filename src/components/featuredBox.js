@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useRef, useState, Suspense} from "react";
+import {useEffect, useState} from "react";
 import {Loader} from "./UI/loader/loader";
 import {ArticleCard} from "./articleCard/articleCard";
 import PropTypes from "prop-types";

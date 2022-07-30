@@ -11,15 +11,15 @@ export function Toasts() {
 
     useEffect(() => {
         function showToast(type, msg) {
-            switch(type){
+            switch (type) {
                 case 'SUCCESS':
-                    toast.success(msg,{
+                    toast.success(msg, {
                         position: toast.POSITION.BOTTOM_RIGHT,
                         theme: 'dark',
                     })
                     break;
                 case 'ERROR':
-                    toast.error(msg,{
+                    toast.error(msg, {
                         position: toast.POSITION.BOTTOM_RIGHT,
                         theme: 'dark',
                     })

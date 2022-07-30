@@ -1,4 +1,3 @@
-import axios from "axios";
 //const fb_api = 'https://react-star-wars-84cf7-default-rtdb.europe-west1.firebasedatabase.app/';
 //return object with items or string with error message
 // export async function getSWAPIDataPage(url) {

@@ -252,11 +252,11 @@ export function formatSWAPIDataTable(data, maxRows = -1, skipArrays = false, ski
                     if (!(skipProp.includes(data[key]) || skipFields.includes(key))) {
                         rows.push(
                             <tr key={key}>
-                                <td className={'w-1/3'}>
+                                <td className={'w-1/3 key-col'}>
                                     <div className={'overflow-hidden h-6'}>{starWarsAPIModel[key].label}</div>
                                 </td>
                                 <td>
-                                    <div className={'overflow-hidden h-6'}>
+                                    <div className={'overflow-hidden h-6 data-col'}>
                                         <p className={'overflow-ellipsis'}>{data[key].toString()}{starWarsAPIModel[key].suffix}</p>
                                     </div>
                                 </td>

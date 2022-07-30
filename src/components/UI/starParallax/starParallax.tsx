@@ -1,4 +1,5 @@
 import classes from "./starsParallax.module.scss";
+
 const StarParallax = () => {
     return (
         <div className={classes.sky}>

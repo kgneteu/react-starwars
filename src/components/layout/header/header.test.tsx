@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./header";
-import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router";
+import {render} from "@testing-library/react";
+import {MemoryRouter} from "react-router";
 
 describe(Header.name, function () {
   test("should match snapshot", () => {

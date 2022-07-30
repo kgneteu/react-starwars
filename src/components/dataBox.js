@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {extractSWAPIId} from "../utils/swapi";
+import {extractSWAPIId} from "../utils/swapi.utils";
 import {useEffect} from "react";
 import * as PropTypes from "prop-types";
 import {Link} from "react-router-dom";

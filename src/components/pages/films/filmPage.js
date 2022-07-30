@@ -5,7 +5,7 @@ import {useEffect} from "react";
 import {getFilms} from "../../../store/films/films.actions";
 import {CloudImage} from "../../UI/cloudImage/cloudImage";
 import Crawl from "../../crawl/crawl";
-import {formatSWAPIDataTable} from "../../../utils/swapi";
+import {formatSWAPIDataTable} from "../../../utils/swapi.utils";
 import {Loader} from "../../UI/loader/loader";
 import {getCharacters} from "../../../store/characters/characters.actions";
 import {DataBox} from "../../dataBox";
@@ -13,7 +13,6 @@ import {getStarships} from "../../../store/starships/starships.actions";
 import {getVehicles} from "../../../store/vehicles/vehicles.actions";
 import {getPlanets} from "../../../store/planets/planets.actions";
 import {getSpecies} from "../../../store/species/species.actions";
-
 
 
 const FilmPage = () => {

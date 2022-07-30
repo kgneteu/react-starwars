@@ -1,9 +1,8 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef} from "react";
 import useVisible from "../hooks/useVisible";
 import PropTypes from "prop-types";
 import {ArticleCard} from "./articleCard/articleCard";
-import {Loader} from "./UI/loader/loader";
 import {PageTitle} from "./UI/pageTitle/pageTitle";
 
 
