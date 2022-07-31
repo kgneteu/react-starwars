@@ -1,27 +1,27 @@
-import {getDataItems, getNextDataPage} from "../utils/api.actions";
+import {getItemsById, getItemsByPage} from "../utils/api.actions";
 import {SpeciesActionType} from "./species.types";
 import {AppDispatch} from "../index";
 import {AppGetState} from "../utils/store.utils";
 
 
-export const getNextSpeciesDataPage = () => async (dispatch: AppDispatch, getState: AppGetState) => {
+export const getSpeciesByPage = () => async (dispatch: AppDispatch, getState: AppGetState) => {
     const options = {
         oldState: getState().species,
         dispatch: dispatch,
         resourceType: 'species',
-        actionType: SpeciesActionType.GET_SPECIES_PAGE
+        actionType: SpeciesActionType.GET_SPECIES_BY_PAGE
     }
-    await getNextDataPage(options)
+    await getItemsByPage(options)
 };
 
 
-export const getSpecies = (speciesIds: number[]) => async (dispatch: AppDispatch, getState: AppGetState) => {
+export const getSpeciesById = (speciesIds: number[]) => async (dispatch: AppDispatch, getState: AppGetState) => {
     const options = {
         oldState: getState().species,
         dispatch: dispatch,
         resourceType: 'species',
-        actionType: SpeciesActionType.GET_SPECIES,
+        actionType: SpeciesActionType.GET_SPECIES_BY_ID,
         selectedItems: speciesIds,
     }
-    await getDataItems(options)
+    await getItemsById(options)
 };

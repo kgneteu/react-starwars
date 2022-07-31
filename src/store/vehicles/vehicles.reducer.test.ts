@@ -8,38 +8,27 @@ describe(vehiclesReducer.name, () => {
         next: 0,
         items: new Map(),
     }
-    //
-    // test('should return same state without action', () => {
-    //     const actual = vehiclesReducer(testState)
-    //     expect(actual).toBe(testState)
-    // })
 
-    // test('should return same state without action type', () => {
-    //     const actual = vehiclesReducer(testState, {})
-    //     expect(actual).toBe(testState)
-    // })
+    test('should return initial state', () => {
+        // @ts-ignore
+        const actual = vehiclesReducer(undefined, {})
+        expect(actual).toEqual(testState)
+    })
 
-    test('should return same state without payload', () => {
-        const actual = vehiclesReducer(testState, {type: VehiclesActionType.GET_VEHICLES, payload: undefined})
+    test('should return same state object for unknown action', () => {
+        // @ts-ignore
+        const actual = vehiclesReducer(testState, {type: "test"})
         expect(actual).toBe(testState)
     })
 
-    // test('should return new state for any known action', () => {
-    //     for (const action in Object.keys(VehiclesActionType)){
-    //
-    //     }
-    //     const actual = vehiclesReducer(testState, {type: VehiclesActionType['GET_VEHICLES'], payload: "test"})
-    //     expect(actual).toBe(testState)
-    // })
-
-
-
-
-    test('should return same state for unknown action', () => {
-        const actual = vehiclesReducer(testState, {type: VehiclesActionType['GET_VEHICLES'], payload: "test"})
-        expect(actual).toBe(testState)
+    test('should handle vehicles/GET_VEHICLES_BY_ID', () => {
+        const actual = vehiclesReducer(testState, {type: VehiclesActionType.GET_VEHICLES_BY_ID, payload: "test"})
+        expect(actual).toEqual({...testState, items: "test"})
     })
 
-
+    test('should handle vehicles/GET_VEHICLES_BY_PAGE', () => {
+        const actual = vehiclesReducer(testState, {type: VehiclesActionType.GET_VEHICLES_BY_PAGE, payload: {test: "test"}})
+        expect(actual).toEqual({...testState, test: "test"})
+    })
 
 });

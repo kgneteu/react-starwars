@@ -1,27 +1,27 @@
-import {getDataItems, getNextDataPage} from "../utils/api.actions";
+import {getItemsById, getItemsByPage} from "../utils/api.actions";
 import {StarshipsActionType} from "./starships.types";
 import {AppDispatch} from "../index";
 import {AppGetState} from "../utils/store.utils";
 
 
-export const getNextStarshipDataPage = () => async (dispatch: AppDispatch, getState: AppGetState) => {
+export const getStarshipsByPage = () => async (dispatch: AppDispatch, getState: AppGetState) => {
     const options = {
         oldState: getState().starships,
         dispatch: dispatch,
         resourceType: 'starships',
-        actionType: StarshipsActionType.GET_STARSHIP_PAGE
+        actionType: StarshipsActionType.GET_STARSHIPS_BY_PAGE
     }
-    await getNextDataPage(options)
+    await getItemsByPage(options)
 };
 
 
-export const getStarships = (starshipIds: number[]) => async (dispatch: AppDispatch, getState: AppGetState) => {
+export const getStarshipsById = (starshipIds: number[]) => async (dispatch: AppDispatch, getState: AppGetState) => {
     const options = {
         oldState: getState().starships,
         dispatch: dispatch,
         resourceType: 'starships',
-        actionType: StarshipsActionType.GET_STARSHIPS,
+        actionType: StarshipsActionType.GET_STARSHIPS_BY_ID,
         selectedItems: starshipIds,
     }
-    await getDataItems(options)
+    await getItemsById(options)
 };

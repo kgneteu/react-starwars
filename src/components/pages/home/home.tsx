@@ -1,10 +1,10 @@
 import FeaturedBox from "../../featuredBox";
-import {getNextFilmDataPage} from "../../../store/films/films.actions";
-import {getNextCharacterDataPage} from "../../../store/characters/characters.actions";
-import {getNextPlanetDataPage} from "../../../store/planets/planets.actions";
-import {getNextStarshipDataPage} from "../../../store/starships/starships.actions";
-import {getNextVehicleDataPage} from "../../../store/vehicles/vehicles.actions";
-import {getNextSpeciesDataPage} from "../../../store/species/species.actions";
+import {getFilmsByPage} from "../../../store/films/films.actions";
+import {getCharactersByPage} from "../../../store/characters/characters.actions";
+import {getPlanetsByPage} from "../../../store/planets/planets.actions";
+import {getStarshipsByPage} from "../../../store/starships/starships.actions";
+import {getVehiclesByPage} from "../../../store/vehicles/vehicles.actions";
+import {getSpeciesByPage} from "../../../store/species/species.actions";
 import {Main} from "../../layout/main/main";
 import {Component} from "react";
 
@@ -13,12 +13,12 @@ export class Home extends Component {
     render() {
         return (
             <Main>
-                <FeaturedBox title={'films'} stateSlice={'films'} getDataAction={getNextFilmDataPage}/>
-                <FeaturedBox title={'characters'} stateSlice={'characters'} getDataAction={getNextCharacterDataPage}/>
-                <FeaturedBox title={'starships'} stateSlice={'starships'} getDataAction={getNextStarshipDataPage}/>
-                <FeaturedBox title={'vehicles'} stateSlice={'vehicles'} getDataAction={getNextVehicleDataPage}/>
-                <FeaturedBox title={'planets'} stateSlice={'planets'} getDataAction={getNextPlanetDataPage}/>
-                <FeaturedBox title={'species'} stateSlice={'species'} getDataAction={getNextSpeciesDataPage}/>
+                <FeaturedBox title={'films'} stateSlice={'films'} getDataAction={getFilmsByPage}/>
+                <FeaturedBox title={'characters'} stateSlice={'characters'} getDataAction={getCharactersByPage}/>
+                <FeaturedBox title={'starships'} stateSlice={'starships'} getDataAction={getStarshipsByPage}/>
+                <FeaturedBox title={'vehicles'} stateSlice={'vehicles'} getDataAction={getVehiclesByPage}/>
+                <FeaturedBox title={'planets'} stateSlice={'planets'} getDataAction={getPlanetsByPage}/>
+                <FeaturedBox title={'species'} stateSlice={'species'} getDataAction={getSpeciesByPage}/>
             </Main>)
 
     }

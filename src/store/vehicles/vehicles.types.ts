@@ -1,6 +1,6 @@
 export const enum VehiclesActionType {
-    GET_VEHICLE_PAGE = 'vehicles/GET_VEHICLE_PAGE',
-    GET_VEHICLES = 'vehicles/GET_VEHICLES'
+    GET_VEHICLES_BY_PAGE = 'vehicles/GET_VEHICLES_BY_PAGE',
+    GET_VEHICLES_BY_ID = 'vehicles/GET_VEHICLES_BY_ID'
 }
 
 export type VehiclesState = {

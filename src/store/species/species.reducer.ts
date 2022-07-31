@@ -10,9 +10,9 @@ const INIT_STATE: SpeciesState = {
 
 const speciesReducer: Reducer<SpeciesState, ActionWithPayload<SpeciesActionType>> = (state = INIT_STATE, action) => {
     switch (action.type) {
-        case SpeciesActionType.GET_SPECIES_PAGE:
+        case SpeciesActionType.GET_SPECIES_BY_PAGE:
             return {...state, ...action.payload}
-        case SpeciesActionType.GET_SPECIES:
+        case SpeciesActionType.GET_SPECIES_BY_ID:
             return {...state, items: action.payload}
         default:
             return state;

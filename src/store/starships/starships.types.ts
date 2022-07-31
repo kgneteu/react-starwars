@@ -1,6 +1,6 @@
 export const enum StarshipsActionType {
-    GET_STARSHIP_PAGE = 'starships/GET_STARSHIP_PAGE',
-    GET_STARSHIPS = 'starships/GET_STARSHIPS'
+    GET_STARSHIPS_BY_PAGE = 'starships/GET_STARSHIPS_BY_PAGE',
+    GET_STARSHIPS_BY_ID = 'starships/GET_STARSHIPS_BY_ID'
 }
 
 export type StarshipsState = {

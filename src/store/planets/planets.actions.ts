@@ -1,26 +1,26 @@
-import {getDataItems, getNextDataPage} from "../utils/api.actions";
+import {getItemsById, getItemsByPage} from "../utils/api.actions";
 import {PlanetsActionType} from "./planets.types";
 import {AppDispatch} from "../index";
 import {AppGetState} from "../utils/store.utils";
 
-export const getNextPlanetDataPage = () => async (dispatch: AppDispatch, getState: AppGetState) => {
+export const getPlanetsByPage = () => async (dispatch: AppDispatch, getState: AppGetState) => {
     const options = {
         oldState: getState().planets,
         dispatch: dispatch,
         resourceType: 'planets',
-        actionType: PlanetsActionType.GET_PLANET_PAGE
+        actionType: PlanetsActionType.GET_PLANETS_BY_PAGE
     }
-    await getNextDataPage(options)
+    await getItemsByPage(options)
 };
 
-export const getPlanets = (planetIds: number[]) => async (dispatch: AppDispatch, getState: AppGetState) => {
+export const getPlanetsById = (planetIds: number[]) => async (dispatch: AppDispatch, getState: AppGetState) => {
     const options = {
         oldState: getState().planets,
         dispatch: dispatch,
         resourceType: 'planets',
-        actionType: PlanetsActionType.GET_PLANETS,
+        actionType: PlanetsActionType.GET_PLANETS_BY_ID,
         selectedItems: planetIds,
 
     }
-    await getDataItems(options)
+    await getItemsById(options)
 };

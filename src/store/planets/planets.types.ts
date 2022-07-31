@@ -1,6 +1,6 @@
 export const enum PlanetsActionType {
-    GET_PLANET_PAGE = 'planets/GET_PLANET_PAGE',
-    GET_PLANETS = 'planets/GET_PLANETS'
+    GET_PLANETS_BY_PAGE = 'planets/GET_PLANETS_BY_PAGE',
+    GET_PLANETS_BY_ID = 'planets/GET_PLANETS_BY_ID'
 }
 
 export type PlanetsState = {

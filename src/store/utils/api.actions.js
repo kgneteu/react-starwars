@@ -1,7 +1,7 @@
 import {globalError} from "../toasts/toasts.actions";
 import {apiGetDataItem, apiGetDataPage} from "../../api/api";
 
-export async function getNextDataPage(options) {
+export async function getItemsByPage(options) {
     try {
         const oldState = options.oldState;
         if (!oldState.dataEnd) {
@@ -20,7 +20,7 @@ export async function getNextDataPage(options) {
     }
 }
 
-export async function getDataItems(options) {
+export async function getItemsById(options) {
     try {
         const newItemIds = options.selectedItems.filter(
             (id => !options.oldState.items.has(+id))

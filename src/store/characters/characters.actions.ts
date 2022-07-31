@@ -1,27 +1,27 @@
-import {getDataItems, getNextDataPage} from "../utils/api.actions";
+import {getItemsById, getItemsByPage} from "../utils/api.actions";
 import {CharactersActionType} from "./character.types";
 import {AppDispatch} from "../index";
 import {AppGetState} from "../utils/store.utils";
 
 
-export const getNextCharacterDataPage = () => async (dispatch: AppDispatch, getState: AppGetState) => {
+export const getCharactersByPage = () => async (dispatch: AppDispatch, getState: AppGetState) => {
     const options = {
         oldState: getState().characters,
         dispatch: dispatch,
         resourceType: 'people',
-        actionType: CharactersActionType.GET_CHARACTER_PAGE
+        actionType: CharactersActionType.GET_CHARACTERS_BY_PAGE
     }
-    await getNextDataPage(options)
+    await getItemsByPage(options)
 };
 
 
-export const getCharacters = (charactersIds: number[]) => async (dispatch: AppDispatch, getState: AppGetState) => {
+export const getCharactersById = (charactersIds: number[]) => async (dispatch: AppDispatch, getState: AppGetState) => {
     const options = {
         oldState: getState().characters,
         dispatch: dispatch,
         resourceType: 'characters',
-        actionType: CharactersActionType.GET_CHARACTERS,
+        actionType: CharactersActionType.GET_CHARACTERS_BY_ID,
         selectedItems: charactersIds,
     }
-    await getDataItems(options)
+    await getItemsById(options)
 };

@@ -10,9 +10,9 @@ const INIT_STATE:FilmsState = {
 
 const filmsReducer:Reducer<FilmsState,ActionWithPayload<FilmsActionType>> = (state = INIT_STATE, action) => {
     switch (action.type) {
-        case FilmsActionType.GET_FILM_PAGE:
+        case FilmsActionType.GET_FILMS_BY_PAGE:
             return {...state, ...action.payload}
-        case FilmsActionType.GET_FILMS:
+        case FilmsActionType.GET_FILMS_BY_ID:
             return {...state, items: action.payload}
         default:
             return state;

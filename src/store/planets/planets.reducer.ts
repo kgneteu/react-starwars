@@ -10,9 +10,9 @@ const INIT_STATE: PlanetsState = {
 
 const planetsReducer: Reducer<PlanetsState, ActionWithPayload<PlanetsActionType>> = (state = INIT_STATE, action) => {
     switch (action.type) {
-        case PlanetsActionType.GET_PLANET_PAGE:
+        case PlanetsActionType.GET_PLANETS_BY_PAGE:
             return {...state, ...action.payload}
-        case PlanetsActionType.GET_PLANETS:
+        case PlanetsActionType.GET_PLANETS_BY_ID:
             return {...state, items: action.payload}
         default:
             return state;

@@ -6,8 +6,6 @@ import PropTypes from "prop-types";
 import MediaQuery from "react-responsive";
 import {Link} from "react-router-dom";
 import NeonButton from "./UI/neonButton/neonButton";
-import {Action} from "redux";
-import {RootState} from "../store";
 
 type Props = {
     title: string,

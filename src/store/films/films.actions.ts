@@ -1,27 +1,27 @@
-import {getDataItems, getNextDataPage} from "../utils/api.actions";
+import {getItemsById, getItemsByPage} from "../utils/api.actions";
 import {FilmsActionType} from "./films.types";
 import {AppDispatch} from "../index";
 import {AppGetState} from "../utils/store.utils";
 
 
-export const getNextFilmDataPage = () => async (dispatch: AppDispatch, getState: AppGetState) => {
+export const getFilmsByPage = () => async (dispatch: AppDispatch, getState: AppGetState) => {
     const options = {
         oldState: getState().films,
         dispatch: dispatch,
         resourceType: 'films',
-        actionType: FilmsActionType.GET_FILM_PAGE
+        actionType: FilmsActionType.GET_FILMS_BY_PAGE
     }
-    await getNextDataPage(options)
+    await getItemsByPage(options)
 };
 
-export const getFilms = (filmIds: number[]) => async (dispatch: AppDispatch, getState: AppGetState) => {
+export const getFilmsById = (filmIds: number[]) => async (dispatch: AppDispatch, getState: AppGetState) => {
     const options = {
         oldState: getState().films,
         dispatch: dispatch,
         resourceType: 'films',
-        actionType: FilmsActionType.GET_FILMS,
+        actionType: FilmsActionType.GET_FILMS_BY_ID,
         selectedItems: filmIds,
 
     }
-    await getDataItems(options)
+    await getItemsById(options)
 };
