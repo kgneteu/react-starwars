@@ -1,8 +1,11 @@
 import {getItemsById, getItemsByPage} from "../utils/api.actions";
-import {VehiclesActionType} from "./vehicles.types";
 import {AppDispatch} from "../index";
 import {AppGetState} from "../utils/store.utils";
 
+export const enum VehiclesActionType {
+    GET_VEHICLES_BY_PAGE = 'vehicles/GET_VEHICLES_BY_PAGE',
+    GET_VEHICLES_BY_ID = 'vehicles/GET_VEHICLES_BY_ID'
+}
 
 export const getVehiclesByPage = () => async (dispatch:AppDispatch, getState:AppGetState) => {
     const options = {

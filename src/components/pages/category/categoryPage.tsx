@@ -1,15 +1,24 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useRef} from "react";
-import useVisible from "../hooks/useVisible";
+import useVisible from "../../../hooks/useVisible";
 import PropTypes from "prop-types";
-import {ArticleCard} from "./articleCard/articleCard";
-import {PageTitle} from "./UI/pageTitle/pageTitle";
+import {ArticleCard} from "../../articleCard/articleCard";
+import {PageTitle} from "../../UI/pageTitle/pageTitle";
+import {AppState} from "../../../store/constants";
+import {AppDispatch} from "../../../store";
+import {AppGetState} from "../../../store/utils/store.utils";
 
 
-const CategoryPage = ({title = '', stateSlice, getDataAction, ...rest}) => {
+interface Props {
+    title?: string,
+    stateSlice: string,
+    getDataAction: () => (dispatch: AppDispatch, getState: AppGetState) => Promise<void>
+}
+
+const CategoryPage = ({title = '', stateSlice, getDataAction}: Props) => {
     //todo optimization
     const pageTitle = title !== '' ? title : stateSlice;
-    const items = useSelector(state => state[stateSlice].items)
+    const items = useSelector((state:AppState) => state[stateSlice].items)
 
     const dispatch = useDispatch();
     const loadMore = useRef(null);
@@ -18,10 +27,8 @@ const CategoryPage = ({title = '', stateSlice, getDataAction, ...rest}) => {
 
     useEffect(() => {
         if (isVisible) {
-      //      setLoading(true)
-            dispatch(getDataAction()).finally(
-        //        setLoading(false)
-            );
+            //      setLoading(true)
+            dispatch(getDataAction())
         }
 
     }, [isVisible, dispatch, getDataAction])
@@ -31,10 +38,11 @@ const CategoryPage = ({title = '', stateSlice, getDataAction, ...rest}) => {
             <PageTitle title={pageTitle}/>
             <div className={'container mx-auto '}>
                 <div className='flex flex-wrap justify-center gap-8 relative'>
-                    {items.size > 0 && [...items.values()].map((item) => {
+                    {Object.keys(items).length > 0 && [...Object.values(items).values()].map((item) => {
                         return (
                             // <div className={'animate-appear'}>
-                                <ArticleCard key={item.id+new Date().getMilliseconds()} item={item} category={stateSlice}/>
+                            <ArticleCard key={item.id + new Date().getMilliseconds()} item={item}
+                                         category={stateSlice}/>
                             // </div>
                         )
                     })}

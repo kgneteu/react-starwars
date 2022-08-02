@@ -1,12 +1,12 @@
-import vehiclesReducer from "./vehicles.reducer";
-import {VehiclesActionType, VehiclesState} from "./vehicles.types";
+import vehiclesReducer, {VehiclesState} from "./vehicles.reducer";
+import {VehiclesActionType} from "./vehicles.actions";
 
 describe(vehiclesReducer.name, () => {
 
     const testState: VehiclesState = {
         dataEnd: false,
         next: 0,
-        items: new Map(),
+        items: {},
     }
 
     test('should return initial state', () => {

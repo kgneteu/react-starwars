@@ -1,11 +1,14 @@
-import {StarshipsActionType, StarshipsState} from "./starships.types";
+import {StarshipsActionType} from "./starships.types";
 import {Reducer} from "redux";
 import {ActionWithPayload} from "../utils/store.utils";
+import {DataSlice} from "../constants";
+
+export type StarshipsState = DataSlice;
 
 const INIT_STATE: StarshipsState = {
     dataEnd: false,
     next: 0,
-    items: new Map(),
+    items: {},
 }
 
 const starshipsReducer: Reducer<StarshipsState, ActionWithPayload<StarshipsActionType>> = (state = INIT_STATE, action) => {

@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import MediaQuery from "react-responsive";
 import {Link} from "react-router-dom";
 import NeonButton from "./UI/neonButton/neonButton";
+import {AppState} from "../store/constants";
 
 type Props = {
     title: string,
@@ -15,7 +16,7 @@ type Props = {
 
 const FeaturedBox = ({title, stateSlice, getDataAction}: Props) => {
 
-    const itemsMap = useSelector((state: { [index: string]: { items: Map<any, any> } }) => state[stateSlice].items)
+    const items = useSelector((state: AppState) => state[stateSlice].items)
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
 
@@ -33,22 +34,22 @@ const FeaturedBox = ({title, stateSlice, getDataAction}: Props) => {
                 <div className='flex gap-8 justify-center'>
                     {loading && <Loader/>}
                     <MediaQuery maxWidth={814}>
-                        {itemsMap.size > 0 && [...itemsMap.values()].slice(0, 1).map((item) => (
+                        {Object.keys(items).length > 0 && [...Object.values(items).values()].slice(0, 1).map((item) => (
                             <ArticleCard key={item.id} item={item} category={stateSlice}/>
                         ))}
                     </MediaQuery>
                     <MediaQuery maxWidth={1279} minWidth={815}>
-                        {itemsMap.size > 0 && [...itemsMap.values()].slice(0, 2).map((item) => (
+                        {Object.keys(items).length > 0 && [...Object.values(items).values()].slice(0, 2).map((item) => (
                             <ArticleCard key={item.id} item={item} category={stateSlice}/>
                         ))}
                     </MediaQuery>
                     <MediaQuery maxWidth={1549} minWidth={1280}>
-                        {itemsMap.size > 0 && [...itemsMap.values()].slice(0, 3).map((item) => (
+                        {Object.keys(items).length > 0 && [...Object.values(items).values()].slice(0, 3).map((item) => (
                             <ArticleCard key={item.id} item={item} category={stateSlice}/>
                         ))}
                     </MediaQuery>
                     <MediaQuery minWidth={1550}>
-                        {itemsMap.size > 0 && [...itemsMap.values()].slice(0, 4).map((item) => (
+                        {Object.keys(items).length > 0 && [...Object.values(items).values()].slice(0, 4).map((item) => (
                             <ArticleCard key={item.id} item={item} category={stateSlice}/>
                         ))}
                     </MediaQuery>

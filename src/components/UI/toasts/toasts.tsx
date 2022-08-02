@@ -9,7 +9,6 @@ export function Toasts() {
     const toasts = useSelector((state: RootState) => state.toasts)
     const dispatch = useDispatch()
 
-
     useEffect(() => {
         function showToast(type: string, msg: string) {
             switch (type) {

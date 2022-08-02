@@ -1,11 +1,14 @@
-import {FilmsActionType, FilmsState} from "./films.types";
+import {FilmsActionType} from "./films.types";
 import {Reducer} from "redux";
 import {ActionWithPayload} from "../utils/store.utils";
+import {DataSlice} from "../constants";
+
+export type FilmsState = DataSlice;
 
 const INIT_STATE:FilmsState = {
     dataEnd: false,
     next: 0,
-    items: new Map(),
+    items: {},
 }
 
 const filmsReducer:Reducer<FilmsState,ActionWithPayload<FilmsActionType>> = (state = INIT_STATE, action) => {

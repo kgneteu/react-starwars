@@ -11,8 +11,9 @@ import {getStarshipsById} from "../store/starships/starships.actions";
 import {getVehiclesById} from "../store/vehicles/vehicles.actions";
 import {getPlanetsById} from "../store/planets/planets.actions";
 import {getSpeciesById} from "../store/species/species.actions";
+import {AppState} from "../store/constants";
 
-const dataLoader = {
+const dataLoader:{[index:string]:any} = {
     films: getFilmsById,
     characters: getCharactersById,
     planets: getPlanetsById,
@@ -21,8 +22,12 @@ const dataLoader = {
     vehicles: getVehiclesById,
 }
 
-export function LandingPage({id, stateSlice}) {
-    const pageTarget = useSelector(state => state[stateSlice].items.get(id));
+type Props = {
+    id: number,
+    stateSlice:string,
+}
+export function LandingPage({id, stateSlice}:Props) {
+    const pageTarget = useSelector((state:AppState) => state[stateSlice].items[id]);
     const dispatch = useDispatch();
 
     useEffect(() => {

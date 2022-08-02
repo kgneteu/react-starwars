@@ -1,12 +1,12 @@
 import {globalError} from "../toasts/toasts.actions";
-import {apiGetDataItem, apiGetDataPage} from "../../api/api";
+import {apiGetItemById, apiGetPageById} from "../../api/api";
 
 export async function getItemsByPage(options) {
     try {
         const oldState = options.oldState;
         if (!oldState.dataEnd) {
-            const dataPage = await apiGetDataPage(options.resourceType, oldState.next)
-            const combinedItems = new Map([...oldState.items, ...dataPage.items])
+            const dataPage = await apiGetPageById(options.resourceType, oldState.next)
+            const combinedItems = {...oldState.items, ...dataPage.items}
             const payload = {
                 dataEnd: dataPage.dataEnd,
                 next: dataPage.next,
@@ -28,7 +28,7 @@ export async function getItemsById(options) {
         if (newItemIds.length > 0) {
             const newItems = new Map();
             for (let newItemId of newItemIds) {
-                const newItem = await apiGetDataItem(options.resourceType, newItemId)
+                const newItem = await apiGetItemById(options.resourceType, newItemId)
                 if (newItem) newItems.set(newItem.id, newItem);
             }
             const payload = new Map([...options.oldState.items, ...newItems])

@@ -1,19 +1,19 @@
-import {VehiclesActionType, VehiclesState} from "./vehicles.types";
 import {ActionWithPayload} from "../utils/store.utils";
-import {Action, AnyAction} from "redux";
+import {Reducer} from "redux";
+import {VehiclesActionType} from "./vehicles.actions";
+import {DataSlice} from "../constants";
+
+
+export type VehiclesState =  DataSlice
+
 
 const INIT_STATE: VehiclesState = {
     dataEnd: false,
     next: 0,
-    items: new Map(),
+    items: {},
 }
 
-export type Reducer<S, A extends Action = AnyAction> = (
-    state: S | undefined,
-    action: A
-) => S
-
-const vehiclesReducer: Reducer<VehiclesState, ActionWithPayload<VehiclesActionType>> = (state: VehiclesState = INIT_STATE, action):VehiclesState => {
+const vehiclesReducer: Reducer<VehiclesState, ActionWithPayload<VehiclesActionType>> = (state: VehiclesState = INIT_STATE, action): VehiclesState => {
     switch (action.type) {
         case VehiclesActionType.GET_VEHICLES_BY_PAGE:
             return {...state, ...action.payload}

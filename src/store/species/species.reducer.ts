@@ -1,11 +1,14 @@
-import {SpeciesActionType, SpeciesState} from "./species.types";
+import {SpeciesActionType} from "./species.types";
 import {Reducer} from "redux";
 import {ActionWithPayload} from "../utils/store.utils";
+import {DataSlice} from "../constants";
+
+export type SpeciesState = DataSlice;
 
 const INIT_STATE: SpeciesState = {
     dataEnd: false,
-    next: '',
-    items: new Map(),
+    next: 0,
+    items: {},
 }
 
 const speciesReducer: Reducer<SpeciesState, ActionWithPayload<SpeciesActionType>> = (state = INIT_STATE, action) => {

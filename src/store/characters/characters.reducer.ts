@@ -1,11 +1,14 @@
-import {CharactersActionType, CharactersState} from "./character.types";
+import {CharactersActionType} from "./character.types";
 import {ActionWithPayload} from "../utils/store.utils";
 import {Reducer} from "redux";
+import {DataSlice} from "../constants";
+
+export type CharactersState = DataSlice;
 
 const INIT_STATE: CharactersState = {
     dataEnd: false,
-    next: '',
-    items: new Map(),
+    next: 0,
+    items: {},
 }
 
 const charactersReducer: Reducer<CharactersState, ActionWithPayload<CharactersActionType>> = (state = INIT_STATE, action) => {

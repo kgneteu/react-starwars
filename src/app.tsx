@@ -2,7 +2,7 @@ import StarParallax from "./components/UI/starParallax/starParallax";
 import {HashRouter as Router, Route, Routes} from "react-router-dom";
 import {Toasts} from "./components/UI/toasts/toasts";
 import {Home} from "./components/pages/home/home";
-import CategoryPage from "./components/categoryPage";
+import CategoryPage from "./components/pages/category/categoryPage";
 import {getVehiclesByPage} from "./store/vehicles/vehicles.actions";
 import {getFilmsByPage} from "./store/films/films.actions";
 import {getCharactersByPage} from "./store/characters/characters.actions";
