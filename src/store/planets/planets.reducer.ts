@@ -1,7 +1,6 @@
 import {PlanetsActionType} from "./planets.types";
 import {Reducer} from "redux";
-import {ActionWithPayload} from "../utils/store.utils";
-import {DataSlice} from "../constants";
+import {ActionWithPayload, DataSlice} from "../store.types";
 
 export type PlanetsState = DataSlice;
 const INIT_STATE: PlanetsState = {

@@ -1,12 +1,10 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useRef} from "react";
+import {useLayoutEffect, useRef} from "react";
 import useVisible from "../../../hooks/useVisible";
 import PropTypes from "prop-types";
 import {ArticleCard} from "../../articleCard/articleCard";
 import {PageTitle} from "../../UI/pageTitle/pageTitle";
-import {AppState} from "../../../store/constants";
-import {AppDispatch} from "../../../store";
-import {AppGetState} from "../../../store/utils/store.utils";
+import {AppDispatch, AppGetState, AppState} from "../../../store/store.types";
 
 
 interface Props {
@@ -16,22 +14,22 @@ interface Props {
 }
 
 const CategoryPage = ({title = '', stateSlice, getDataAction}: Props) => {
-    //todo optimization
     const pageTitle = title !== '' ? title : stateSlice;
-    const items = useSelector((state:AppState) => state[stateSlice].items)
+    const items = useSelector((state: AppState) => state[stateSlice].items)
+    const dataEnd = useSelector((state: AppState) => state[stateSlice].dataEnd)
+    console.log(dataEnd)
 
     const dispatch = useDispatch();
-    const loadMore = useRef(null);
-    //const [loading, setLoading] = useState(true);
-    const isVisible = useVisible(loadMore, false, true)
+    const loadMore = useRef<HTMLDivElement>(null);
+    const isVisible = useVisible(loadMore, false)
 
-    useEffect(() => {
-        if (isVisible) {
-            //      setLoading(true)
+    useLayoutEffect(() => {
+        console.log('dis', dataEnd, isVisible)
+        if ((isVisible) && (!dataEnd)) {
             dispatch(getDataAction())
         }
 
-    }, [isVisible, dispatch, getDataAction])
+    }, [isVisible, dataEnd, dispatch, getDataAction])
 
     return (
         <>
@@ -39,14 +37,13 @@ const CategoryPage = ({title = '', stateSlice, getDataAction}: Props) => {
             <div className={'container mx-auto '}>
                 <div className='flex flex-wrap justify-center gap-8 relative'>
                     {Object.keys(items).length > 0 && [...Object.values(items).values()].map((item) => {
+                        // @ts-ignore
                         return (
-                            // <div className={'animate-appear'}>
-                            <ArticleCard key={item.id + new Date().getMilliseconds()} item={item}
+                            <ArticleCard key={item.id} item={item}
                                          category={stateSlice}/>
-                            // </div>
                         )
                     })}
-                    <div ref={loadMore} className='absolute w-0 h-0 bottom-96'/>
+                    {!dataEnd && <div ref={loadMore} className='absolute w-5 h-5 bottom-9 bg-red-400'/>}
                 </div>
                 {/*{loading && <Loader/>}*/}
             </div>

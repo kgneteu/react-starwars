@@ -21,12 +21,16 @@ html, body {
   margin: 0;
   //background-color: black;
   color: whitesmoke;
-  @apply font-sans;
+  @apply font-sans h-full;
+}
+
+body {
+  @apply min-h-screen;
 }
 
 .animate-appear {
   opacity:0;
-  animation: appear 700ms ease-in forwards;
+  animation: appear 1400ms ease-in forwards;
 }
 
 @keyframes appear {

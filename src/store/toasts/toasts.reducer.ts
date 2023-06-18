@@ -1,6 +1,6 @@
 import {ToastsActionType, ToastsState} from "./toasts.types";
 import {Reducer} from "redux";
-import {ActionWithPayload} from "../utils/store.utils";
+import {ActionWithPayload} from "../store.types";
 
 const INIT_STATE: ToastsState = {
     error: false,

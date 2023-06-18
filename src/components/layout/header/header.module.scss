@@ -40,7 +40,7 @@ $menu_link_active_line_color: darken(white, 25);
   }
 
   .logo {
-    @apply w-64;
+    @apply w-64 transform transition-all duration-500 hover:scale-105 ease-in-out;
   }
 
   .logoTitle {

@@ -94,7 +94,7 @@ const starWarsAPIModel = {
     },
     homeworld: {
         type: String,
-        label: 'home world',
+        label: 'Home world',
         link: true,
     },
     hyperdrive_rating: {

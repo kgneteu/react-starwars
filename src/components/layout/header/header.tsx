@@ -5,6 +5,7 @@ import logo from '../../../assets/images/star_wars_logo.svg'
 import MobileMenu from "../../UI/mobileMenu/mobileMenu";
 import {useMediaQuery} from "react-responsive";
 
+
 function menuLinks() {
     return [
         {to: "/", title: "Home"},
@@ -16,7 +17,6 @@ function menuLinks() {
         {to: "/species", title: "Species"},
     ]
 }
-
 function Header() {
     const isSmallScreen = useMediaQuery({query: '(max-width: 1024px)'})
     return (
@@ -28,7 +28,7 @@ function Header() {
                             <div className={classes.logoTitle}>Fandom</div>
                         </Link>
                     </div>
-                    <div className={' flex-grow'}/>
+                    <div className={'flex-grow'}/>
                     {!isSmallScreen &&
                         <nav>
                             {menuLinks().map((link, index) =>

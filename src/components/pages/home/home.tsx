@@ -12,14 +12,14 @@ import {Component} from "react";
 export class Home extends Component {
     render() {
         return (
-            <Main>
+            <>
                 <FeaturedBox title={'films'} stateSlice={'films'} getDataAction={getFilmsByPage}/>
                 <FeaturedBox title={'characters'} stateSlice={'characters'} getDataAction={getCharactersByPage}/>
                 <FeaturedBox title={'starships'} stateSlice={'starships'} getDataAction={getStarshipsByPage}/>
                 <FeaturedBox title={'vehicles'} stateSlice={'vehicles'} getDataAction={getVehiclesByPage}/>
                 <FeaturedBox title={'planets'} stateSlice={'planets'} getDataAction={getPlanetsByPage}/>
                 <FeaturedBox title={'species'} stateSlice={'species'} getDataAction={getSpeciesByPage}/>
-            </Main>)
+            </>)
 
     }
 }

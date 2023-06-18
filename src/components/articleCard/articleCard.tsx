@@ -2,7 +2,7 @@ import {formatSWAPIDataTable} from "../../utils/swapi.utils";
 import {FlipCard} from "../UI/flipCard/flipCard";
 import {Link} from "react-router-dom";
 import {CloudImage} from "../UI/cloudImage/cloudImage";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import PropTypes from 'prop-types';
 
 type BasicCardProps = {
@@ -10,16 +10,21 @@ type BasicCardProps = {
     item: {
         name: string,
         title: string,
-        id: number
+        id: number,
+        dbId:string
     }
 }
 
 export function ArticleCard({category, item}: BasicCardProps) {
     const itemDataTable = formatSWAPIDataTable(item, 5, true)
+    const [animationClass, setAnimationClass] = useState<string>('');
     let title = item.name !== undefined ? item.name : item.title;
-    //console.log(`https://res.cloudinary.com/di6qjuwyo/starwars/${category}/${item.id}.jpg`)
+    useEffect(() => {
+        setAnimationClass('animate-appear')
+    }, []);
+    // console.log(item)
     return (
-        <Link to={`/${category}/${item.id}`}>
+        <Link key={item.dbId} to={`/${category}/${item.id}`} className={animationClass}>
             <FlipCard>
 
                 <section>
@@ -29,9 +34,6 @@ export function ArticleCard({category, item}: BasicCardProps) {
                             title={title}
                         />
                     </div>
-                    {/*<img src={`https://res.cloudinary.com/di6qjuwyo/starwars/${category}/${item.id}.jpg`}/>*/}
-                    {/*<img alt={`${film.title}`} src={`https://robohash.org/${film.title}?size=240x240`}/>*/}
-                    {/*https://res.cloudinary.com/di6qjuwyo/image/upload/v1636859976/starwars/heroes/1.jpg*/}
                     <div className={'text-2xl text-center py-4 bg-black'}>{title}</div>
                 </section>
                 <section>

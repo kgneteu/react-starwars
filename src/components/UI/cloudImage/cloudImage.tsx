@@ -13,7 +13,6 @@ export function CloudImage({category, preset, imgId, title, className}: CloudIma
     //todo alt image
     const errorHandler = (e:    React.SyntheticEvent<HTMLImageElement>) => {
         e.currentTarget.src = jediLogo;
-        //e.target.className = 'transform translate-x-1/2 translate-y-1/2 w-1/2 h-1/2';
     };
 
     let transform;
@@ -33,7 +32,9 @@ export function CloudImage({category, preset, imgId, title, className}: CloudIma
     return (
         <img
             className={className}
-            // title={title}
+            loading={'lazy'}
+            width={350}
+            height={320}
             alt={title}
             src={`${process.env.REACT_APP_CLOUDINARY_URL}${transform}/starwars/${category}/${imgId}.jpg`}
             style={{}}

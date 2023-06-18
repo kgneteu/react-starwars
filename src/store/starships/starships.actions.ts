@@ -1,7 +1,6 @@
 import {getItemsById, getItemsByPage} from "../utils/api.actions";
 import {StarshipsActionType} from "./starships.types";
-import {AppDispatch} from "../index";
-import {AppGetState} from "../utils/store.utils";
+import {AppDispatch, AppGetState} from "../store.types";
 
 
 export const getStarshipsByPage = () => async (dispatch: AppDispatch, getState: AppGetState) => {

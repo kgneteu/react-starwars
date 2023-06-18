@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import MediaQuery from "react-responsive";
 import {Link} from "react-router-dom";
 import NeonButton from "./UI/neonButton/neonButton";
-import {AppState} from "../store/constants";
+import {AppState} from "../store/store.types";
 
 type Props = {
     title: string,
@@ -30,7 +30,7 @@ const FeaturedBox = ({title, stateSlice, getDataAction}: Props) => {
     return (
         <section className={'bg-black bg-opacity-75 my-24 w-full animate-appear'}>
             <div className={'container mx-auto'}>
-                <h2>{title}</h2>
+                <h2 className={"opacity-75"}>{title}</h2>
                 <div className='flex gap-8 justify-center'>
                     {loading && <Loader/>}
                     <MediaQuery maxWidth={814}>

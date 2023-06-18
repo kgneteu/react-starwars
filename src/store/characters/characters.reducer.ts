@@ -1,7 +1,6 @@
 import {CharactersActionType} from "./character.types";
-import {ActionWithPayload} from "../utils/store.utils";
 import {Reducer} from "redux";
-import {DataSlice} from "../constants";
+import {ActionWithPayload, DataSlice} from "../store.types";
 
 export type CharactersState = DataSlice;
 

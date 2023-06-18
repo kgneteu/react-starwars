@@ -1,7 +1,16 @@
 import {globalError} from "../toasts/toasts.actions";
 import {apiGetItemById, apiGetPageById} from "../../api/api";
+import store from "../index";
+
+// export type GetPageOptions<T, P> = {
+//     oldState: DataSlice,
+//     dispatch: AppDispatch,
+//     resourceType: string,
+//     actionType: ActionWithPayload<T, P>
+// }
 
 export async function getItemsByPage(options) {
+    const dispatch = store.dispatch;
     try {
         const oldState = options.oldState;
         if (!oldState.dataEnd) {
@@ -12,31 +21,48 @@ export async function getItemsByPage(options) {
                 next: dataPage.next,
                 items: combinedItems,
             }
-            options.dispatch({type: options.actionType, payload})
+
+            dispatch({type: options.actionType, payload})
             return payload;
         }
     } catch (e) {
-        options.dispatch(globalError(e.message))
+        if (e instanceof Error) {
+            dispatch(globalError(e.message))
+        } else {
+            dispatch(globalError(String(e)))
+        }
     }
 }
+//
+// type GetIdsOptions = {
+//     oldState: DataSlice,
+//     dispatch: AppDispatch,
+//     resourceType: string,
+//     actionType: CharactersActionType.GET_CHARACTERS_BY_ID,
+//     selectedItems: number[],
+// }
 
 export async function getItemsById(options) {
+    const dispatch = store.dispatch;
     try {
         const newItemIds = options.selectedItems.filter(
-            (id => !options.oldState.items.has(+id))
+            (id => !(id in options.oldState.items))
         )
         if (newItemIds.length > 0) {
-            const newItems = new Map();
+            const newItems = {};
             for (let newItemId of newItemIds) {
                 const newItem = await apiGetItemById(options.resourceType, newItemId)
-                if (newItem) newItems.set(newItem.id, newItem);
+                if (newItem) newItems[newItem.id] = newItem;
             }
-            const payload = new Map([...options.oldState.items, ...newItems])
-            options.dispatch({type: options.actionType, payload})
+            const payload = {...options.oldState.items, ...newItems}
+            dispatch({type: options.actionType, payload})
             return payload;
         }
     } catch (e) {
-        console.error(e.message)
-        options.dispatch(globalError(e.message))
+        if (e instanceof Error) {
+            dispatch(globalError(e.message))
+        } else {
+            dispatch(globalError(String(e)))
+        }
     }
 }

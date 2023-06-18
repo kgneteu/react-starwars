@@ -1,5 +1,5 @@
 import * as PropTypes from "prop-types";
-import {ReactNode} from "react";
+import React, {ReactNode} from "react";
 
 export const Main = ({children}: { children: ReactNode }) => (
     <main className={'flex flex-col items-stretch'}>

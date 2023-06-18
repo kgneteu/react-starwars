@@ -8,16 +8,17 @@ import Crawl from "../../crawl/crawl";
 import {formatSWAPIDataTable} from "../../../utils/swapi.utils";
 import {Loader} from "../../UI/loader/loader";
 import {getCharactersById} from "../../../store/characters/characters.actions";
-import {DataBox} from "../../dataBox";
+import {RelatedItem} from "../../relatedItem/relatedItem";
 import {getStarshipsById} from "../../../store/starships/starships.actions";
 import {getVehiclesById} from "../../../store/vehicles/vehicles.actions";
 import {getPlanetsById} from "../../../store/planets/planets.actions";
 import {getSpeciesById} from "../../../store/species/species.actions";
+import {AppState} from "../../../store/store.types";
 
 
 const FilmPage = () => {
-    const id = parseInt(useParams().id);
-    const film = useSelector(state => state.films.items.get(id));
+    let id = parseInt(useParams().id || '');
+    const film = useSelector((state:AppState) => state.films.items[id]);
     const dispatch = useDispatch();
 
 
@@ -47,11 +48,11 @@ const FilmPage = () => {
                 {formatSWAPIDataTable(film, undefined, true, ['opening_crawl'])}
             </div>
             <div className={'container mx-auto'}>
-                <DataBox title={'characters'} stateSlice={'characters'} items={film.characters} getDataAction={getCharactersById}/>
-                <DataBox title={'starships'} stateSlice={'starships'} items={film.starships} getDataAction={getStarshipsById}/>
-                <DataBox title={'vehicles'} stateSlice={'vehicles'} items={film.vehicles} getDataAction={getVehiclesById}/>
-                <DataBox title={'planets'} stateSlice={'planets'} items={film.planets} getDataAction={getPlanetsById}/>
-                <DataBox title={'species'} stateSlice={'species'} items={film.species} getDataAction={getSpeciesById}/>
+                <RelatedItem title={'characters'} stateSlice={'characters'} items={film.characters} getDataAction={getCharactersById}/>
+                <RelatedItem title={'starships'} stateSlice={'starships'} items={film.starships} getDataAction={getStarshipsById}/>
+                <RelatedItem title={'vehicles'} stateSlice={'vehicles'} items={film.vehicles} getDataAction={getVehiclesById}/>
+                <RelatedItem title={'planets'} stateSlice={'planets'} items={film.planets} getDataAction={getPlanetsById}/>
+                <RelatedItem title={'species'} stateSlice={'species'} items={film.species} getDataAction={getSpeciesById}/>
             </div>
         </div>
     );

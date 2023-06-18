@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {clearToast} from "../../../store/toasts/toasts.actions";
 import {useEffect} from "react";
 import 'react-toastify/dist/ReactToastify.css';
-import {RootState} from "../../../store";
+import {RootState} from "../../../store/store.types";
 
 export function Toasts() {
     const toasts = useSelector((state: RootState) => state.toasts)

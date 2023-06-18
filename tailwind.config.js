@@ -8,6 +8,9 @@ module.exports = {
       '3/4': '75%',
     },
     extend: {
+      colors: {
+        swYellow: '#FFE81F',
+      },
       dropShadow: {
         '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
       },

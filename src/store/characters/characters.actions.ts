@@ -1,7 +1,6 @@
 import {getItemsById, getItemsByPage} from "../utils/api.actions";
 import {CharactersActionType} from "./character.types";
-import {AppDispatch} from "../index";
-import {AppGetState} from "../utils/store.utils";
+import {AppDispatch, AppGetState} from "../store.types";
 
 
 export const getCharactersByPage = () => async (dispatch: AppDispatch, getState: AppGetState) => {

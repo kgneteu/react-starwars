@@ -1,7 +1,6 @@
 import {getItemsById, getItemsByPage} from "../utils/api.actions";
 import {FilmsActionType} from "./films.types";
-import {AppDispatch} from "../index";
-import {AppGetState} from "../utils/store.utils";
+import {AppDispatch, AppGetState} from "../store.types";
 
 
 export const getFilmsByPage = () => async (dispatch: AppDispatch, getState: AppGetState) => {

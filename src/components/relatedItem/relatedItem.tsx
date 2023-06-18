@@ -1,11 +1,20 @@
 import {useDispatch, useSelector} from "react-redux";
-import {extractSWAPIId} from "../utils/swapi.utils";
+import {extractSWAPIId} from "../../utils/swapi.utils";
 import {useEffect} from "react";
 import * as PropTypes from "prop-types";
 import {Link} from "react-router-dom";
+import {AppState} from "../../store/store.types";
+import classes from "./relatedItem.module.css";
 
-export function DataBox({title, items, stateSlice, getDataAction}) {
-    const loadedItems = useSelector(state => state[stateSlice].items)
+type Props = {
+    title: string,
+    stateSlice: string,
+    items: string[],
+    getDataAction: any
+}
+
+export function RelatedItem({title, items, stateSlice, getDataAction}: Props) {
+    const loadedItems = useSelector((state: AppState) => state[stateSlice].items)
     const dispatch = useDispatch();
     const itemsIds = items ? items.map(item => {
         return extractSWAPIId(item);
@@ -13,12 +22,12 @@ export function DataBox({title, items, stateSlice, getDataAction}) {
 
     useEffect(() => {
         if (itemsIds) {
-            const neededIds = itemsIds.filter(id => !loadedItems.has(id))
+            const neededIds = itemsIds.filter(id => !(id in loadedItems))
             dispatch(getDataAction(neededIds));
         }
     }, [dispatch, itemsIds, loadedItems, getDataAction])
 
-    const foundItems = itemsIds ? itemsIds.filter(id => loadedItems.has(id)).map(id => loadedItems.get(id)) : undefined;
+    const foundItems = itemsIds ? itemsIds.filter(id => (id in loadedItems)).map(id => loadedItems[id]) : undefined;
     if (!foundItems) return null;
 
     return (
@@ -28,7 +37,7 @@ export function DataBox({title, items, stateSlice, getDataAction}) {
                 {foundItems.map(item => {
                     return (
                         <Link key={item.id} to={`/${stateSlice}/${item.id}`}>
-                            <div className={'border-2 p-2 rounded-lg bg-gray-900 border-gray-400'}>
+                            <div className={classes.linkBox}>
                                 {item.name ? item.name : item.title}
                             </div>
                         </Link>
@@ -39,7 +48,7 @@ export function DataBox({title, items, stateSlice, getDataAction}) {
     )
 }
 
-DataBox.propTypes = {
+RelatedItem.propTypes = {
     stateSlice: PropTypes.string,
     title: PropTypes.string,
     data: PropTypes.array,

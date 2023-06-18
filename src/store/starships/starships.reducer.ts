@@ -1,7 +1,6 @@
 import {StarshipsActionType} from "./starships.types";
 import {Reducer} from "redux";
-import {ActionWithPayload} from "../utils/store.utils";
-import {DataSlice} from "../constants";
+import {ActionWithPayload, DataSlice} from "../store.types";
 
 export type StarshipsState = DataSlice;
 
