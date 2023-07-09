@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { ArticleCard } from '../../articleCard/articleCard';
+import { ArticleCard, FlyInArticleCard } from '../../articleCard/articleCard';
 import { PageTitle } from '../../UI/pageTitle/pageTitle';
 import { AppDispatch, AppGetState, AppState } from '../../../store/store.types';
 import { useInView } from 'react-intersection-observer';
@@ -34,7 +34,9 @@ const CategoryPage = ({ title = '', stateSlice, getDataAction }: Props) => {
                 <div className="flex flex-wrap justify-center gap-8 relative">
                     {Object.keys(items).length > 0 &&
                         [...Object.values(items).values()].map((item) => {
-                            return <ArticleCard key={item.id} item={item} category={stateSlice} />;
+                            return (
+                                <FlyInArticleCard key={item.id} item={item} category={stateSlice} />
+                            );
                         })}
                     {!dataEnd && <div ref={loadMoreRef} className="absolute w-5 h-5 bottom-9" />}
                 </div>

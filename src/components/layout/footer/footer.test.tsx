@@ -7,6 +7,11 @@ describe(Footer.name, () => {
         expect(screen.getByText(/Zdolski/i)).toBeInTheDocument();
     });
 
+    test('Should be rendered as footer', async () => {
+        const { container } = render(<Footer />);
+        expect(container.querySelector('footer')).toBeInTheDocument();
+    });
+
     test('should match snapshot', async () => {
         const { container } = render(<Footer />);
         expect(container.firstChild).toMatchInlineSnapshot(`

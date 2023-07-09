@@ -44,8 +44,7 @@ const App = () => {
                         transitionStage={transitionStage}
                         onTransitionEnd={handleTransitionEnd}
                     />
-                }
-            >
+                }>
                 <Route path={'/'} element={<Home />} />
                 <Route
                     path={'/films'}
