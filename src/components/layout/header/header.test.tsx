@@ -1,17 +1,17 @@
-import React from "react";
-import Header from "./header";
-import { render } from "@testing-library/react";
-import { MemoryRouter } from "react-router";
+import React from 'react';
+import Header from './header';
+import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router';
 
 describe(Header.name, function () {
-  test("should match snapshot", () => {
-    const { container } = render(
-      <MemoryRouter>
-        <Header />
-      </MemoryRouter>
-    );
+    test('should match snapshot', () => {
+        const { container } = render(
+            <MemoryRouter>
+                <Header />
+            </MemoryRouter>
+        );
 
-    expect(container.firstChild).toMatchInlineSnapshot(`
+        expect(container.firstChild).toMatchInlineSnapshot(`
       <header
         class="header"
       >
@@ -88,5 +88,5 @@ describe(Header.name, function () {
         </div>
       </header>
     `);
-  });
+    });
 });

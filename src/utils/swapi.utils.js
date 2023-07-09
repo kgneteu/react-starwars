@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 
 const starWarsAPIModel = {
     average_height: {
         type: String,
         label: 'Average height',
-        suffix: 'cm',
+        suffix: 'cm'
     },
     average_lifespan: {
         type: String,
         label: 'Average lifespan',
-        suffix: 'y',
+        suffix: 'y'
     },
     birth_year: {
         type: String,
@@ -17,11 +17,11 @@ const starWarsAPIModel = {
     },
     cargo_capacity: {
         type: String,
-        label: "Cargo capacity",
+        label: 'Cargo capacity'
     },
     classification: {
         type: String,
-        label: "Classification",
+        label: 'Classification'
     },
     characters: {
         type: Array,
@@ -29,19 +29,19 @@ const starWarsAPIModel = {
     },
     consumables: {
         type: String,
-        label: "Consumables",
+        label: 'Consumables'
     },
     cost_in_credits: {
         type: String,
-        label: "Cost in Credits",
+        label: 'Cost in Credits'
     },
     climate: {
         type: String,
-        label: "Climate",
+        label: 'Climate'
     },
     crew: {
         type: String,
-        label: "Crew",
+        label: 'Crew'
     },
     designation: {
         type: String,
@@ -90,45 +90,45 @@ const starWarsAPIModel = {
     height: {
         type: String,
         label: 'Height',
-        suffix: "cm",
+        suffix: 'cm'
     },
     homeworld: {
         type: String,
         label: 'Home world',
-        link: true,
+        link: true
     },
     hyperdrive_rating: {
         type: String,
-        label: 'Hyperdrive rating',
+        label: 'Hyperdrive rating'
     },
     language: {
         type: String,
-        label: 'Language',
+        label: 'Language'
     },
     length: {
         type: String,
-        label: 'Length',
+        label: 'Length'
     },
     max_atmosphering_speed: {
         type: String,
-        label: 'Max speed',
+        label: 'Max speed'
     },
     manufacturer: {
         type: String,
-        label: 'Manufacturer',
+        label: 'Manufacturer'
     },
     mass: {
         type: String,
         label: 'Mass',
-        suffix: "kg",
+        suffix: 'kg'
     },
     MGLT: {
         type: String,
-        label: 'MGLT',
+        label: 'MGLT'
     },
     model: {
         type: String,
-        label: 'Model',
+        label: 'Model'
     },
     opening_crawl: {
         type: String,
@@ -172,15 +172,15 @@ const starWarsAPIModel = {
     },
     rotation_period: {
         type: String,
-        label: 'Rotation period',
+        label: 'Rotation period'
     },
     skin_color: {
         type: String,
-        label: 'Skin color',
+        label: 'Skin color'
     },
     skin_colors: {
         type: String,
-        label: 'Skin colors',
+        label: 'Skin colors'
     },
     species: {
         type: Array,
@@ -188,7 +188,7 @@ const starWarsAPIModel = {
     },
     surface_water: {
         type: String,
-        label: 'Surface water',
+        label: 'Surface water'
     },
     starships: {
         type: Array,
@@ -196,23 +196,21 @@ const starWarsAPIModel = {
     },
     starship_class: {
         type: String,
-        label: 'Starship class',
+        label: 'Starship class'
     },
     terrain: {
         type: String,
-        label: 'Terrain',
+        label: 'Terrain'
     },
     vehicle_class: {
         type: String,
-        label: 'Vehicle class',
+        label: 'Vehicle class'
     },
     vehicles: {
         type: Array,
         label: 'vehicles'
-    },
-
-}
-
+    }
+};
 
 // <tr>
 //     <td>characters</td>
@@ -223,19 +221,18 @@ const starWarsAPIModel = {
 
 //returns table built on SWAPI data
 export function formatSWAPIDataTable(data, maxRows = -1, skipArrays = false, skipFields = []) {
-
     let rows = [];
     for (const key in data) {
-        if (maxRows>=0 && rows.length === maxRows) break;
+        if (maxRows >= 0 && rows.length === maxRows) break;
         if (starWarsAPIModel[key] !== undefined) {
             if (starWarsAPIModel[key].type === Array) {
-                if ((!skipArrays) && (data[key].length > 0)) {
+                if (!skipArrays && data[key].length > 0) {
                     rows.push(
                         <tr key={key}>
                             <td>{starWarsAPIModel[key].label}</td>
                             <td>Array</td>
                         </tr>
-                    )
+                    );
                 } else {
                     if (!skipArrays) {
                         rows.push(
@@ -243,7 +240,7 @@ export function formatSWAPIDataTable(data, maxRows = -1, skipArrays = false, ski
                                 <td>{starWarsAPIModel[key].label}</td>
                                 <td>Array</td>
                             </tr>
-                        )
+                        );
                     }
                 }
             } else {
@@ -253,31 +250,33 @@ export function formatSWAPIDataTable(data, maxRows = -1, skipArrays = false, ski
                         rows.push(
                             <tr key={key}>
                                 <td className={'w-1/3 key-col'}>
-                                    <div className={'overflow-hidden h-6'}>{starWarsAPIModel[key].label}</div>
+                                    <div className={'overflow-hidden h-6'}>
+                                        {starWarsAPIModel[key].label}
+                                    </div>
                                 </td>
                                 <td>
                                     <div className={'overflow-hidden h-6 data-col'}>
-                                        <p className={'overflow-ellipsis'}>{data[key].toString()}{starWarsAPIModel[key].suffix}</p>
+                                        <p className={'overflow-ellipsis'}>
+                                            {data[key].toString()}
+                                            {starWarsAPIModel[key].suffix}
+                                        </p>
                                     </div>
                                 </td>
                             </tr>
-                        )
+                        );
                     }
                 } catch (e) {
-                    console.log("Unknown key", key)
+                    console.log('Unknown key', key);
                 }
             }
         }
     }
 
-
     return (
         <table>
-            <tbody>
-            {rows}
-            </tbody>
+            <tbody>{rows}</tbody>
         </table>
-    )
+    );
 }
 
 export function extractSWAPIId(path) {

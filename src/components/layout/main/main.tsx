@@ -1,10 +1,8 @@
-import * as PropTypes from "prop-types";
-import React, {ReactNode} from "react";
+import * as PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 
-export const Main = ({children}: { children: ReactNode }) => (
-    <main className={'flex flex-col items-stretch'}>
-        {children}
-    </main>
-)
+export const Main = ({ children }: { children: ReactNode }) => (
+    <main className={'flex flex-col items-stretch'}>{children}</main>
+);
 
-Main.propTypes = {children: PropTypes.node};
+Main.propTypes = { children: PropTypes.node };

@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import StoreProvider from "./store/storeProvider";
-import App from "./app";
-import {HashRouter as Router, Route, Routes} from "react-router-dom";
+import StoreProvider from './store/storeProvider';
+import App from './app';
+import { HashRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
     <React.StrictMode>
         <StoreProvider>
             <Router basename={process.env.PUBLIC_URL}>
-            <App/>
+                <App />
             </Router>
         </StoreProvider>
     </React.StrictMode>,

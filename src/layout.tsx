@@ -1,29 +1,29 @@
-import {Outlet} from "react-router-dom";
-import React from "react";
-import Header from "./components/layout/header/header";
-import StarParallax from "./components/UI/starParallax/starParallax";
-import Footer from "./components/layout/footer/footer";
-import {Transition} from "react-transition-group";
+import { Outlet } from 'react-router-dom';
+import React from 'react';
+import Header from './components/layout/header/header';
+import StarParallax from './components/UI/starParallax/starParallax';
+import Footer from './components/layout/footer/footer';
 
-type TransitionType = "FadeIn" | "FadeOut";
+type TransitionType = 'FadeIn' | 'FadeOut';
 
 interface LayoutProps {
-    transitionStage: string,
-    onTransitionEnd: () => void
+    transitionStage: string;
+    onTransitionEnd: () => void;
 }
 
-export function Layout({transitionStage, onTransitionEnd}: LayoutProps) {
-    const animationClass = (transitionStage === 'fadeOut' ? 'LayoutFadeOut' : '');
+export function Layout({ transitionStage, onTransitionEnd }: LayoutProps) {
+    const animationClass = transitionStage === 'fadeOut' ? 'LayoutFadeOut' : '';
     return (
         <>
-            <StarParallax/>
+            <StarParallax />
             <div className={'flex flex-col h-screen'}>
-                <Header/>
+                <Header />
                 <main className={'flex-grow ' + animationClass} onAnimationEnd={onTransitionEnd}>
-                    <Outlet/>
+                    <Outlet />
                 </main>
-                <Footer/>
+                <Footer />
             </div>
             {/*<Toasts/>*/}
-        </>);
+        </>
+    );
 }

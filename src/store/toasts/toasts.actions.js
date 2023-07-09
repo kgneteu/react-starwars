@@ -1,4 +1,4 @@
-import {ToastsActionType} from "./toasts.types";
+import { ToastsActionType } from './toasts.types';
 
 export const globalError = (msg) => ({
     type: ToastsActionType.GLOBAL_ERROR,
@@ -14,6 +14,6 @@ export const clearToast = () => {
     return (dispatch) => {
         dispatch({
             type: ToastsActionType.CLEAR_TOAST
-        })
-    }
-}
+        });
+    };
+};

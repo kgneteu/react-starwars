@@ -1,11 +1,10 @@
-import StarParallax from "./starParallax";
-import {render} from "@testing-library/react";
+import StarParallax from './starParallax';
+import { render } from '@testing-library/react';
 
 describe(StarParallax.name, function () {
-
-  test("should match snapshot", function () {
-    const { container } = render(<StarParallax />);
-    expect(container.firstChild).toMatchInlineSnapshot(`
+    test('should match snapshot', function () {
+        const { container } = render(<StarParallax />);
+        expect(container.firstChild).toMatchInlineSnapshot(`
       <div
         class="sky"
       >
@@ -20,5 +19,5 @@ describe(StarParallax.name, function () {
         />
       </div>
     `);
-  });
+    });
 });

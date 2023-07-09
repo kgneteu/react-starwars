@@ -1,21 +1,24 @@
-import {StarshipsActionType} from "./starships.types";
-import {Reducer} from "redux";
-import {ActionWithPayload, DataSlice} from "../store.types";
+import { StarshipsActionType } from './starships.types';
+import { Reducer } from 'redux';
+import { ActionWithPayload, DataSlice } from '../store.types';
 
 export type StarshipsState = DataSlice;
 
 const INIT_STATE: StarshipsState = {
     dataEnd: false,
     next: 0,
-    items: {},
-}
+    items: {}
+};
 
-const starshipsReducer: Reducer<StarshipsState, ActionWithPayload<StarshipsActionType>> = (state = INIT_STATE, action) => {
+const starshipsReducer: Reducer<StarshipsState, ActionWithPayload<StarshipsActionType>> = (
+    state = INIT_STATE,
+    action
+) => {
     switch (action.type) {
         case StarshipsActionType.GET_STARSHIPS_BY_PAGE:
-            return {...state, ...action.payload}
+            return { ...state, ...action.payload };
         case StarshipsActionType.GET_STARSHIPS_BY_ID:
-            return {...state, items: action.payload}
+            return { ...state, items: action.payload };
         default:
             return state;
     }

@@ -1,21 +1,24 @@
-import {FilmsActionType} from "./films.types";
-import {Reducer} from "redux";
-import {ActionWithPayload, DataSlice} from "../store.types";
+import { FilmsActionType } from './films.types';
+import { Reducer } from 'redux';
+import { ActionWithPayload, DataSlice } from '../store.types';
 
 export type FilmsState = DataSlice;
 
-const INIT_STATE:FilmsState = {
+const INIT_STATE: FilmsState = {
     dataEnd: false,
     next: 0,
-    items: {},
-}
+    items: {}
+};
 
-const filmsReducer:Reducer<FilmsState,ActionWithPayload<FilmsActionType>> = (state = INIT_STATE, action) => {
+const filmsReducer: Reducer<FilmsState, ActionWithPayload<FilmsActionType>> = (
+    state = INIT_STATE,
+    action
+) => {
     switch (action.type) {
         case FilmsActionType.GET_FILMS_BY_PAGE:
-            return {...state, ...action.payload}
+            return { ...state, ...action.payload };
         case FilmsActionType.GET_FILMS_BY_ID:
-            return {...state, items: action.payload}
+            return { ...state, items: action.payload };
         default:
             return state;
     }

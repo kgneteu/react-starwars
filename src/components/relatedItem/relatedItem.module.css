@@ -1,9 +1,8 @@
-
 .linkBox {
-  @apply border-2 py-2 pr-4 rounded-lg border-transparent text-left;
-  transition: all 300ms ease-in-out;
+    @apply border-2 py-2 pr-4 rounded-lg border-transparent text-left;
+    transition: all 300ms ease-in-out;
 }
 
 .linkBox:hover {
-  @apply border-2 p-2 rounded-lg bg-red-900 border-gray-400;
+    @apply border-2 p-2 rounded-lg bg-red-900 border-gray-400;
 }

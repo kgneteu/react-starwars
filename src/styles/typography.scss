@@ -1,27 +1,26 @@
 @font-face {
-  font-family: 'STARWARS';
-  font-style: normal;
-  font-weight: normal;
-  src: url('../assets/fonts/star-jedi.woff') format('woff');
+    font-family: 'STARWARS';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../assets/fonts/star-jedi.woff') format('woff');
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&display=swap');
 
-
-
 .font-star-wars {
-  font-family: 'STARWARS';
+    font-family: 'STARWARS';
 }
 
 .font-sans {
-  font-family: 'Open Sans',
-  system-ui,
-  -apple-system, /* Firefox supports this but not yet `system-ui` */
-  'Segoe UI',
-  Roboto,
-  Helvetica,
-  Arial,
-  sans-serif,
-  'Apple Color Emoji',
-  'Segoe UI Emoji';
+    font-family:
+        'Open Sans',
+        system-ui,
+        -apple-system,
+        /* Firefox supports this but not yet `system-ui` */ 'Segoe UI',
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif,
+        'Apple Color Emoji',
+        'Segoe UI Emoji';
 }

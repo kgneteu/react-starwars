@@ -1,54 +1,52 @@
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
-import PropTypes from "prop-types";
-import {ArticleCard} from "../../articleCard/articleCard";
-import {PageTitle} from "../../UI/pageTitle/pageTitle";
-import {AppDispatch, AppGetState, AppState} from "../../../store/store.types";
-import {useInView} from "react-intersection-observer";
-
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { ArticleCard } from '../../articleCard/articleCard';
+import { PageTitle } from '../../UI/pageTitle/pageTitle';
+import { AppDispatch, AppGetState, AppState } from '../../../store/store.types';
+import { useInView } from 'react-intersection-observer';
 
 interface Props {
-    title?: string,
-    stateSlice: string,
-    getDataAction: () => (dispatch: AppDispatch, getState: AppGetState) => Promise<void>
+    title?: string;
+    stateSlice: string;
+    getDataAction: () => (dispatch: AppDispatch, getState: AppGetState) => Promise<void>;
 }
 
-const CategoryPage = ({title = '', stateSlice, getDataAction}: Props) => {
+const CategoryPage = ({ title = '', stateSlice, getDataAction }: Props) => {
     const pageTitle = title !== '' ? title : stateSlice;
-    const dataEnd = useSelector<AppState, boolean>((state: AppState): boolean => state[stateSlice].dataEnd)
-    const items = useSelector((state: AppState) => state[stateSlice].items)
+    const dataEnd = useSelector<AppState, boolean>(
+        (state: AppState): boolean => state[stateSlice].dataEnd
+    );
+    const items = useSelector((state: AppState) => state[stateSlice].items);
     const dispatch = useDispatch();
-    const {ref: loadMoreRef, inView: isVisible} = useInView()
+    const { ref: loadMoreRef, inView: isVisible } = useInView();
 
     useEffect(() => {
-        if ((isVisible) && (!dataEnd)) {
-            dispatch(getDataAction())
+        if (isVisible && !dataEnd) {
+            dispatch(getDataAction());
         }
-
-    }, [isVisible, dataEnd, dispatch, getDataAction])
+    }, [isVisible, dataEnd, dispatch, getDataAction]);
 
     return (
         <>
-            <PageTitle title={pageTitle}/>
+            <PageTitle title={pageTitle} />
             <div className={'container mx-auto'} key={stateSlice}>
-                <div className='flex flex-wrap justify-center gap-8 relative'>
-                    {Object.keys(items).length > 0 && [...Object.values(items).values()].map((item) => {
-                        return (
-                            <ArticleCard key={item.id} item={item} category={stateSlice}/>
-                        )
-                    })}
-                    {!(dataEnd) && (
-                        <div ref={loadMoreRef} className='absolute w-5 h-5 bottom-9'/>)}
+                <div className="flex flex-wrap justify-center gap-8 relative">
+                    {Object.keys(items).length > 0 &&
+                        [...Object.values(items).values()].map((item) => {
+                            return <ArticleCard key={item.id} item={item} category={stateSlice} />;
+                        })}
+                    {!dataEnd && <div ref={loadMoreRef} className="absolute w-5 h-5 bottom-9" />}
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
 CategoryPage.propTypes = {
     stateSlice: PropTypes.string.isRequired,
     getDataAction: PropTypes.func.isRequired,
-    title: PropTypes.string,
+    title: PropTypes.string
 };
 
 export default CategoryPage;

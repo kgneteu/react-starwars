@@ -1,68 +1,64 @@
-@import "tailwind";
-@import "typography";
-
-
+@import 'tailwind';
+@import 'typography';
 
 h1 {
-  font-size: 6vw;
+    font-size: 6vw;
 }
 
 h2 {
-  font-size: 4vw;
+    font-size: 4vw;
 }
 
 h3 {
-  font-size: 3vw;
+    font-size: 3vw;
 }
 
-h1, h2, h3 {
-  font-family: 'STARWARS', sans-serif;
+h1,
+h2,
+h3 {
+    font-family: 'STARWARS', sans-serif;
 }
 
-html, body {
-  margin: 0;
-  //background-color: black;
-  color: whitesmoke;
-  @apply font-sans h-full;
+html,
+body {
+    margin: 0;
+    //background-color: black;
+    color: whitesmoke;
+    @apply font-sans h-full;
 }
 
 body {
-  @apply min-h-screen;
+    @apply min-h-screen;
 }
 
-
 .animate-appear {
-  opacity: 0;
-  animation: appear 1400ms ease-in forwards;
+    opacity: 0;
+    animation: appear 1400ms ease-in forwards;
 }
 
 @keyframes appear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-
-
 .my-node {
-  opacity: 0;
-  //transform: scale(1.2);
-  transform: matrix(1, 2, 3, 4, 5, 6);
-  transition: all 900ms ease-in;
+    opacity: 0;
+    //transform: scale(1.2);
+    transform: matrix(1, 2, 3, 4, 5, 6);
+    transition: all 900ms ease-in;
 }
 
 .my-node-appear-enter {
-
-  opacity: 1;
+    opacity: 1;
 }
 
 .my-node-appear-done {
-  opacity: 1;
-  transform: scale(1);
-
+    opacity: 1;
+    transform: scale(1);
 }
 //
 //.my-node-enter {
@@ -76,27 +72,26 @@ body {
 //}
 //
 .my-node-exit {
-  opacity: 1;
-  transition: opacity 200ms;
+    opacity: 1;
+    transition: opacity 200ms;
 }
 //
 .my-node-exit-done {
-  opacity: 0;
-  transform: scale(1.5);
+    opacity: 0;
+    transform: scale(1.5);
 }
 
-
 .LayoutFadeOut {
-  animation: 0.5s LayoutFadeOut forwards;
+    animation: 0.5s LayoutFadeOut forwards;
 }
 
 @keyframes LayoutFadeOut {
-  from {
-    opacity: 1;
-    //transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    //transform: scale(0.5);
-  }
+    from {
+        opacity: 1;
+        //transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        //transform: scale(0.5);
+    }
 }

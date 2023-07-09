@@ -1,17 +1,17 @@
-import jediLogo from '../../../assets/images/jedi.svg'
-import React from "react";
+import jediLogo from '../../../assets/images/jedi.svg';
+import React from 'react';
 
 type CloudImageProps = {
-    category: string,
-    preset: string,
-    imgId: number,
-    title?: string,
-    className?: string
-}
+    category: string;
+    preset: string;
+    imgId: number;
+    title?: string;
+    className?: string;
+};
 
-export function CloudImage({category, preset, imgId, title, className}: CloudImageProps) {
+export function CloudImage({ category, preset, imgId, title, className }: CloudImageProps) {
     //todo alt image
-    const errorHandler = (e:    React.SyntheticEvent<HTMLImageElement>) => {
+    const errorHandler = (e: React.SyntheticEvent<HTMLImageElement>) => {
         e.currentTarget.src = jediLogo;
     };
 
@@ -39,5 +39,6 @@ export function CloudImage({category, preset, imgId, title, className}: CloudIma
             src={`${process.env.REACT_APP_CLOUDINARY_URL}${transform}/starwars/${category}/${imgId}.jpg`}
             style={{}}
             onError={errorHandler}
-        />)
+        />
+    );
 }

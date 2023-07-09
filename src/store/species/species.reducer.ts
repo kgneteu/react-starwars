@@ -1,21 +1,24 @@
-import {SpeciesActionType} from "./species.types";
-import {Reducer} from "redux";
-import {ActionWithPayload, DataSlice} from "../store.types";
+import { SpeciesActionType } from './species.types';
+import { Reducer } from 'redux';
+import { ActionWithPayload, DataSlice } from '../store.types';
 
 export type SpeciesState = DataSlice;
 
 const INIT_STATE: SpeciesState = {
     dataEnd: false,
     next: 0,
-    items: {},
-}
+    items: {}
+};
 
-const speciesReducer: Reducer<SpeciesState, ActionWithPayload<SpeciesActionType>> = (state = INIT_STATE, action) => {
+const speciesReducer: Reducer<SpeciesState, ActionWithPayload<SpeciesActionType>> = (
+    state = INIT_STATE,
+    action
+) => {
     switch (action.type) {
         case SpeciesActionType.GET_SPECIES_BY_PAGE:
-            return {...state, ...action.payload}
+            return { ...state, ...action.payload };
         case SpeciesActionType.GET_SPECIES_BY_ID:
-            return {...state, items: action.payload}
+            return { ...state, items: action.payload };
         default:
             return state;
     }

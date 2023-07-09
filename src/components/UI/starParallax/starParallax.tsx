@@ -1,11 +1,11 @@
-import classes from "./starsParallax.module.scss";
+import classes from './starsParallax.module.scss';
 
 const StarParallax = () => {
     return (
         <div className={classes.sky}>
-            <div className={classes.stars}/>
-            <div className={classes.stars2}/>
-            <div className={classes.stars3}/>
+            <div className={classes.stars} />
+            <div className={classes.stars2} />
+            <div className={classes.stars3} />
         </div>
     );
 };
