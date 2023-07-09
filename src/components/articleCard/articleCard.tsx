@@ -28,7 +28,8 @@ export function ArticleCard({ category, item }: ArticleCardProps) {
             in={true}
             nodeRef={ref}
             appear={true}
-            unmountOnExit>
+            unmountOnExit
+        >
             {(state) => {
                 console.log('ss ', state);
                 return (
