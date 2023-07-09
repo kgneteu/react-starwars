@@ -28,7 +28,7 @@ const FeaturedBox = ({title, stateSlice, getDataAction}: Props) => {
 
     if (loading) return <Loader/>
     return (
-        <section className={'bg-black bg-opacity-75 my-24 w-full animate-appear'}>
+        <section className={'bg-black bg-opacity-75 my-24 w-full'}>
             <div className={'container mx-auto'}>
                 <h2 className={"opacity-75"}>{title}</h2>
                 <div className='flex gap-8 justify-center'>

@@ -1,10 +1,10 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useLayoutEffect, useRef} from "react";
-import useVisible from "../../../hooks/useVisible";
+import {useEffect} from "react";
 import PropTypes from "prop-types";
 import {ArticleCard} from "../../articleCard/articleCard";
 import {PageTitle} from "../../UI/pageTitle/pageTitle";
 import {AppDispatch, AppGetState, AppState} from "../../../store/store.types";
+import {useInView} from "react-intersection-observer";
 
 
 interface Props {
@@ -15,16 +15,12 @@ interface Props {
 
 const CategoryPage = ({title = '', stateSlice, getDataAction}: Props) => {
     const pageTitle = title !== '' ? title : stateSlice;
+    const dataEnd = useSelector<AppState, boolean>((state: AppState): boolean => state[stateSlice].dataEnd)
     const items = useSelector((state: AppState) => state[stateSlice].items)
-    const dataEnd = useSelector((state: AppState) => state[stateSlice].dataEnd)
-    console.log(dataEnd)
-
     const dispatch = useDispatch();
-    const loadMore = useRef<HTMLDivElement>(null);
-    const isVisible = useVisible(loadMore, false)
+    const {ref: loadMoreRef, inView: isVisible} = useInView()
 
-    useLayoutEffect(() => {
-        console.log('dis', dataEnd, isVisible)
+    useEffect(() => {
         if ((isVisible) && (!dataEnd)) {
             dispatch(getDataAction())
         }
@@ -34,18 +30,16 @@ const CategoryPage = ({title = '', stateSlice, getDataAction}: Props) => {
     return (
         <>
             <PageTitle title={pageTitle}/>
-            <div className={'container mx-auto '}>
+            <div className={'container mx-auto'} key={stateSlice}>
                 <div className='flex flex-wrap justify-center gap-8 relative'>
                     {Object.keys(items).length > 0 && [...Object.values(items).values()].map((item) => {
-                        // @ts-ignore
                         return (
-                            <ArticleCard key={item.id} item={item}
-                                         category={stateSlice}/>
+                            <ArticleCard key={item.id} item={item} category={stateSlice}/>
                         )
                     })}
-                    {!dataEnd && <div ref={loadMore} className='absolute w-5 h-5 bottom-9 bg-red-400'/>}
+                    {!(dataEnd) && (
+                        <div ref={loadMoreRef} className='absolute w-5 h-5 bottom-9'/>)}
                 </div>
-                {/*{loading && <Loader/>}*/}
             </div>
         </>
     )

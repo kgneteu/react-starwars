@@ -17,47 +17,54 @@ import StarshipPage from "./components/pages/starships/starshipPage";
 import SpeciesPage from "./components/pages/species/speciesPage";
 import Footer from "./components/layout/footer/footer";
 import VehiclePage from "./components/pages/vehicles/vehiclePage";
-import ScrollToTop from "./components/scrollToTop/scrollToTop";
-import React from "react";
+import React, {useEffect, useState} from "react";
+import './styles/index.scss';
+import {Layout} from "./layout";
+import {useLocation} from "react-router";
 
 const App = () => {
-    return (
-        <>
-            <StarParallax/>
-        <div className={'flex flex-col h-screen'}>
-            <Router basename={process.env.PUBLIC_URL}>
-                <Header/>
-                {/*<ScrollToTop/>*/}
-                <main className={'flex-grow'}>
-                    <Routes>
-                        <Route path={'/'} element={<Home/>}/>
-                        <Route path={'/films'}
-                               element={<CategoryPage stateSlice={'films'} getDataAction={getFilmsByPage}/>}/>
-                        <Route path={'/films/:id'} element={<FilmPage/>}/>
-                        <Route path={'/characters'}
-                               element={<CategoryPage stateSlice={'characters'} getDataAction={getCharactersByPage}/>}/>
-                        <Route path={'/characters/:id'} element={<CharacterPage/>}/>
-                        <Route path={'/planets'}
-                               element={<CategoryPage stateSlice={'planets'} getDataAction={getPlanetsByPage}/>}/>
-                        <Route path={'/planets/:id'} element={<PlanetPage/>}/>
-                        <Route path={'/starships'}
-                               element={<CategoryPage stateSlice={'starships'} getDataAction={getStarshipsByPage}/>}/>
-                        <Route path={'/starships/:id'} element={<StarshipPage/>}/>
-                        <Route path={'/vehicles'}
-                               element={<CategoryPage stateSlice={'vehicles'} getDataAction={getVehiclesByPage}/>}/>
-                        <Route path={'/vehicles/:id'} element={<VehiclePage/>}/>
-                        <Route path={'/species'}
-                               element={<CategoryPage stateSlice={'species'} getDataAction={getSpeciesByPage}/>}/>
-                        <Route path={'/species/:id'} element={<SpeciesPage/>}/>
-                        <Route path={'*'} element={<Page404/>}/>
-                    </Routes>
-                </main>
-                <Footer/>
-            </Router>
+    const location = useLocation();
+    const [displayLocation, setDisplayLocation] = useState(location);
+    const [transitionStage, setTransistionStage] = useState("fadeIn");
 
-            {/*<Toasts/>*/}
-        </div>
-        </>
+    {/*<ScrollToTop/>*/}
+    useEffect(() => {
+        if (location !== displayLocation) setTransistionStage("fadeOut");
+    }, [location, displayLocation]);
+
+    const handleTransitionEnd = ()=>{
+        setTransistionStage('fadeIn')
+        setDisplayLocation(location)
+    };
+
+    return (
+            <Routes location={displayLocation}>
+                <Route element={<Layout transitionStage={transitionStage} onTransitionEnd={handleTransitionEnd}/>}>
+                    <Route path={'/'} element={<Home/>}/>
+                    <Route path={'/films'}
+                           element={<CategoryPage stateSlice={'films'} getDataAction={getFilmsByPage}/>}/>
+                    <Route path={'/films/:id'} element={<FilmPage/>}/>
+                    <Route path={'/characters'}
+                           element={<CategoryPage stateSlice={'characters'}
+                                                  getDataAction={getCharactersByPage}/>}/>
+                    <Route path={'/characters/:id'} element={<CharacterPage/>}/>
+                    <Route path={'/planets'}
+                           element={<CategoryPage stateSlice={'planets'} getDataAction={getPlanetsByPage}/>}/>
+                    <Route path={'/planets/:id'} element={<PlanetPage/>}/>
+                    <Route path={'/starships'}
+                           element={<CategoryPage stateSlice={'starships'}
+                                                  getDataAction={getStarshipsByPage}/>}/>
+                    <Route path={'/starships/:id'} element={<StarshipPage/>}/>
+                    <Route path={'/vehicles'}
+                           element={<CategoryPage stateSlice={'vehicles'} getDataAction={getVehiclesByPage}/>}/>
+                    <Route path={'/vehicles/:id'} element={<VehiclePage/>}/>
+                    <Route path={'/species'}
+                           element={<CategoryPage stateSlice={'species'} getDataAction={getSpeciesByPage}/>}/>
+                    <Route path={'/species/:id'} element={<SpeciesPage/>}/>
+                    <Route path={'*'} element={<Page404/>}/>
+                </Route>
+            </Routes>
+
     );
 };
 

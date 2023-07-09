@@ -1,93 +1,92 @@
 import React from "react";
 import Header from "./header";
-import {render} from "@testing-library/react";
-import {MemoryRouter} from "react-router";
+import { render } from "@testing-library/react";
+import { MemoryRouter } from "react-router";
 
 describe(Header.name, function () {
   test("should match snapshot", () => {
     const { container } = render(
-        <MemoryRouter>
-          <Header />
-        </MemoryRouter>
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>
     );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-    <header
-      class="header"
-    >
-      <div
-        class="flex container mx-auto"
+      <header
+        class="header"
       >
         <div
-          class="w-48 text-center"
+          class="flex container mx-auto"
         >
-          <a
-            class=""
-            href="/"
+          <div
+            class="w-48 text-center"
           >
-            <img
-              alt="StarWars Fandom"
-              class="logo"
-              src="star_wars_logo.svg"
-            />
-            <div
-              class="logoTitle"
+            <a
+              class=""
+              href="/"
             >
-              Fandom
-            </div>
-          </a>
+              <img
+                alt="StarWars Fandom"
+                class="logo"
+                src="star_wars_logo.svg"
+              />
+              <div
+                class="logoTitle"
+              >
+                Fandom
+              </div>
+            </a>
+          </div>
+          <div
+            class="flex-grow"
+          />
+          <nav>
+            <a
+              aria-current="page"
+              class="active"
+              href="/"
+            >
+              Home
+            </a>
+            <a
+              class=""
+              href="/films"
+            >
+              Films
+            </a>
+            <a
+              class=""
+              href="/characters"
+            >
+              Characters
+            </a>
+            <a
+              class=""
+              href="/starships"
+            >
+              Starships
+            </a>
+            <a
+              class=""
+              href="/vehicles"
+            >
+              Vehicles
+            </a>
+            <a
+              class=""
+              href="/planets"
+            >
+              Planets
+            </a>
+            <a
+              class=""
+              href="/species"
+            >
+              Species
+            </a>
+          </nav>
         </div>
-        <div
-          class=" flex-grow"
-        />
-        <nav>
-          <a
-            aria-current="page"
-            class="active"
-            href="/"
-          >
-            Home
-          </a>
-          <a
-            class=""
-            href="/films"
-          >
-            Films
-          </a>
-          <a
-            class=""
-            href="/characters"
-          >
-            Characters
-          </a>
-          <a
-            class=""
-            href="/starships"
-          >
-            Starships
-          </a>
-          <a
-            class=""
-            href="/vehicles"
-          >
-            Vehicles
-          </a>
-          <a
-            class=""
-            href="/planets"
-          >
-            Planets
-          </a>
-          <a
-            class=""
-            href="/species"
-          >
-            Species
-          </a>
-        </nav>
-      </div>
-    </header>
-  `);
+      </header>
+    `);
   });
-
 });

@@ -5,7 +5,6 @@ import {getPlanetsByPage} from "../../../store/planets/planets.actions";
 import {getStarshipsByPage} from "../../../store/starships/starships.actions";
 import {getVehiclesByPage} from "../../../store/vehicles/vehicles.actions";
 import {getSpeciesByPage} from "../../../store/species/species.actions";
-import {Main} from "../../layout/main/main";
 import {Component} from "react";
 
 
