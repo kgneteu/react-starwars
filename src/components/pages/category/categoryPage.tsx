@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { FlyInArticleCard } from '../../articleCard/articleCard';
 import { PageTitle } from '../../UI/pageTitle/pageTitle';
 import { AppDispatch, AppGetState, AppState } from '../../../store/store.types';
 import { useInView } from 'react-intersection-observer';
+import { FlyInArticleCard } from '../../flyInArticleCard/flyInArticleCard';
 
 interface Props {
     title?: string;
@@ -20,7 +20,6 @@ const CategoryPage = ({ title = '', stateSlice, getDataAction }: Props) => {
     const items = useSelector((state: AppState) => state[stateSlice].items);
     const dispatch = useDispatch();
     const { ref: loadMoreRef, inView: isVisible } = useInView();
-
     useEffect(() => {
         if (isVisible && !dataEnd) {
             dispatch(getDataAction());

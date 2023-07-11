@@ -4,9 +4,12 @@
     position: relative;
     height: 24rem;
     width: 22rem;
+    max-width: 90vw;
+
 
     section {
         @apply border-8 rounded-2xl flex flex-col;
+        max-width: 90vw;
         transition: all 0.7s ease-in;
         position: absolute;
         top: 0;
