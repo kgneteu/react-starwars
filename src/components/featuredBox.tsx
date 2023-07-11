@@ -7,17 +7,33 @@ import MediaQuery from 'react-responsive';
 import { Link } from 'react-router-dom';
 import NeonButton from './UI/neonButton/neonButton';
 import { AppState } from '../store/store.types';
+import { useInView } from 'react-intersection-observer';
 
 type Props = {
     title: string;
     stateSlice: string;
+    alwaysVisible?: boolean;
+    enterLeft?: boolean;
     getDataAction: () => any;
 };
 
-const FeaturedBox = ({ title, stateSlice, getDataAction }: Props) => {
+const FeaturedBox = ({
+    title,
+    stateSlice,
+    getDataAction,
+    alwaysVisible = false,
+    enterLeft = false
+}: Props) => {
     const items = useSelector((state: AppState) => state[stateSlice].items);
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
+    const { ref: loadMoreRef, inView: isVisible } = useInView({ delay: 100, triggerOnce: true });
+    const slideInClass =
+        isVisible || alwaysVisible
+            ? 'translate-x-0'
+            : enterLeft
+            ? 'transform -translate-x-full'
+            : 'transform translate-x-full';
 
     useEffect(() => {
         dispatch(getDataAction()).finally(setLoading(false));
@@ -25,7 +41,12 @@ const FeaturedBox = ({ title, stateSlice, getDataAction }: Props) => {
 
     if (loading) return <Loader />;
     return (
-        <section className={'bg-black bg-opacity-75 my-24 w-full'}>
+        <section
+            className={
+                ' bg-black bg-opacity-75 my-24 w-full transition-all transform duration-1000 ease-out ' +
+                slideInClass
+            }
+            ref={loadMoreRef}>
             <div className={'container mx-auto'}>
                 <h2 className={'opacity-75'}>{title}</h2>
                 <div className="flex gap-8 justify-center">
@@ -75,6 +96,8 @@ const FeaturedBox = ({ title, stateSlice, getDataAction }: Props) => {
 
 FeaturedBox.propTypes = {
     title: PropTypes.string.isRequired,
+    alwaysVisible: PropTypes.bool,
+    enterLeft: PropTypes.bool,
     stateSlice: PropTypes.string.isRequired,
     getDataAction: PropTypes.func.isRequired
 };

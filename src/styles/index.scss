@@ -24,7 +24,7 @@ body {
     margin: 0;
     //background-color: black;
     color: whitesmoke;
-    @apply font-sans h-full;
+    @apply font-sans h-full overflow-x-hidden;
 }
 
 body {

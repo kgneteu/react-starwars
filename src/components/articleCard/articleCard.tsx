@@ -3,7 +3,6 @@ import { FlipCard } from '../UI/flipCard/flipCard';
 import { Link } from 'react-router-dom';
 import { CloudImage } from '../UI/cloudImage/cloudImage';
 import React, { forwardRef, useRef } from 'react';
-import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 
 type ArticleCardProps = {
@@ -30,7 +29,7 @@ export const ArticleCard = forwardRef<HTMLAnchorElement, ArticleCardProps>(
         const itemDataTable = formatSWAPIDataTable(item, 5, true);
         const title = item.name !== undefined ? item.name : item.title;
         const linkRef = useRef<HTMLAnchorElement>(null);
-        console.log('ref', ref);
+        // console.log('ref', ref);
         return (
             <CSSTransition
                 classNames={animationClass}
@@ -40,7 +39,7 @@ export const ArticleCard = forwardRef<HTMLAnchorElement, ArticleCardProps>(
                 appear={true}
                 unmountOnExit>
                 {(state) => {
-                    console.log('anim ', state);
+                    // console.log('anim ', state);
                     return (
                         <Link
                             to={`/${category}/${item.id}`}

@@ -9,7 +9,7 @@ type HeaderLinkProps = {
     onClose: MouseEventHandler;
 };
 
-function HeaderLink({ id, title, link, onClose }: HeaderLinkProps) {
+function HeaderLink({ title, link, onClose }: HeaderLinkProps) {
     return (
         <li className={classes.mobileMenu__item}>
             <NavLink to={link} className={classes.mobileMenu__link} onClick={onClose}>

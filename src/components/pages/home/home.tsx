@@ -11,7 +11,12 @@ export class Home extends Component {
     render() {
         return (
             <>
-                <FeaturedBox title={'films'} stateSlice={'films'} getDataAction={getFilmsByPage} />
+                <FeaturedBox
+                    title={'films'}
+                    stateSlice={'films'}
+                    getDataAction={getFilmsByPage}
+                    alwaysVisible={true}
+                />
                 <FeaturedBox
                     title={'characters'}
                     stateSlice={'characters'}
@@ -21,6 +26,7 @@ export class Home extends Component {
                     title={'starships'}
                     stateSlice={'starships'}
                     getDataAction={getStarshipsByPage}
+                    enterLeft={true}
                 />
                 <FeaturedBox
                     title={'vehicles'}
@@ -31,6 +37,7 @@ export class Home extends Component {
                     title={'planets'}
                     stateSlice={'planets'}
                     getDataAction={getPlanetsByPage}
+                    enterLeft={true}
                 />
                 <FeaturedBox
                     title={'species'}

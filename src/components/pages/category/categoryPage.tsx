@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { ArticleCard, FlyInArticleCard } from '../../articleCard/articleCard';
+import { FlyInArticleCard } from '../../articleCard/articleCard';
 import { PageTitle } from '../../UI/pageTitle/pageTitle';
 import { AppDispatch, AppGetState, AppState } from '../../../store/store.types';
 import { useInView } from 'react-intersection-observer';

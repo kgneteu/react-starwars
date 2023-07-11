@@ -4,8 +4,6 @@ import Header from './components/layout/header/header';
 import StarParallax from './components/UI/starParallax/starParallax';
 import Footer from './components/layout/footer/footer';
 
-type TransitionType = 'FadeIn' | 'FadeOut';
-
 interface LayoutProps {
     transitionStage: string;
     onTransitionEnd: () => void;
@@ -16,7 +14,7 @@ export function Layout({ transitionStage, onTransitionEnd }: LayoutProps) {
     return (
         <>
             <StarParallax />
-            <div className={'flex flex-col h-screen'}>
+            <div className={'flex flex-col min-h-screen relative'}>
                 <Header />
                 <main className={'flex-grow ' + animationClass} onAnimationEnd={onTransitionEnd}>
                     <Outlet />
